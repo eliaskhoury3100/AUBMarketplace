@@ -1,0 +1,25 @@
+.upper-nav {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Place one item on each end */
+    position: fixed;
+    top: 0;
+    left: 0; /* Ensure full width from left to right */
+    width: 100%;
+    background-image: linear-gradient(to bottom, #e2d5d8, #ffffff);
+    padding: 10px 20px; /* Adjust padding to reduce bulkiness */
+    
+   
+}
+
+.nav-item {
+    text-align: center; /* Center-align the text within the nav-item for better symmetry */
+}
+
+.nav-logo {
+    height: 50px; /* Maintain aspect ratio */
+    width: 50px; /* Set width equal to height to maintain aspect ratio for circle */
+    border-radius: 50%; /* Create circular border */
+    object-fit: cover; /* Ensure the image covers the space without distorting */
+    margin: 0 15px; /* Space from the edges */
+}

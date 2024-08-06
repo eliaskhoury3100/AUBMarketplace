@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+
+
+.homecontainer {
+  display: flex;
+  background-color: #FFF;
+  display: flex;
+    flex-direction: column;
+    height: 932px;
+    overflow: hidden;
+    width: 430px;
+}
+
+.uppernav {
+
+  height: 10vh; /* 10% of the viewport height */
+  width: 100%;
+  padding: 10px 20px;
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  justify-content: space-between; 
+  
+}
+
+h1 {
+  font-family: 'Oswald', serif; /* Apply Montserrat to h1 */
+  font-weight: 700;
+  font-size: 30px;
+  color: #393434;
+  text-align: center;
+  margin-left: -30px;
+  margin-bottom: -5px;
+  
+}
+
+.nav-logo {
+  width: 40px; /* Set width equal to height to form a square */
+  height: 40px; /* Set height to make the logo a square */
+  margin-left: -10px; /* Adjust the value to push the logo to the left */
+  object-fit: contain; /* Ensures the logo fits within the square without being cropped */
+  border-radius: 5px; /* Slightly rounds the corners */
+}
+
+
+.notification-icon {
+ margin-left: -10px;
+ color: #0b0b0b;
+ font-size: 24px; /* Adjust icon size */
+
+}
+
+.topsection {
+  background-image: linear-gradient(to bottom, #efcbd4, #ffffff);
+  justify-content: flex-start;
+  top: 0;
+  min-height: 22vh;  
+  padding: 15px;
+  text-align: left; /* Center the welcome text and search bar */
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  margin-bottom: 7px;
+}
+
+.myitemscontainer {
+  background-color: #fff;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  flex-grow: 1;
+  gap: 20px;
+  height: 1500px;
+  overflow-y: auto; 
+  padding-bottom: 100px;
+  margin-top:-15px;
+  justify-content: left;
+  margin-left: 10px;
+
+}
+
+.product-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block; /* Change this to block if the grid isn't necessary for the link itself */
+  width: 100%; /* Make sure the link takes the full width to not shrink */
+}
+
+.productcard {
+  
+  border-radius: 8px;
+  overflow: hidden;
+ 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  width: 45%; /* Adjust width if needed to match container */
+  height: 260px;
+}
+
+.productimage {
+  width: 100%;
+  height: 192px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.productinfo {
+  margin-left: 7px;
+  text-align: center;
+  height: 10px;
+  text-align: left;
+}
+
+.actionbutton {
+  padding: 10px 20px;
+  background-color: #f1e4e7;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.actionbutton:hover {
+  background-color: #e0d1d5;
+}
+
+.search-form {
+  
+  width: 100%;
+  display: flex;
+  margin-top: 0px;
+  margin-left: 6px;
+}
+
+.search-input {
+  flex-grow: 1;
+  padding: 10px;
+  margin-right: 10px;
+  border: 0.4px solid #2f2a2a;
+  border-radius: 10px;
+}
+.carouselindicators {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  height:5px;
+  
+}
+
+.dot {
+  cursor: pointer;
+  height: 7px;
+  width: 7px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.dot.active {
+  background-color: #717171; /* Active dot color */
+}
+
+/* Add hover effect for dots */
+.dot:hover {
+  background-color: #555;
+}
+
+.imagecarousel {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px;
+  align-items: center; 
+  justify-content: center;
+}

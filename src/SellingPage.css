@@ -1,0 +1,191 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+.selling {
+    background-color: #fff;
+    width: 430px; /* Set width to fit the screen width of 430px */
+    height: 932px; /* Set height to fit the screen height of 932px */
+    max-width: 430px; /* Ensure it doesn’t exceed the screen width */
+    max-height: 932px; /* Ensure it doesn’t exceed the screen height */
+    padding: 20px;
+    border-radius: 0; /* Optional: set to 0 for full screen coverage without rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Include padding and border in element's width and height */
+    overflow: auto; /* Enable scrolling if content overflows */
+    overflow-y: auto;
+}
+
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+   
+    margin-bottom: 25px;
+}
+
+.header img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+
+
+
+/* Form Group Styles */
+.form-group {
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+
+.form-group label {
+    font-weight: bold; /* Bold label text */
+    margin-bottom: 20px; 
+}
+
+.form-group:first-child {
+    margin-top: 20px; /* Increase margin-top as needed */
+}
+
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: #f1e4e7;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: none; /* Prevent textarea resizing */
+}
+
+/* Upload Trigger Button Styles */
+.upload-trigger {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+/* Image Previews Container Styles */
+.image-previews-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Increased gap for equal spacing between images */
+   
+    overflow: hidden; /* Prevent container resizing by hiding overflow */
+    padding: 5px; /* Padding to prevent images from touching the container edges */
+    max-height: 50px; /* Limit height to prevent resizing */
+}
+
+.image-preview {
+    width: 40px; /* Width automatically adjusts to the content */
+    height: 40px; /* Set height to 40px */
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.image-preview img {
+    width: auto; /* Adjust width automatically to maintain aspect ratio */
+    height: 100%; /* Full height of the preview */
+    object-fit: cover; /* Cover to ensure images are not distorted */
+}
+
+.no-images-text {
+    text-align: center; /* Center the text horizontally */
+    font-style: italic; /* Make the text italic */
+    color: #888; /* Optional: set a mild gray color for less prominence */
+    width: 100%; /* Ensure the text spans the full width of its container */
+    padding: 10px; /* Optional: add some padding for spacing */
+}
+
+
+
+.remove-image {
+    position: absolute;
+    top: 1px; /* Adjusted to better fit within 40px height */
+    right: 1px;
+    background-color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 12px; /* Appropriately sized for the small preview */
+    height: 12px; /* Keep height and width the same for a circle shape */
+    color: #f00;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Remove padding to fit the button inside the small area */
+    font-size: 10px; /* Adjust font size for visibility */
+}
+
+
+/* Post Button Styles */
+.post-button {
+    background-color: #3d3d3d;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.formgroupalone {
+  margin-top: 20px;
+  display: flex; /* Ensures contents are lined up in a row */
+  align-items: center; /* Vertically centers the checkbox and label text */
+  margin-bottom: 15px; /* Adds space below the group for separation */
+  margin-top: -5px;
+}
+
+.checkbox-label {
+  display: flex; /* Aligns the checkbox and text in a row */
+  align-items: center; /* Ensures the checkbox and text are aligned in the middle */
+  cursor: pointer; /* Makes the entire label clickable */
+}
+
+input[type="checkbox"] {
+  margin-right: 20px; /* Space between the checkbox and the text */
+}
+.post-button:focus {
+    background-color: #3d3d3d;  
+    outline: none;  
+}
+
+
+.post-button:disabled {
+    opacity: 0.5; 
+    cursor: not-allowed; 
+  }
+  
+/* SellingPage.css */
+.message-success {
+    color: green;
+    font-size: 16px;
+    margin-top: 2px;
+    font-weight: bold;
+}
+
+.message-error {
+    color: red;
+    font-size: 16px;
+    margin-top: 2px;
+    font-weight: bold;
+}
