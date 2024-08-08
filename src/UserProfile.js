@@ -19,7 +19,7 @@ const UserProfile = () => {
   const uploadButtonRef = useRef(null);
 
   const userId = localStorage.getItem('userId');
-
+  const storedUsername = localStorage.getItem('username');
   const [products, setProducts] = useState([]);
   
   
@@ -37,11 +37,12 @@ const UserProfile = () => {
 
         if (userResponse.ok) {
           const userData = await userResponse.json();
-          setNickname(userData.nickname);
-          setDob(userData.dob);
-          setMajor(userData.major);
-          setProfileImage(userData.imageUrl); // This will now store a URL
-          setAboutText(userData.about);
+          setNickname(userData['custom:Nickname'] || '');
+          setDob(userData['custom:DOB'] || '');
+          setMajor(userData['custom:Major'] || '');
+          setProfileImage(userData['custom:ProfilePicture'] || '');
+          setAboutText(userData['custom:AboutYou'] || '');
+          console.log(profileImage)
           console.log(profileImage)
           console.log("User data fetched successfully:", userData);
         } else {
@@ -63,7 +64,7 @@ const UserProfile = () => {
         return;
       }
       
-      const apiUrl = `https://f7lm737rz9.execute-api.eu-north-1.amazonaws.com/default/retreiveProducts?userId=${userId}`;
+      const apiUrl = `https://f7lm737rz9.execute-api.eu-north-1.amazonaws.com/default/retreiveProducts?userId=${storedUsername}`;
       
       try {
         const response = await fetch(apiUrl, {
@@ -96,22 +97,14 @@ const UserProfile = () => {
     };
 
     return (
-        <div className="product-card">
-            <div className="image-carousel">
+        <div className="productcard1">
+            <div className="imagecarousel1">
                 {product.ImageUrls && product.ImageUrls.length > 0 && (
                     <img src={product.ImageUrls[activeIndex]} alt={`Product ${product.Name} Image`} className="product-image" />
                 )}
             </div>
-            <div className="carousel-indicators">
-                {product.ImageUrls && product.ImageUrls.map((_, index) => (
-                    <span
-                        key={index}
-                        className={`dot ${index === activeIndex ? 'active' : ''}`}
-                        onClick={() => handleDotClick(index)}
-                    ></span>
-                ))}
-            </div>
-            <div className="product-info">
+            
+            <div className="productinfo1">
                 <h3>{product.Name}</h3>
                 <p>${product.Price}</p>
             </div>
