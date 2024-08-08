@@ -25,7 +25,8 @@ const ProductDetail = () => {
                    
                 const data = await response.json();
 
-                setProduct(data);
+                setProduct(data);  
+                console.log(data)
             } catch (err) {
                 setError(err.message);
             } finally {
@@ -42,6 +43,19 @@ const ProductDetail = () => {
     const handleDotClick = (index) => {
         setActiveIndex(index);
     };
+
+    const handleMessageSellerClick = () => {
+        const nameParam = encodeURIComponent(product[0].Name);
+        const priceParam = encodeURIComponent(product[0].Price);
+        const imageParam = encodeURIComponent(product[0].ImageUrls[0]);
+        const userID= encodeURIComponent(product[0].UserID);
+        const productID= encodeURIComponent(product[0].ProductID);
+        window.location.href = `/messages?name=${nameParam}&price=${priceParam}&image=${imageParam}&sellerID=${userID}&productID=${productID}`;
+    };
+
+    if (product.length === 0 || !product[0].ImageUrls || product[0].ImageUrls.length === 0) {
+        return <p>No product or images available.</p>;
+    }
 
     if (product.length === 0 || !product[0].ImageUrls || product[0].ImageUrls.length === 0) {
         return <p>No product or images available.</p>;
@@ -67,7 +81,7 @@ const ProductDetail = () => {
                 <p>Description: {product[0].Description}</p>
                 <p>Condition: {product[0].Condition}</p>
                 <p>Price: ${product[0].Price}</p>
-                <button className="message-seller-btn">Message Seller</button>
+                <button className="message-seller-btn" onClick={handleMessageSellerClick}>Message Seller</button>
             
             </div>
     </div>
