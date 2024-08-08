@@ -13,7 +13,7 @@ const BottomNav = () => {
         <i className="fas fa-plus-circle"></i>
         
       </NavLink>
-      <NavLink to="/messages" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
+      <NavLink to="/conversations" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
         <i className="fas fa-envelope"></i>
         
       </NavLink>
