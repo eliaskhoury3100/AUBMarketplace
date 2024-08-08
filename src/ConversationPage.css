@@ -1,23 +1,18 @@
 .message-page {
     background-color: #f9f9f9;
-    width: 360px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100vw; /* Make width full viewport width */
+    height: 100vh; /* Make height full viewport height */
+    border-radius: 0; /* Optional: remove border-radius if full page */
+    box-shadow: none; /* Optional: remove box-shadow if not needed for full page */
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 auto; /* Center the container */
+    margin: 0; /* Remove auto margin to ensure full width */
 }
 
-.header {
-    width: 100%;
-    background-color: #f8c7d4;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-}
+
+
 
 .logo img {
     width: 40px;
@@ -39,18 +34,18 @@
 }
 
 .search-bar input {
-    width: calc(100% - 40px); /* Adjusted to match Figma design */
+    width: calc(100% - 40px); /* Adjusted to ensure it fits with padding */
     padding: 10px;
     border: 1px solid #e0e0e0;
     border-radius: 5px;
-    outline: none; /* Remove the default outline */
+    outline: none;
 }
 
 .messages-list {
     flex: 1;
     width: 100%;
     overflow-y: auto;
-    background-color: #fff; /* Ensure background color matches the Figma design */
+    background-color: #fff;
 }
 
 .user-item {
@@ -72,31 +67,4 @@
     font-size: 16px;
 }
 
-.nav-bar {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-    background-color: #fff;
-    border-top: 1px solid #e0e0e0;
-    position: fixed;
-    bottom: 0;
-    max-width: 360px;
-}
 
-.nav-bar a {
-    color: #000;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.nav-bar img {
-    width: 24px;
-    height: 24px;
-}
-
-.nav-bar .active {
-    color: #ff6b6b;
-}
