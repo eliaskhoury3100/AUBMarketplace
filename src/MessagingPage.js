@@ -1,44 +1,111 @@
-import React from 'react';
-import './MessagingPage.css'; // Ensure this matches the actual path
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import './MessagingPage.css'; // Make sure this is correctly imported
 
 const MessagingPage = () => {
-  const messages = [
-    { type: 'sent', image: 'images/winter-coat.png', text: 'Hello! I would like to purchase this item' },
-    { type: 'received', text: 'Hello! yes, of course' },
-    { type: 'received', text: 'I can give you the item this week. Can you provide me with the times you’re available?' },
-    { type: 'sent', text: 'I can do Wednesday at 1:30 pm. Would that work?' },
-    { type: 'received', text: 'Perfect! Would Wednesday at 1:30 pm in front of West Hall work?' },
-    { type: 'sent', text: 'Yes! That would be great. I’ll text you if I can’t find you.' },
-    { type: 'received', text: 'Deal! It’s going to be 20$ as the post says. Thank you for your purchase!' },
-  ];
+  const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState('');
+  const userId = localStorage.getItem('username');
+  const urlParams = new URLSearchParams(window.location.search);
+  const recipientId = urlParams.get('sellerID');
+  const productName = urlParams.get('name');
+  const productPrice = urlParams.get('price');
+  const productImage = urlParams.get('image');
+  const accessToken = localStorage.getItem('accessToken');
+  const ProductID =urlParams.get('productID')
+
+  useEffect(() => {
+    const fetchMessages = async () => {
+      try {
+        const response = await fetch(`https://0z3s33sr47.execute-api.eu-north-1.amazonaws.com/default/fetchmessages?user_id=${userId}&recipient_id=${recipientId}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+          }
+        });
+        if (response.ok) {
+          const data = await response.json();
+          setMessages(data);
+          console.log(data)
+        } else {
+          throw new Error('Failed to fetch messages');
+        }
+      } catch (error) {
+        console.error('Error fetching messages:', error);
+      }
+    };
+
+    fetchMessages();
+  }, [userId, recipientId, accessToken]);
+
+  const handleSendMessage = async (event) => {
+    event.preventDefault();
+    if (!newMessage.trim()) return;
+    const messageData = {
+      user_id: userId,
+      recipient_id: recipientId,
+      message: newMessage,
+      ProductId: ProductID
+    };
+    console.log(messageData)
+    try {
+      const response = await fetch('https://7upb1xno37.execute-api.eu-north-1.amazonaws.com/default/messaging', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}`
+        },
+        body: JSON.stringify(messageData)
+      });
+
+      if (response.ok) {
+        const updatedMessages = [...messages, { SenderID: userId, Message: newMessage }];
+        setMessages(updatedMessages);
+        
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+    }
+
+    setNewMessage('');
+  };
 
   return (
     <div className="message-page">
       <header className="header">
-        <div className="user-info">
-          <div className="user-name">← user</div>
-        </div>
-        <img className="profile-pic" src="images/profile.jpg" alt="Profile" />
+        <Link to="/conversations" className="back-link">&lt;</Link>
+        <span className="username">{recipientId}</span>
       </header>
-      <div className="product-info">
-        <img src="images/winter-coat.png" alt="Product"/>
-        <div className="product-details">
-          <div className="product-title">Winter Coat</div>
+      <div className="product-info-section">
+        <div className="product-info">
+          <img src={productImage} alt={productName} />
+          <div className="product-details">
+            <div className="product-title">{productName}</div>
+            <div className="product-price"> ${productPrice} </div>
+          </div>
         </div>
       </div>
       <main className="messages-list">
         {messages.map((message, index) => (
-          <div className={`message ${message.type}`} key={index}>
-            <div className="message-text">{message.text}</div>
+          <div className={`message ${message.SenderID === userId ? 'sent' : 'received'}`} key={index}>
+            <div className="message-text">{message.Message}</div>
           </div>
         ))}
       </main>
-      <nav className="nav-bar">
-        <a href="#"><img src="images/home-icon.png" alt="Home" /></a>
-        <a href="#"><img src="images/sell-icon.png" alt="Sell" /></a>
-        <a href="#" className="active"><img src="images/messages-icon.png" alt="Messages" /></a>
-        <a href="#"><img src="images/profile-icon.png" alt="Profile" /></a>
-      </nav>
+      <form onSubmit={handleSendMessage} className="message-input">
+        <input
+          type="text"
+          placeholder="Type a message..."
+          value={newMessage}
+          onChange={(e) => setNewMessage(e.target.value)}
+          className="inputfield1"
+        />
+    
+      </form>
+      
     </div>
   );
 };
