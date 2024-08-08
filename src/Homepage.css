@@ -18,6 +18,18 @@
     width: 430px;
 }
 
+.profile-picture-container {
+  display: flex;
+  align-items: center;
+}
+
+.profile-picture {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .uppernav {
 
   height: 10vh; /* 10% of the viewport height */
