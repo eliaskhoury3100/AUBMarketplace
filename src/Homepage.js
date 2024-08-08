@@ -9,7 +9,35 @@ const HomePage = () => {
   const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [category, setCategory] = useState('');
-
+  const [profileImage, setProfileImage] = useState('');
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      const accessToken = localStorage.getItem('accessToken');
+      const userApiUrl = `https://aymj5wwai6.execute-api.eu-north-1.amazonaws.com/retreiveUserInfo?userId=${localStorage.getItem('userId')}`;
+      try {
+        const response = await fetch(userApiUrl, {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${accessToken}`
+          }
+        });
+  
+        if (response.ok) {
+          const userData = await response.json();
+          setProfileImage(userData['custom:ProfilePicture'] || '');
+          console.log("User profile fetched successfully:", userData);
+        } else {
+          throw new Error('Failed to fetch user profile');
+        }
+      } catch (error) {
+        console.error('Error fetching user profile:', error);
+      }
+    };
+  
+    fetchUserProfile();
+    fetchProducts(); // Fetch products as before
+  }, []);
+  
   useEffect(() => {
     const storedUsername = localStorage.getItem('username');
     setUsername(storedUsername || 'Guest');
@@ -80,10 +108,13 @@ const HomePage = () => {
        <nav className="uppernav">
         <img src="https://marketplacepictures.s3.eu-north-1.amazonaws.com/logo.png" alt="Logo" className="nav-logo" />
         <h1>AUB MarketPlace</h1>
-        <div class="notification-icon">
-          <i class="fas fa-bell"></i> 
-        
-          </div>
+        <div className="profile-picture-container">
+          {profileImage ? (
+            <img src={profileImage} alt="Profile" className="profile-picture" />
+          ) : (
+            <img src="https://marketplacepictures.s3.eu-north-1.amazonaws.com/default-profile.png" alt="Default Profile" className="profile-picture" />
+          )}
+        </div>
         </nav>
         
         <form onSubmit={handleSearch} className="search-form">
