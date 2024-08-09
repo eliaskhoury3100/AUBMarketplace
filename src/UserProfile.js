@@ -100,13 +100,13 @@ const UserProfile = () => {
     return (
         <div className="productcard1">
             <div className="imagecarousel1">
-                {product.ImageUrls && product.ImageUrls.length > 0 && (
-                    <img src={product.ImageUrls[activeIndex]} alt={`Product ${product.Name} Image`} className="product-image" />
+                {product.ImageUrl && product.ImageUrl.length > 0 && (
+                    <img src={product.ImageUrl[activeIndex]} alt={`Product ${product.Title} Image`} className="product-image" />
                 )}
             </div>
             
             <div className="productinfo1">
-                <h3>{product.Name}</h3>
+                <h3>{product.Title}</h3>
                 <p>${product.Price}</p>
             </div>
         </div>
