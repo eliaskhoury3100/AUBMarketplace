@@ -40,7 +40,8 @@ const UserProfile = () => {
           setNickname(userData['custom:Nickname'] || '');
           setDob(userData['custom:DOB'] || '');
           setMajor(userData['custom:Major'] || '');
-          setProfileImage(userData['custom:ProfilePicture'] || '');
+          const imageUrl = userData['custom:ProfilePicture'] || '';
+          setProfileImage(`${imageUrl}?${new Date().getTime()}`); // Appending timestamp to force browser to reload image
           setAboutText(userData['custom:AboutYou'] || '');
           console.log(profileImage)
           console.log(profileImage)
