@@ -13,15 +13,16 @@ body {
 .selling {
     background-color: #fff;
     width: 430px; /* Set width to fit the screen width of 430px */
-    height: 932px; /* Set height to fit the screen height of 932px */
+    height: 1050px;
     max-width: 430px; /* Ensure it doesn’t exceed the screen width */
-    max-height: 932px; /* Ensure it doesn’t exceed the screen height */
+   
     padding: 20px;
     border-radius: 0; /* Optional: set to 0 for full screen coverage without rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     box-sizing: border-box; /* Include padding and border in element's width and height */
     overflow: auto; /* Enable scrolling if content overflows */
     overflow-y: auto;
+    margin-top: 30px;
 }
 
 
