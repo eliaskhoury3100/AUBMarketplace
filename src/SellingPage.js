@@ -12,7 +12,9 @@ const CategoriesPage = () => {
   const [message, setMessage] = useState('');
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
   const postButtonRef = useRef(null);
+
 
 
   const toBase64 = file => new Promise((resolve, reject) => {
@@ -52,7 +54,7 @@ const handlePostButtonClick = () => {
   
   event.preventDefault();
   setIsSubmitting(true);
-  const userId= localStorage.getItem('userId'); // Retrieve the access token from local storage
+  const userId= localStorage.getItem('username'); // Retrieve the access token from local storage
   const accessToken = localStorage.getItem('accessToken'); // Retrieve the access token from local storage
   if (!accessToken) {
     setMessage('You are not authenticated. Please login.');
@@ -144,12 +146,43 @@ const handlePostButtonClick = () => {
           <label htmlFor="category">Category</label>
           <select id="category" name="category" value={category} onChange={(e) => setCategory(e.target.value)} required>
             <option value="">Select a category</option>
-            <option value="electronics">Electronics</option>
-            <option value="furniture">Furniture</option>
-            <option value="clothing">Clothing</option>
-            <option value="books">Books</option>
-            <option value="other">Other</option>
+            
+            <optgroup label="Electronics">
+              <option value="mobile_phones_accessories">Mobile Phones & Accessories</option>
+              <option value="laptops_tablets">Laptops & Tablets</option>
+              <option value="computers_parts">Computers & Computer Parts</option>
+              <option value="gaming_consoles_games">Gaming Consoles & Video Games</option>
+              <option value="tv">TV</option>
+              <option value="speakers">Speakers</option>
+              <option value="cameras">Cameras</option>
+            </optgroup>
+
+            <optgroup label="Fashion">
+              <option value="clothing_men">Clothing for Men</option>
+              <option value="accessories_men">Accessories for Men</option>
+              <option value="clothing_women">Clothing for Women</option>
+              <option value="accessories_women">Accessories for Women</option>
+              <option value="makeup_cosmetics">Makeup and Cosmetics</option>
+              <option value="jewelry">Jewelry</option>
+              <option value="watches">Watches</option>
+              <option value="shoes">Shoes</option>
+            </optgroup>
+
+            <optgroup label="Sports & Outdoors">
+              <option value="sports_wear_men">Sports Wear for Men</option>
+              <option value="sports_wear_women">Sports Wear for Women</option>
+              <option value="sports_equipment">Sports Equipment</option>
+            </optgroup>
+
+            <optgroup label="Entertainment & Hobbies">
+              <option value="musical_instruments_gear">Musical Instruments & Gear</option>
+              <option value="books">Books</option>
+              <option value="music_movies">Music & Movies</option>
+              <option value="stationery">Stationery</option>
+            </optgroup>
+
           </select>
+
         </div>
         <div className="form-group">
           <label htmlFor="description">Description</label>
