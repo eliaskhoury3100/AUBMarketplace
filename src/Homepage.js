@@ -24,7 +24,8 @@ const HomePage = () => {
   
         if (response.ok) {
           const userData = await response.json();
-          setProfileImage(userData['custom:ProfilePicture'] || '');
+          const imageUrl = userData['custom:ProfilePicture'] || '';
+          setProfileImage(`${imageUrl}?${new Date().getTime()}`); // Appending timestamp to force browser to reload image
           console.log("User profile fetched successfully:", userData);
         } else {
           throw new Error('Failed to fetch user profile');
