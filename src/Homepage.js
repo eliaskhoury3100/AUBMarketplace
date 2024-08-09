@@ -60,16 +60,16 @@ const HomePage = () => {
     return (
       
       <div className="productcard">
-        <Link to={`/productdetail/${product.ProductID}`} className="product-card-link">
+        <Link to={`/productdetail/${product.SK}`} className="product-card-link">
           <div className="imagecarousel">
-              {product.ImageUrls && product.ImageUrls.length > 0 && (
-                  <img src={product.ImageUrls[activeIndex]} alt={`Product ${product.Name} Image`} className="productimage" />
+              {product.ImageUrl && product.ImageUrl.length > 0 && (
+                  <img src={product.ImageUrl[activeIndex]} alt={`Product ${product.Title} Image`} className="productimage" />
               )}
           </div>
           
           <div className="productinfo">
             
-              <h3>{product.Name}</h3>
+              <h3>{product.Title}</h3>
               <p>${product.Price}</p>
           </div>
         </Link>
@@ -172,8 +172,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-
-
-
-
