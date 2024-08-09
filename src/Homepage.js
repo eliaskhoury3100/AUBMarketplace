@@ -24,8 +24,13 @@ const HomePage = () => {
   
         if (response.ok) {
           const userData = await response.json();
-          const imageUrl = userData['custom:ProfilePicture'] || '';
-          setProfileImage(`${imageUrl}?${new Date().getTime()}`); // Appending timestamp to force browser to reload image
+          const imageUrl = userData['custom:ProfilePicture'];
+          if (imageUrl) {
+              setProfileImage(`${imageUrl}?${new Date().getTime()}`); // Appending timestamp to force browser to reload image
+          } else {
+              setProfileImage('https://marketplacepictures.s3.eu-north-1.amazonaws.com/s3.png');
+          }
+
           console.log("User profile fetched successfully:", userData);
         } else {
           throw new Error('Failed to fetch user profile');
