@@ -221,10 +221,10 @@ const CategoriesPage = () => {
           <label htmlFor="condition">Condition</label>
           <select id="condition" name="condition" value={condition} onChange={(e) => setCondition(e.target.value)} required>
             <option value="">Select condition</option>
-            <option value="new">New</option>
-            <option value="Slightly Used">Slightly Used</option>
-            <option value="Moderately Used">Moderately Used</option>
-            <option value="Heavily Used">Heavily Used</option>
+            <option value="new">New with tag</option>
+            <option value="Slightly Used">New without tag</option>
+            <option value="Moderately Used">Good Condition</option>
+            <option value="Heavily Used">Satisfactory</option>
           </select>
         </div>
         <div className="form-group">
