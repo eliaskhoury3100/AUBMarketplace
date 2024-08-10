@@ -125,7 +125,7 @@
     box-sizing: border-box;
     background-color: #fff;
     position: fixed;
-    bottom: 50px; /* Adjust this value based on the height of the nav bar */
+    bottom: 7%; /* Adjust this value based on the height of the nav bar */
     left: 0;
     display: flex;
     align-items: center;

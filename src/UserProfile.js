@@ -211,8 +211,12 @@ const UserProfile = () => {
 
   return (
     <div className="user-profile-container">
+
+
       <div className="top-section">
+
         <div className="profile-header">
+
           <div className="profile-image-wrapper">
            <img
               src={profileImage ? (profileImage.startsWith('http') ? profileImage : `data:image/jpeg;base64,${profileImage}`) : 'https://marketplacepictures.s3.eu-north-1.amazonaws.com/default-profile.png'}
@@ -220,35 +224,31 @@ const UserProfile = () => {
               className="profile-image"
               onError={(e) => { e.target.onerror = null; e.target.src='https://marketplacepictures.s3.eu-north-1.amazonaws.com/s3.png'; }} // Fallback to a default image if the original doesn't load
             />
-
-
-
           </div>
+
           <div className="profile-text">
             <div className="username">{username}</div>
             <div className="nickname">{nickname}</div>
           </div>
+
         </div>
       </div>
+
+
       <div className="bottom-section">
+
         <div className="actions-container">
+
           <button
             className="action-button"
             onClick={handleEditProfileClick}
             ref={editButtonRef}
-            style={{ backgroundColor: '#f1e4e7', color: 'black' }}
           >
             {isEditing ? 'Save Profile' : 'Edit Profile'}
           </button>
-          <button
-            className="action-button"
-            onClick={handleShareProfileClick}
-            ref={shareButtonRef}
-            style={{ backgroundColor: '#f1e4e7', color: 'black' }}
-          >
-            Share Profile
-          </button>
+
         </div>
+        
         {isEditing && (
           <div className="edit-form">
             <label htmlFor="nickname">Nickname</label>
