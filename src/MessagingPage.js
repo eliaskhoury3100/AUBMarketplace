@@ -68,7 +68,8 @@ const MessagingPage = () => {
       ProductId: ProductID,
     } : {
       convo_id: ConvoID,
-      message: newMessage
+      message: newMessage,
+      user_id: userId
     };
   
     console.log('Sending message data:', messageData);
