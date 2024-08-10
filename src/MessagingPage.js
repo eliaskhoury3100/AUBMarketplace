@@ -61,27 +61,17 @@ const MessagingPage = () => {
     event.preventDefault();
     if (!newMessage.trim()) return;
   
-    let messageData;
+    const messageData = ProductID ? {
+      user_id: userId,
+      recipient_id: recipientId,
+      message: newMessage,
+      ProductId: ProductID,
+    } : {
+      convo_id: ConvoID,
+      message: newMessage
+    };
   
-    if (ProductID) {
-      // If ProductID is not null, send the full messageData including ProductId
-      messageData = {
-        user_id: userId,
-        recipient_id: recipientId,
-        message: newMessage,
-        ProductId: ProductID
-      };
-    } else if (ConvoID) {
-      // If ProductID is null, send only the convo_id
-      messageData = {
-        convo_id: ConvoID
-      };
-    } else {
-      console.error('Both ProductID and ConvoID are missing.');
-      return; // Stop the function if both are missing
-    }
-  
-    console.log(messageData);
+    console.log('Sending message data:', messageData);
   
     try {
       const response = await fetch('https://7upb1xno37.execute-api.eu-north-1.amazonaws.com/default/messaging', {
@@ -101,10 +91,11 @@ const MessagingPage = () => {
       }
     } catch (error) {
       console.error('Error sending message:', error);
+    } finally {
+      setNewMessage(''); // This ensures newMessage is cleared whether or not there was an error
     }
-  
-    setNewMessage('');
   };
+  
   
 
   return (
