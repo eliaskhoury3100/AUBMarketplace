@@ -20,7 +20,7 @@ const UpperNav = () => {
               const userData = await response.json();
               const imageUrl = userData['custom:ProfilePicture'] || '';
               if (imageUrl) {
-                setProfileImage(`${imageUrl}?${new Date().getTime()}`); // Appending timestamp to force browser to reload image
+                setProfileImage(imageUrl); // Appending timestamp to force browser to reload image
             } else {
                 setProfileImage('https://marketplacepictures.s3.eu-north-1.amazonaws.com/s3.png');
             }
