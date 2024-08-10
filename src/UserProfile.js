@@ -19,7 +19,7 @@ const UserProfile = () => {
   const uploadButtonRef = useRef(null);
 
   const userId = localStorage.getItem('userId');
-
+  const storedUsername = localStorage.getItem('userId');
   const [products, setProducts] = useState([]);
   
   
@@ -40,8 +40,7 @@ const UserProfile = () => {
           setNickname(userData['custom:Nickname'] || '');
           setDob(userData['custom:DOB'] || '');
           setMajor(userData['custom:Major'] || '');
-          const imageUrl = userData['custom:ProfilePicture'] || '';
-          setProfileImage(`${imageUrl}?${new Date().getTime()}`); // Appending timestamp to force browser to reload image
+          setProfileImage(userData['custom:ProfilePicture']); // Appending timestamp to force browser to reload image
           setAboutText(userData['custom:AboutYou'] || '');
           console.log(profileImage)
           console.log(profileImage)
