@@ -56,11 +56,16 @@ const HomePage = () => {
     const handleDotClick = (index) => {
         setActiveIndex(index);
     };
-    
+    const sk = encodeURIComponent(product.SK);
+    const pk = encodeURIComponent(product.PK);
+    console.log(`Encoded SK: ${sk}`);
+    console.log(`Encoded PK: ${pk}`);
+
+
     return (
       
       <div className="productcard">
-        <Link to={`/productdetail/${product.SK}`} className="product-card-link">
+        <Link to={`/productdetail/${sk}/${pk}`} className="product-card-link">
           <div className="imagecarousel">
               {product.ImageUrl && product.ImageUrl.length > 0 && (
                   <img src={product.ImageUrl[activeIndex]} alt={`Product ${product.Title} Image`} className="productimage" />
@@ -172,3 +177,8 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+
+
+
+
