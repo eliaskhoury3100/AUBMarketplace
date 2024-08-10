@@ -59,7 +59,9 @@ const ConversationPage = () => {
     />
 
     <div className="user-info">
-      <div className="user-name">{conversation.OtherParticipant}</div>
+    <div className="user-name">
+  {conversation.SellerID ? conversation.SellerID.split('@')[0] : 'Unknown User'}
+</div>
       {conversation.ProductDetails && (
         <div className="product-info">
           <span>$ {conversation.ProductDetails.Price}</span>
