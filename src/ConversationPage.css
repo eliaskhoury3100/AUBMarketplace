@@ -1,25 +1,15 @@
 .message-page {
     background-color: #f9f9f9;
-    width: 100vw; /* Make width full viewport width */
-    height: 100vh; /* Make height full viewport height */
-    border-radius: 0; /* Optional: remove border-radius if full page */
-    box-shadow: none; /* Optional: remove box-shadow if not needed for full page */
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0; /* Remove auto margin to ensure full width */
+    margin: 0;
 }
 
-
-
-
-.logo img {
-    width: 40px;
-    height: 40px;
-}
-
-.profile-pic {
+.logo img, .profile-pic {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -34,7 +24,7 @@
 }
 
 .search-bar input {
-    width: calc(100% - 40px); /* Adjusted to ensure it fits with padding */
+    width: calc(100% - 40px);
     padding: 10px;
     border: 1px solid #e0e0e0;
     border-radius: 5px;
@@ -61,10 +51,32 @@
     background-color: #e0e0e0;
     border-radius: 50%;
     margin-right: 10px;
+    background-size: cover;
+    background-position: center;
 }
 
-.user-name {
-    font-size: 16px;
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
 }
 
+.user-name, .product-info {
+    display: flex;
+    align-items: center;
+}
 
+.product-image {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px; /* Space between name and image */
+    border-radius: 3px; /* Less rounded corners */
+    background-size: cover;
+    background-position: center;
+}
+
+.product-info span {
+    margin-right: 5px; /* Space between text and image */
+    font-size: 16px; /* Larger font for visibility */
+}
