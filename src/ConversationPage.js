@@ -2,40 +2,39 @@ import React, { useState, useEffect } from 'react';
 import './ConversationPage.css';
 
 const ConversationPage = () => {
-  const [users, setUsers] = useState([]);
+  const [conversations, setConversations] = useState([]);
 
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchConversations = async () => {
       const accessToken = localStorage.getItem('accessToken');
       const userId = localStorage.getItem('username');
-      const userApiUrl = `https://tv6a49ucmd.execute-api.eu-north-1.amazonaws.com/default/retreivelistofusers?userId=${userId}`;
+      const apiUrl = `https://tv6a49ucmd.execute-api.eu-north-1.amazonaws.com/default/retreivelistofusers?userId=${userId}`;
 
       try {
-        const userResponse = await fetch(userApiUrl, {
+        const response = await fetch(apiUrl, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${accessToken}`
           }
         });
 
-        if (userResponse.ok) {
-          const userData = await userResponse.json();
-          setUsers(userData); // Assuming the API returns an array of users
-          console.log("Users data fetched successfully:", userData);
+        if (response.ok) {
+          const data = await response.json();
+          setConversations(data);
+          console.log("Conversations fetched successfully:", data);
         } else {
-          throw new Error(`Failed to fetch users data: ${userResponse.status}`);
+          throw new Error(`Failed to fetch conversations: ${response.status}`);
         }
       } catch (error) {
-        console.error('Error fetching users data:', error);
+        console.error('Error fetching conversations:', error);
       }
     };
 
-    fetchUsers();
+    fetchConversations();
   }, []);
 
-  const handleUserClick = (username) => {
-    window.location.href = `/messages?recipient=${username}`;
-
+  const handleUserClick = (otherParticipant) => {
+    window.location.href = `/messages?recipient=${otherParticipant}`;
   };
 
   return (
@@ -50,10 +49,18 @@ const ConversationPage = () => {
         <input type="text" placeholder="Search" />
       </div>
       <main className="messages-list">
-        {users.map((user, index) => (
-          <div className="user-item" key={index} onClick={() => handleUserClick(user)}>
-            <div className="user-avatar"></div>
-            <div className="user-name">{user}</div>
+        {conversations.map((conversation, index) => (
+          <div className="user-item" key={index} onClick={() => handleUserClick(conversation.OtherParticipant)}>
+            <div className="user-avatar" style={{ backgroundImage: `url(images/profile.jpg)` }}></div>
+            <div className="user-info">
+              <div className="user-name">{conversation.OtherParticipant}</div>
+              {conversation.ProductDetails && (
+                <div className="product-info">
+                  <span>$ {conversation.ProductDetails.Price}</span>
+                  <div className="product-image" style={{ backgroundImage: `url(${conversation.ProductDetails.ImageUrl[0]})` }}></div>
+                </div>
+              )}
+            </div>
           </div>
         ))}
       </main>
