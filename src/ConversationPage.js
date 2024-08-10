@@ -36,6 +36,7 @@ const ConversationPage = () => {
   const handleUserClick = (otherParticipant) => {
     window.location.href = `/messages?recipient=${otherParticipant}`;
   };
+ 
 
   return (
     <div className="message-page">
@@ -49,20 +50,26 @@ const ConversationPage = () => {
         <input type="text" placeholder="Search" />
       </div>
       <main className="messages-list">
-        {conversations.map((conversation, index) => (
-          <div className="user-item" key={index} onClick={() => handleUserClick(conversation.OtherParticipant)}>
-            <div className="user-avatar" style={{ backgroundImage: `url(images/profile.jpg)` }}></div>
-            <div className="user-info">
-              <div className="user-name">{conversation.OtherParticipant}</div>
-              {conversation.ProductDetails && (
-                <div className="product-info">
-                  <span>$ {conversation.ProductDetails.Price}</span>
-                  <div className="product-image" style={{ backgroundImage: `url(${conversation.ProductDetails.ImageUrl[0]})` }}></div>
-                </div>
-              )}
-            </div>
-          </div>
-        ))}
+      {conversations.map((conversation, index) => (
+  <div className="user-item" key={index} onClick={() => handleUserClick(conversation.OtherParticipant)}>
+     <img 
+      className="user-image" 
+      src={conversation.ProfilePictureURL ? conversation.ProfilePictureURL : 'fallback-image-url.jpg'} 
+      alt="User Profile"
+    />
+
+    <div className="user-info">
+      <div className="user-name">{conversation.OtherParticipant}</div>
+      {conversation.ProductDetails && (
+        <div className="product-info">
+          <span>$ {conversation.ProductDetails.Price}</span>
+          <div className="product-image" style={{ backgroundImage: `url(${conversation.ProductDetails.ImageUrl[0]})` }}></div>
+        </div>
+      )}
+    </div>
+  </div>
+))}
+
       </main>
     </div>
   );
