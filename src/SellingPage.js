@@ -50,7 +50,7 @@ const CategoriesPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsSubmitting(true);
-    const userId = localStorage.getItem('username');
+    const userId = localStorage.getItem('userId');
     const accessToken = localStorage.getItem('accessToken');
     if (!accessToken) {
       setMessage('You are not authenticated. Please login.');

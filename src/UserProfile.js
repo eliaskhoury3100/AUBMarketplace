@@ -19,7 +19,7 @@ const UserProfile = () => {
   const uploadButtonRef = useRef(null);
 
   const userId = localStorage.getItem('userId');
-  const storedUsername = localStorage.getItem('userId');
+  console.log(userId)
   const [products, setProducts] = useState([]);
   
   
@@ -65,7 +65,7 @@ const UserProfile = () => {
         return;
       }
       
-      const apiUrl = `https://f7lm737rz9.execute-api.eu-north-1.amazonaws.com/default/retreiveProducts?userId=${storedUsername}`;
+      const apiUrl = `https://f7lm737rz9.execute-api.eu-north-1.amazonaws.com/default/retreiveProducts?userId=${userId}`;
       
       try {
         const response = await fetch(apiUrl, {
