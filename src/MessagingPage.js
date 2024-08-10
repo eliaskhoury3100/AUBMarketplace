@@ -13,11 +13,12 @@ const MessagingPage = () => {
   const productImage = urlParams.get('image');
   const accessToken = localStorage.getItem('accessToken');
   const ProductID =urlParams.get('productID')
+  const productID= encodeURIComponent(ProductID)
 
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await fetch(`https://0z3s33sr47.execute-api.eu-north-1.amazonaws.com/default/fetchmessages?user_id=${userId}&recipient_id=${recipientId}`, {
+        const response = await fetch(`https://0z3s33sr47.execute-api.eu-north-1.amazonaws.com/default/fetchmessages?user_id=${userId}&recipient_id=${recipientId}&product_id=${productID}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
