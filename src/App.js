@@ -29,10 +29,10 @@ const App = () => {
           {/* Routes that include the Bottom Navigation Bar */}
           <Route path="/uploadproduct" element={<><CategoriesPage /><BottomNav /><UpperNav/></>} />
           <Route path="/homepage" element={<><HomePage /><BottomNav /></>} />
-          <Route path="/productdetail/:id" element={<><ProductDetail /><BottomNav /><UpperNav/></>} />
+          <Route path="/productdetail/:id/:pk" element={<><ProductDetail /><BottomNav /><UpperNav/></>} />
           <Route path="/userprofile" element={<><UserProfile /><BottomNav /></>} />
           <Route path="/messages" element={<><MessagingPage /><BottomNav /></>} />
-          <Route path="/conversations" element={<><ConversationPage /><BottomNav /></>} />
+          <Route path="/conversations" element={<><ConversationPage /><BottomNav /><UpperNav/></>} />
           {/* Redirect base URL to either login or another part of the app based on condition */}
           <Route path="/" element={<Navigate replace to="/login" />} />
         </Routes>
