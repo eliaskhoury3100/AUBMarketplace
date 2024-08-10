@@ -12,9 +12,12 @@
 
 .upper-section {
     width: 100%; /* Takes full width of the container */
-    height: 120px; /* Reserve 50px height, adjust as needed */
-
-
+    height : 120px; /* Reserve 50px height, adjust as needed */
+    padding-top: 70px;
+    display: flex;
+    align-items: center; 
+    gap: 10px;
+    margin-left: 10px;
 }
 
 .imageecarousel {
