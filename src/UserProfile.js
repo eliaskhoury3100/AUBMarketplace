@@ -19,7 +19,7 @@ const UserProfile = () => {
   const uploadButtonRef = useRef(null);
 
   const userId = localStorage.getItem('userId');
-  const storedUsername = localStorage.getItem('username');
+  const storedUsername = localStorage.getItem('userId');
   const [products, setProducts] = useState([]);
   
   
