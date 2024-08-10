@@ -13,24 +13,37 @@ const MessagingPage = () => {
   const productImage = urlParams.get('image');
   const accessToken = localStorage.getItem('accessToken');
   const ProductID =urlParams.get('productID')
+  const ConvoID= urlParams.get("convoId")
+  const convoID= encodeURIComponent(ConvoID)
   const productID= encodeURIComponent(ProductID)
 
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await fetch(`https://0z3s33sr47.execute-api.eu-north-1.amazonaws.com/default/fetchmessages?user_id=${userId}&recipient_id=${recipientId}&product_id=${productID}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${accessToken}`
-          }
-        });
-        if (response.ok) {
+        let apiUrl;
+        
+        if (convoID) {
+          // Case 2: Only convoID is present
+          apiUrl = `https://0z3s33sr47.execute-api.eu-north-1.amazonaws.com/default/fetchmessages?convo_id=${convoID}`;
+        } else if (recipientId && productID) {
+          // Case 1: Full info is present
+          apiUrl = `https://0z3s33sr47.execute-api.eu-north-1.amazonaws.com/default/fetchmessages?user_id=${userId}&recipient_id=${recipientId}&product_id=${productID}`;
+        }
+
+        if (apiUrl) {
+          const response = await fetch(apiUrl, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${accessToken}`
+            }
+          });
+
+          if (!response.ok) throw new Error('Failed to fetch messages');
+
           const data = await response.json();
-          setMessages(data);
           console.log(data)
-        } else {
-          throw new Error('Failed to fetch messages');
+          setMessages(data);
         }
       } catch (error) {
         console.error('Error fetching messages:', error);
@@ -38,7 +51,7 @@ const MessagingPage = () => {
     };
 
     fetchMessages();
-  }, [userId, recipientId, accessToken]);
+  }, [userId, recipientId, convoID, accessToken]);
 
   const handleSendMessage = async (event) => {
     event.preventDefault();

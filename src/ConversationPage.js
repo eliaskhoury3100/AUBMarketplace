@@ -33,10 +33,10 @@ const ConversationPage = () => {
     fetchConversations();
   }, []);
 
-  const handleUserClick = (otherParticipant) => {
-    window.location.href = `/messages?recipient=${otherParticipant}`;
+  const handleUserClick = (convoId) => {
+    const encodedConvoId = encodeURIComponent(convoId);  // Use a different variable name
+    window.location.href = `/messages?convoId=${encodedConvoId}`;
   };
- 
 
   return (
     <div className="message-page">
@@ -51,7 +51,7 @@ const ConversationPage = () => {
       </div>
       <main className="messages-list">
       {conversations.map((conversation, index) => (
-  <div className="user-item" key={index} onClick={() => handleUserClick(conversation.OtherParticipant)}>
+  <div className="user-item" key={index} onClick={() => handleUserClick(conversation.ConversationID)}>
      <img 
       className="user-image" 
       src={conversation.ProfilePictureURL ? conversation.ProfilePictureURL : 'fallback-image-url.jpg'} 
@@ -60,8 +60,8 @@ const ConversationPage = () => {
 
     <div className="user-info">
     <div className="user-name">
-  {conversation.SellerID ? conversation.SellerID.split('@')[0] : 'Unknown User'}
-</div>
+      {conversation.SellerID ? conversation.SellerID.split('@')[0] : 'Unknown User'}
+    </div>
       {conversation.ProductDetails && (
         <div className="product-info">
           <span>$ {conversation.ProductDetails.Price}</span>
