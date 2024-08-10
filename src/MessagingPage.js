@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './MessagingPage.css'; // Make sure this is correctly imported
+import './MessagingPage.css';
 
 const MessagingPage = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
+  const [productDetails, setProductDetails] = useState(null); // State to store product details
   const userId = localStorage.getItem('username');
   const urlParams = new URLSearchParams(window.location.search);
   const recipientId = urlParams.get('sellerID');
@@ -12,30 +13,19 @@ const MessagingPage = () => {
   const productPrice = urlParams.get('price');
   const productImage = urlParams.get('image');
   const accessToken = localStorage.getItem('accessToken');
-  const ProductID =urlParams.get('productID')
-  const ConvoID= urlParams.get("convoId")
-  const convoID= encodeURIComponent(ConvoID)
-  const productID= encodeURIComponent(ProductID)
-  console.log(ProductID)
-  console.log(userId)
-  console.log(recipientId)
+  const ProductID = urlParams.get('productID')
+  const ConvoID = urlParams.get("convoId")
+  const otherParticipant= urlParams.get('otheruser')
+  const convoID = encodeURIComponent(ConvoID)
+  const productID = encodeURIComponent(ProductID)
+
   useEffect(() => {
     const fetchMessages = async () => {
+      let apiUrl = ProductID ?
+        `https://0z3s33sr47.execute-api.eu-north-1.amazonaws.com/default/fetchmessages?user_id=${userId}&recipient_id=${recipientId}&product_id=${productID}` :
+        `https://0z3s33sr47.execute-api.eu-north-1.amazonaws.com/default/fetchmessages?convo_id=${convoID}`;
+
       try {
-        let apiUrl;
-
-        // Prioritize using userId, recipientId, and productID
-        if (userId && recipientId && productID) {
-          // Case 1: Full info is present, use this first
-          apiUrl = `https://0z3s33sr47.execute-api.eu-north-1.amazonaws.com/default/fetchmessages?user_id=${userId}&recipient_id=${recipientId}&product_id=${productID}`;
-        } else if (convoID) {
-          // Case 2: Only convoID is present
-          apiUrl = `https://0z3s33sr47.execute-api.eu-north-1.amazonaws.com/default/fetchmessages?convo_id=${convoID}`;
-        } else {
-          console.error('Required parameters are missing.');
-          return; // Stop the function if all are missing
-        }
-
         const response = await fetch(apiUrl, {
           method: 'GET',
           headers: {
@@ -47,8 +37,10 @@ const MessagingPage = () => {
         if (!response.ok) throw new Error('Failed to fetch messages');
 
         const data = await response.json();
-        console.log(data);
-        setMessages(data); // Access the Messages array directly
+        setMessages(data);
+        if (data.length > 0 && data[0].ProductID) {
+          fetchProductDetails(data[0].ProductID);
+        }
       } catch (error) {
         console.error('Error fetching messages:', error);
       }
@@ -56,6 +48,26 @@ const MessagingPage = () => {
 
     fetchMessages();
   }, [userId, recipientId, convoID, productID, accessToken]);
+
+  // Function to fetch product details
+  const fetchProductDetails = async (productId) => {
+    const PRODUCTID = encodeURIComponent(productId)
+    const apiUrl = `https://0bt2c4ahy9.execute-api.eu-north-1.amazonaws.com/default/retreiveProductInfoforConversation?product_id=${PRODUCTID}`;
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+          }
+      });
+      const productData = await response.json();
+      setProductDetails(productData);
+      console.log(productData)
+    } catch (error) {
+      console.error('Error fetching product details:', error);
+    }
+  };
 
   const handleSendMessage = async (event) => {
     event.preventDefault();
@@ -71,8 +83,6 @@ const MessagingPage = () => {
       message: newMessage,
       user_id: userId
     };
-  
-    console.log('Sending message data:', messageData);
   
     try {
       const response = await fetch('https://7upb1xno37.execute-api.eu-north-1.amazonaws.com/default/messaging', {
@@ -93,26 +103,27 @@ const MessagingPage = () => {
     } catch (error) {
       console.error('Error sending message:', error);
     } finally {
-      setNewMessage(''); // This ensures newMessage is cleared whether or not there was an error
+      setNewMessage('');
     }
   };
   
-  
-
   return (
     <div className="message-page">
       <header className="header">
         <Link to="/conversations" className="back-link">&lt;</Link>
-        <span className="username">{recipientId}</span>
+        <span className="username">{recipientId || otherParticipant.split('@')[0]}</span>
+
       </header>
       <div className="product-info-section">
-        <div className="product-info">
-          <img src={productImage} alt={productName} />
-          <div className="product-details">
-            <div className="product-title">{productName}</div>
-            <div className="product-price"> ${productPrice} </div>
+
+          <div className="product-info">
+          <img src={productImage || productDetails?.ImageUrl[0]} alt={productName || productDetails?.Title} />
+  <div className="product-details">
+    <div className="product-title">{productName || (productDetails && productDetails.Title)}</div>
+    <div className="product-price"> ${productPrice || (productDetails && productDetails.Price)} </div>
+  </div>
           </div>
-        </div>
+        
       </div>
       <main className="messages-list">
         {messages.map((message, index) => (
@@ -129,9 +140,7 @@ const MessagingPage = () => {
           onChange={(e) => setNewMessage(e.target.value)}
           className="inputfield1"
         />
-    
       </form>
-      
     </div>
   );
 };
