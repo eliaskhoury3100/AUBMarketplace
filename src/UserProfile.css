@@ -1,7 +1,7 @@
 /* General Styles */
 * {
-  margin: 0;
-  padding: 0;
+  /*margin: 0;
+  padding: 0;*/
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
 }
@@ -22,7 +22,6 @@
   display: flex;
   align-items: center;
   justify-content: flex-start; /* Align items to the start */
-  padding-top: 92px; 
   padding-left: 20px; /* Add some padding to the left */
 }
 
@@ -46,11 +45,11 @@
   margin-right: 50px;
 }
 
-.profile-image {
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  background-color: #ffffff; /* Set default color to white */
+.profile-image { /* DONE */
+  border-radius: 25px; /* Circular profile picture */
+  width: 80px; /* Increased size */
+  height: 80px;
+  box-shadow: 2px 10px 10px rgba(0, 0, 0, 0.2); /* Add shadow for better focus */
 }
 
 .profile-text {
@@ -58,13 +57,16 @@
   flex-direction: column;
 }
 
-.username {
-  font-size: 18px;
+.username { /* DONE */
+  font-size: 28px;
   font-weight: bold;
+  color: #000000
 }
 
-.nickname {
-  font-size: 14px;
+.nickname { /* TO BE REMOVED */
+  font-size: 18px;
+  font-weight: bold; 
+  font-style: oblique 15deg;
   color: grey;
 }
 
@@ -100,15 +102,14 @@
   border-bottom: 1px solid #f1e4e7; /* Bottom border for the line */
 }
 
-.about-input {
+.about-input { /* DONE */
   width: 100%;
-  height: 100px;
-  padding: 10px;
+  height: 100%;
+  padding: 2.5%;
   font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 10px;
-  resize: none; /* Prevent resizing */
-  box-sizing: border-box;
+  border-radius: 25px;
+  background-color: #f2f2f2; /* Softer background */
 }
 
 .edit-form {
