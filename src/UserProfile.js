@@ -12,7 +12,7 @@ const UserProfile = () => {
   const [items, setItems] = useState([]);
   const [profileImage, setProfileImage] = useState('');
   const [message, setMessage] = useState('');
-
+  const [imageUpdated, setImageUpdated] = useState(false);  // New state to track image changes
   const editButtonRef = useRef(null);
   const shareButtonRef = useRef(null);
   const fileInputRef = useRef(null);
@@ -137,9 +137,12 @@ const UserProfile = () => {
         dob: dob,
         major: major,
         aboutText: aboutText,
-        profileImage: profileImage
+        
       };
-     
+      if (imageUpdated) {  // Only add image to the payload if it was updated
+        profileData.profileImage = profileImage;
+      }
+      console.log(profileData)
       const accessToken = localStorage.getItem('accessToken');
       if (!accessToken) {
         console.error('Access token not found. Please log in again.');
@@ -165,6 +168,7 @@ const UserProfile = () => {
 
         const responseData = await response.json();
         console.log('Profile updated successfully:', responseData);
+        setImageUpdated(false);  // Reset the image updated flag
         setIsEditing(false); // Toggle edit state on successful update
       } catch (error) {
         console.error('Error updating profile:', error);
@@ -176,14 +180,6 @@ const UserProfile = () => {
     }
   };
 
-  const handleShareProfileClick = () => {
-    setTimeout(() => {
-      if (shareButtonRef.current) {
-        shareButtonRef.current.focus();
-        shareButtonRef.current.style.backgroundColor = '#f1e4e7'; // Keeping the pink color
-      }
-    }, 0);
-  };
 
   const handleTempNicknameChange = (e) => {
     setTempNickname(e.target.value);
@@ -198,9 +194,61 @@ const UserProfile = () => {
         // Extract Base64 encoded data from the result
         const base64String = reader.result.split(',')[1];
         setProfileImage(base64String);
+        setImageUpdated(true);  // Set image updated flag to true
       };
       reader.onerror = error => console.error('Error reading file:', error);
     }
+  };
+
+  const handleDeleteProfileImage = async () => {
+    const defaultImageUrl = 'https://marketplacepictures.s3.eu-north-1.amazonaws.com/s3.png';  // Update with your actual URL
+    const profileData = {
+      userId: userId,
+      profileImage: defaultImageUrl,  // Set to default image URL
+    };
+    console.log(profileData)
+    const accessToken = localStorage.getItem('accessToken');
+    if (!accessToken) {
+      console.error('Access token not found. Please log in again.');
+      setMessage('You are not authenticated. Please log in.');
+      return;
+    }
+  
+    const apiUrl = 'https://j1kqweo6he.execute-api.eu-north-1.amazonaws.com/Project/userprofile';
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}`
+        },
+        body: JSON.stringify(profileData)
+      });
+  
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to update profile');
+      }
+  
+      const responseData = await response.json();
+      console.log('Profile image reset successfully:', responseData);
+      setProfileImage(defaultImageUrl);  // Update local state to reflect the default image
+      setMessage('Profile image reset to default successfully.');
+    } catch (error) {
+      console.error('Error resetting profile image:', error);
+      setMessage(error.message || 'Failed to reset profile image');
+    }
+  };
+  
+
+  const handleSignOut = () => {
+    // Clear specific localStorage items
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('username');
+    localStorage.removeItem('userId');
+
+    // Redirect user to the login page using window.location.href
+    window.location.href = '/login';  // Adjust the URL as per your application's route settings
   };
  
 
@@ -219,7 +267,7 @@ const UserProfile = () => {
 
     <div className="profile-image-wrapper">
      <img
-        src={profileImage ? (profileImage.startsWith('http') ? profileImage : `data:image/jpeg;base64,${profileImage}`) : 'https://marketplacepictures.s3.eu-north-1.amazonaws.com/default-profile.png'}
+        src={profileImage ? (profileImage.startsWith('http') ? profileImage : `data:image/jpeg;base64,${profileImage}`) : ''}
         alt="Profile"
         className="profile-image"
         onError={(e) => { e.target.onerror = null; e.target.src='https://marketplacepictures.s3.eu-north-1.amazonaws.com/s3.png'; }} // Fallback to a default image if the original doesn't load
@@ -248,12 +296,11 @@ const UserProfile = () => {
     </button>
 
     <button
-      className="sign-out-button"
-      /*onClick={??}
-      ref={??}*/
+        className="sign-out-button"
+        onClick={handleSignOut}
       >
-      Sign Out
-    </button>
+        Sign Out
+      </button>
 
   </div>
   
@@ -280,6 +327,14 @@ const UserProfile = () => {
       >
         Upload Profile Image <span className="plus-icon">+</span>
       </button>
+      
+      <button
+        className="upload-button"
+        onClick={handleDeleteProfileImage}
+      >
+        Delete Profile Image <span className="minus-icon">-</span>
+      </button>
+
       <input
         type="file"
         id="profileImageInput"
