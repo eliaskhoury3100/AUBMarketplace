@@ -10,12 +10,10 @@
 
 .homecontainer {
   display: flex;
-  background-color: #FFF;
-  display: flex;
-    flex-direction: column;
-    height: 932px;
-    overflow: hidden;
-    width: 430px;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
 }
 
 .profile-picture-container {

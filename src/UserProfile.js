@@ -210,115 +210,117 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="user-profile-container">
+<div className="user-profile-container">
 
 
-      <div className="top-section">
+<div className="top-section">
 
-        <div className="profile-header">
+  <div className="profile-header">
 
-          <div className="profile-image-wrapper">
-           <img
-              src={profileImage ? (profileImage.startsWith('http') ? profileImage : `data:image/jpeg;base64,${profileImage}`) : 'https://marketplacepictures.s3.eu-north-1.amazonaws.com/default-profile.png'}
-              alt="Profile"
-              className="profile-image"
-              onError={(e) => { e.target.onerror = null; e.target.src='https://marketplacepictures.s3.eu-north-1.amazonaws.com/s3.png'; }} // Fallback to a default image if the original doesn't load
-            />
-          </div>
-
-          <div className="profile-text">
-            <div className="username">{username}</div>
-            <div className="nickname">{nickname}</div>
-          </div>
-
-        </div>
+    <div className="profile-image-wrapper">
+     <img
+        src={profileImage ? (profileImage.startsWith('http') ? profileImage : `data:image/jpeg;base64,${profileImage}`) : 'https://marketplacepictures.s3.eu-north-1.amazonaws.com/default-profile.png'}
+        alt="Profile"
+        className="profile-image"
+        onError={(e) => { e.target.onerror = null; e.target.src='https://marketplacepictures.s3.eu-north-1.amazonaws.com/s3.png'; }} // Fallback to a default image if the original doesn't load
+      />
       </div>
 
+    <div className="profile-text">
+      <div className="username">{username}</div>
+      <div className="nickname">{nickname}</div>
+    </div>
 
-      <div className="edit-section">
-
-        <div className="actions-container">
-
-          <button
-            className="action-button"
-            onClick={handleEditProfileClick}
-            ref={editButtonRef}
-          >
-            {isEditing ? 'Save Profile' : 'Edit Profile'}
-          </button>
-
-        </div>
-
-        <button
-            className="sign-out"
-            /*onClick={??}
-            ref={??}*/
-          >
-            Sign Out
-          </button>
-
-        {isEditing && (
-          <div className="edit-form">
-
-            <label htmlFor="nickname">Nickname</label> 
-            <input
-              id="nickname"
-              type="text"
-              placeholder="Enter a nickname"
-              value={tempNickname}
-              onChange={handleTempNicknameChange}
-              className="form-input"
-            />
-
-            <button
-              className="upload-button"
-              onClick={triggerFileSelect}
-              ref={uploadButtonRef}
-            >
-              Upload Profile Image <span className="plus-icon">+</span>
-            </button>
-            <input
-              type="file"
-              id="profileImageInput"
-              ref={fileInputRef}
-              onChange={handleProfileImageChange}
-              style={{ display: 'none' }}
-            />
-          </div>
-
-        )}
+  </div>
+</div>
 
 
-        <div className="about-section">
+<div className="edit-section">
 
-        <label htmlFor="aboutText" style={{ fontWeight: 'bold' }}>About You</label> 
-          <textarea
-            className="about-input"
-            placeholder="Tell us about yourself..."
-            value={aboutText}
-            onChange={handleAboutChange}
-          ></textarea>
-        </div>
+  <div className="actions-container">
+
+    <button
+      className="action-button"
+      onClick={handleEditProfileClick}
+      ref={editButtonRef}
+    >
+      {isEditing ? 'Save Profile' : 'Edit Profile'}
+    </button>
+
+  </div>
+  
+  <div className="sign-out-container">
+    <button
+      className="sign-out"
+      /*onClick={??}
+      ref={??}*/
+      >
+      Sign Out
+    </button>
+  </div>
+
+</div>
+
+  {isEditing && (
+    <div className="edit-form">
+
+      <label htmlFor="nickname">Nickname</label> 
+      <input
+        id="nickname"
+        type="text"
+        placeholder="Enter a nickname"
+        value={tempNickname}
+        onChange={handleTempNicknameChange}
+        className="form-input"
+      />
+
+      <button
+        className="upload-button"
+        onClick={triggerFileSelect}
+        ref={uploadButtonRef}
+      >
+        Upload Profile Image <span className="plus-icon">+</span>
+      </button>
+      <input
+        type="file"
+        id="profileImageInput"
+        ref={fileInputRef}
+        onChange={handleProfileImageChange}
+        style={{ display: 'none' }}
+      />
+    </div>
+
+  )}
 
 
-        <div className="my-items">My Items</div>
-        <h2>My Items</h2>
-        <div className="my-items-container">
-         
-          {products.length > 0 ? (
-            products.map(product => (
-              <ProductCard key={product.productID} product={product} />  // Using product.productID as the key
-            ))
-          ) : (
-            <p>No products found. <a href="/uploadproduct" style={{ color: 'blue', textDecoration: 'underline' }}>Add some items!</a></p>
-          )}
-        </div>
+  <div className="about-section">
 
-                <div className="main-content">
-                  {/* Additional content here */}
-                </div>
-              </div>
-            </div>
+  <label htmlFor="aboutText" style={{ fontWeight: 'bold' }}>About You</label> 
+    <textarea
+      className="about-input"
+      placeholder="Tell us about yourself..."
+      value={aboutText}
+      onChange={handleAboutChange}
+    ></textarea>
+  </div>
+
+
+  <div className="my-items">
+    My Items
+  </div>
+
+  <div className="my-items-container">
+   
+    {products.length > 0 ? (
+      products.map(product => (
+        <ProductCard key={product.productID} product={product} />  // Using product.productID as the key
+      ))
+    ) : (
+      <p>No products found. <a href="/uploadproduct" style={{ color: 'blue', textDecoration: 'underline' }}>Add some items!</a></p>
+    )}
+  </div>
+          
+</div>
   );
 };
 

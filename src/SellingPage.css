@@ -12,8 +12,8 @@ body {
 
 .selling {
     background-color: #fff;
-    width: 430px; /* Set width to fit the screen width of 430px */
-    height: 1050px;
+    width: 100vw; /* Set width to fit the screen width of 430px */
+    height: 100vh;
     max-width: 430px; /* Ensure it doesn’t exceed the screen width */
    
     padding: 20px;
