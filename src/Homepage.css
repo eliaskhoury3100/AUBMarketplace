@@ -8,6 +8,7 @@
 
 
 
+
 .homecontainer {
   display: flex;
   flex-direction: column;
@@ -44,12 +45,24 @@
 h1 {
   font-family: 'Oswald', serif; /* Apply Montserrat to h1 */
   font-weight: 700;
-  font-size: 30px;
+  font-size: 28px;
   color: #393434;
   text-align: center;
   margin-left: -30px;
   margin-bottom: -5px;
   
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 28px; /* Smaller size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 26px; /* Even smaller size for very small screens */
+  }
 }
 
 .nav-logo {
@@ -80,7 +93,7 @@ h1 {
   justify-content: left;
   margin-bottom: 7px;
 }
-
+/* 
 .myitemscontainer {
   width: 100%;
   padding: 20px;
@@ -96,7 +109,7 @@ h1 {
   justify-content: left;
   margin-left: 10px;
 
-}
+} */
 
 .product-card-link {
   text-decoration: none;
@@ -105,7 +118,7 @@ h1 {
   width: 100%; /* Make sure the link takes the full width to not shrink */
 }
 
-.productcard {
+/* .productcard {
   
   border-radius: 8px;
   overflow: hidden;
@@ -114,7 +127,7 @@ h1 {
   display: flex;
   flex-direction: column;
   background-color: #fff;
-  width: 45%; /* Adjust width if needed to match container */
+  width: 45%;
   height: 260px;
 }
 
@@ -123,7 +136,72 @@ h1 {
   height: 192px;
   object-fit: cover;
   border-radius: 8px;
+} */
+.productcard {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  height: 320px; /* Increased card height */
+  width: calc(50% - 10px); /* Default: two cards per row */
 }
+
+.productimage {
+  width: 100%;
+  height: 240px; /* Increased image height to match taller card */
+  object-fit: cover;
+}
+
+.myitemscontainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px;
+  overflow-y: auto;
+  justify-content: flex-start;
+  margin-top: -15px;
+}
+
+/* Adjust for medium-sized screens (tablets) */
+@media (min-width: 768px) {
+  .productcard {
+    width: calc(33.33% - 13.33px); /* Three cards per row */
+    height: 340px; /* Adjust height for medium screens */
+  }
+
+  .productimage {
+    height: 260px; /* Adjust image height for medium screens */
+  }
+}
+
+/* Adjust for larger screens (desktops) */
+@media (min-width: 1024px) {
+  .productcard {
+    width: calc(25% - 15px); /* Four cards per row */
+    height: 380px; /* Adjust height for large screens */
+  }
+
+  .productimage {
+    height: 300px; /* Adjust image height for large screens */
+  }
+}
+
+/* Adjust for extra-large screens */
+@media (min-width: 1440px) {
+  .productcard {
+    width: calc(20% - 16px); /* Five cards per row */
+    height: 380px; /* Adjust height for extra-large screens */
+  }
+
+  .productimage {
+    height: 320px; /* Adjust image height for extra-large screens */
+  }
+}
+
+
+
 
 .productinfo {
   margin-left: 7px;
