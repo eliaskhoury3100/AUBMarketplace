@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow: hidden;
+  overflow: clip;
   width: 100vw;
 }
 
@@ -82,7 +82,6 @@ h1 {
 }
 
 .myitemscontainer {
-  background-color: #fff;
   width: 100%;
   padding: 20px;
   display: flex;

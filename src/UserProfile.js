@@ -215,7 +215,7 @@ const UserProfile = () => {
 
 <div className="top-section">
 
-  <div className="profile-header">
+  <div className="profile-header-container">
 
     <div className="profile-image-wrapper">
      <img
@@ -247,17 +247,16 @@ const UserProfile = () => {
       {isEditing ? 'Save Profile' : 'Edit Profile'}
     </button>
 
-  </div>
-  
-  <div className="sign-out-container">
     <button
-      className="sign-out"
+      className="sign-out-button"
       /*onClick={??}
       ref={??}*/
       >
       Sign Out
     </button>
+
   </div>
+  
 
 </div>
 
@@ -294,8 +293,7 @@ const UserProfile = () => {
 
 
   <div className="about-section">
-
-  <label htmlFor="aboutText" style={{ fontWeight: 'bold' }}>About You</label> 
+    <div className="aboutText">About You</div>
     <textarea
       className="about-input"
       placeholder="Tell us about yourself..."
