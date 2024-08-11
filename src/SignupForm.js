@@ -49,9 +49,9 @@ const SignUpForm = () => {
       setFormError('Passwords do not match');
       return;
     }
-
+    const profilepicture= 'https://marketplacepictures.s3.eu-north-1.amazonaws.com/s3.png'
     // Prepare the request body
-    const requestBody = { email, password, confirmPassword };
+    const requestBody = { email, password, confirmPassword, profilepicture  };
     console.log("Request Body:", JSON.stringify(requestBody));
 
     // Set loading state to true and start the sign-up process

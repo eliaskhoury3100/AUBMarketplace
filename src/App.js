@@ -31,6 +31,7 @@ const App = () => {
           <Route path="/homepage" element={<><HomePage /><BottomNav /></>} />
           <Route path="/productdetail/:id/:pk" element={<><ProductDetail /><BottomNav /><UpperNav/></>} />
           <Route path="/userprofile" element={<><UserProfile /><BottomNav /></>} />
+          <Route path="/userprofile/:sub" element={<><UserProfile /><BottomNav /></>} />
           <Route path="/messages" element={<><MessagingPage /><BottomNav /></>} />
           <Route path="/conversations" element={<><ConversationPage /><BottomNav /><UpperNav/></>} />
           {/* Redirect base URL to either login or another part of the app based on condition */}

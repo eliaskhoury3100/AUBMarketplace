@@ -12,6 +12,7 @@ const ProductDetail = () => {
     const [profilePicture, setProfilePicture] = useState(null);
     const [username, setusername]= useState('');
     const decodedId = decodeURIComponent(id);
+    const [sub, setSub] = useState(''); // State variable to store sub
     const decodedPk = decodeURIComponent(pk);
     const encodedId = encodeURIComponent(id);  // This will convert '#' to '%23'
     const encodedPk = encodeURIComponent(pk);
@@ -48,7 +49,7 @@ const ProductDetail = () => {
                 console.log("UserData:", userData)
                 setProfilePicture(userData['custom:ProfilePicture'] || ''); // Assuming the API returns a profilePictureUrl
                 setusername(userData['email'])
-        
+                setSub(userData['sub']); // Store the sub in the state
                 console.log(profilePicture)
                 console.log(username)
             } catch (err) {
@@ -73,6 +74,11 @@ const ProductDetail = () => {
         setActiveIndex(index);
     };
 
+    const handleProfileRedirect = () => {
+        // Redirect to the user profile page with the sub attribute
+        window.location.href = `/userprofile/${sub}`;
+    };
+
     const handleMessageSellerClick = () => {
         const nameParam = encodeURIComponent(product[0].Title);
         const priceParam = encodeURIComponent(product[0].Price);
@@ -92,7 +98,7 @@ const ProductDetail = () => {
 
     return (
         <div className="full-page-container">
-            <div className="upper-section">
+            <div className="upper-section" onClick={handleProfileRedirect}>
             {profilePicture && <img src={profilePicture} alt="Profile Picture" className="profile-picture" />}
                     {username && <p className="username">{extractUsername(username)}</p>}
             </div>
