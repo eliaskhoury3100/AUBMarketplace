@@ -287,13 +287,14 @@ const UserProfile = () => {
 
   <div className="actions-container">
 
-    <button
-      className="action-button"
-      onClick={handleEditProfileClick}
-      ref={editButtonRef}
-    >
-      {isEditing ? 'Save Profile' : 'Edit Profile'}
-    </button>
+  <button
+            className="action-button"
+            onClick={handleEditProfileClick}
+            ref={editButtonRef}
+            style={{ backgroundColor: '#f1e4e7', color: 'black' }}
+          >
+            {isEditing ? 'Save Profile' : 'Edit Profile'}
+          </button>
 
     <button
         className="sign-out-button"
