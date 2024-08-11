@@ -18,10 +18,6 @@
     box-shadow: 2px 12px 10px rgba(0, 0, 0, 0.2); /* add box shadow effect */ /* horizontal vertical blur color(x, y, z, q => color and transparancy of shadow) */
 }
 
-.nav-hide {
-    transform: translateY(100%); /* Move the bar down off-screen */
-}
-
 .nav-item {
     flex-basis: 20%;
     text-align: center;

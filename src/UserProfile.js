@@ -235,7 +235,7 @@ const UserProfile = () => {
       </div>
 
 
-      <div className="bottom-section">
+      <div className="edit-section">
 
         <div className="actions-container">
 
@@ -248,10 +248,19 @@ const UserProfile = () => {
           </button>
 
         </div>
-        
+
+        <button
+            className="sign-out"
+            /*onClick={??}
+            ref={??}*/
+          >
+            Sign Out
+          </button>
+
         {isEditing && (
           <div className="edit-form">
-            <label htmlFor="nickname">Nickname</label>
+
+            <label htmlFor="nickname">Nickname</label> 
             <input
               id="nickname"
               type="text"
@@ -260,28 +269,11 @@ const UserProfile = () => {
               onChange={handleTempNicknameChange}
               className="form-input"
             />
-            <label htmlFor="dob">Date of Birth</label>
-            <input
-              id="dob"
-              type="date"
-              value={dob}
-              onChange={(e) => setDob(e.target.value)}
-              className="form-input"
-            />
-            <label htmlFor="major">Major</label>
-            <input
-              id="major"
-              type="text"
-              placeholder="Enter your major"
-              value={major}
-              onChange={(e) => setMajor(e.target.value)}
-              className="form-input"
-            />
+
             <button
               className="upload-button"
               onClick={triggerFileSelect}
               ref={uploadButtonRef}
-              style={{ backgroundColor: '#ffffff', color: 'black' }}
             >
               Upload Profile Image <span className="plus-icon">+</span>
             </button>
@@ -293,8 +285,12 @@ const UserProfile = () => {
               style={{ display: 'none' }}
             />
           </div>
+
         )}
+
+
         <div className="about-section">
+
         <label htmlFor="aboutText" style={{ fontWeight: 'bold' }}>About You</label> 
           <textarea
             className="about-input"
@@ -303,6 +299,8 @@ const UserProfile = () => {
             onChange={handleAboutChange}
           ></textarea>
         </div>
+
+
         <div className="my-items">My Items</div>
         <h2>My Items</h2>
         <div className="my-items-container">
