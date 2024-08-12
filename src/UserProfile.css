@@ -59,7 +59,7 @@ body {
   color: grey;
 }
 .major { 
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold; 
   font-style: oblique 15deg;
   color: grey;
@@ -70,7 +70,7 @@ body {
   display: flex;
   flex-direction: column; /* Change to column for stacking elements */
   align-items: center;
-  margin-top: 15%;
+  margin-top: 2.5%;
 }
 .actions-container {
   display: flex;
@@ -143,7 +143,7 @@ body {
 .my-items { /* My Items title */
   font-weight: bold;
   font-size: 26px;
-  padding: 5% /* for parallelism with "About You" section | 2.5% padding + 2.5% .about-section padding */
+  padding: 5% 5% 0% 5% /* for parallelism with "About You" section | 2.5% padding + 2.5% .about-section padding */
 }
 
 
@@ -165,7 +165,7 @@ body {
   background-color: #fff;
   gap: 10px;
   padding: 2.5%;
-  height: 100vh; /* Increased card height */
+  height: 35vh; /* Increased card height */
   width: 45vw; /* Default: two cards per row */
 }
 .imagecarousel1 {
