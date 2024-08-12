@@ -101,6 +101,8 @@ const UserProfile = () => {
     const handleDotClick = (index) => {
       setActiveIndex(index);
     };
+    const sk = encodeURIComponent(product.SK);
+    const pk = encodeURIComponent(product.PK);
 
     return (
       <div className="productcard1">
