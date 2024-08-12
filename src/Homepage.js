@@ -394,6 +394,7 @@ const FilterPanel = ({ onClose, filters, setFilters }) => {
 
     setLoading(true);
     setError(null);
+    setNoProductsFound(false);
 
     if (!searchQuery && !filters.category && !filters.price && !filters.uploadDate) {
         // If no search query and no filters, fetch all products or reset to default
