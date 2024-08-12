@@ -104,20 +104,20 @@ const UserProfile = () => {
 
     return (
       <div className="productcard1">
-        <div className="imagecarousel1">
-          {product.ImageUrl && product.ImageUrl.length > 0 && (
-            <img
-              src={product.ImageUrl[activeIndex]}
-              alt={`Product ${product.Title} Image`}
-              className="product-image"
-            />
-          )}
-        </div>
-        <div className="productinfo1">
-          <h3>{product.Title}</h3>
-          <p>${product.Price}</p>
-        </div>
+        <Link to={`/productdetail/${sk}/${pk}`} className="product-card-link">
+          <div className="imagecarousel1">
+              {product.ImageUrl && product.ImageUrl.length > 0 && (
+                  <img src={product.ImageUrl[activeIndex]} alt={`Product ${product.Title} Image`} className="productimage" />
+              )}
+          </div>
+          
+          <div className="productinfo1">
+              <h3>{product.Title}</h3>
+              <p>${product.Price}</p>
+          </div>
+        </Link>
       </div>
+
     );
   };
 
