@@ -55,7 +55,12 @@ body {
   font-style: oblique 15deg;
   color: grey;
 }
-
+.major { 
+  font-size: 18px;
+  font-weight: bold; 
+  font-style: oblique 15deg;
+  color: grey;
+}
 
 .edit-section {
   background-color: #ffffff;

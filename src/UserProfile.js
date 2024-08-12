@@ -256,6 +256,7 @@ const UserProfile = () => {
           <div className="profile-text">
             <div className="username">{username}</div>
             <div className="nickname">{nickname}</div>
+            <div className="major">{major}</div>
           </div>
         </div>
       </div>
@@ -294,6 +295,16 @@ const UserProfile = () => {
             placeholder="Enter a nickname"
             value={tempNickname}
             onChange={(e) => setTempNickname(e.target.value)}
+            className="form-input"
+          />
+
+          <label htmlFor="major">Major</label>
+          <input
+            id="major"
+            type="text"
+            placeholder="Enter your major"
+            /*value={tempNickname}*/
+            /*onChange={(e) => setTempNickname(e.target.value)}*/
             className="form-input"
           />
 
