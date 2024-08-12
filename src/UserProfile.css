@@ -134,6 +134,43 @@ body {
   padding: 2.5%;
 }
 
+.productcard1 {
+  border-radius: 8px;
+  overflow: hidden;
+ 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  width: 45%; /* Adjust width if needed to match container */
+  height: 260px;
+}
+.imagecarousel1 {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px;
+  align-items: center; 
+  justify-content: center;
+}
+.productinfo1 {
+  padding: 10px;
+  text-align: center;
+  background: #f9f9f9;
+  border-top: 1px solid #eee;
+  /* from HomePage: */
+  margin-left: 7px;
+  text-align: center;
+  height: 10px;
+  text-align: left;
+}
+.productimage { /* see in HomePage where this div is added? la tzida hone tzabit 7ajem lsoura*/
+  width: 100%;
+  height: 192px;
+  object-fit: cover;
+  border-radius: 8px;
+} 
+
+
 
 .edit-form {
   width: 100%;
@@ -174,21 +211,6 @@ body {
   background-color: #e7e7e7; /* Slightly darker background on hover */
 }
 
-.productcard1 {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  overflow: hidden;
- 
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  width: 45%; /* Adjust width if needed to match container */
-  height: 220px;
-  
-}
-
-
 .no-items-message {
   margin-top: 10px;
   font-size: 14px;
@@ -205,16 +227,6 @@ body {
   text-decoration: underline;
 }
 
-
-
-.imagecarousel1 {
-  display: flex;
-  overflow-x: auto;
-  padding: 10px;
-  align-items: center; 
-  justify-content: center;
-}
-
 .product-image {
   max-width: 100%;
   height: 90px;
@@ -222,13 +234,6 @@ body {
   display: block;
   
 
-}
-
-.productinfo1 {
-  padding: 10px;
-  text-align: center;
-  background: #f9f9f9;
-  border-top: 1px solid #eee;
 }
 
 .product-info h3 {
