@@ -149,12 +149,10 @@ const FilterPanel = ({ onClose, filters, setFilters }) => {
               }}
             >
               <option value="">Select Size</option>
-              <option value="XS">XS</option>
               <option value="S">S</option>
               <option value="M">M</option>
               <option value="L">L</option>
               <option value="XL">XL</option>
-              <option value="XXL">XXL</option>
             </select>
           </div>
         )}
@@ -178,9 +176,8 @@ const FilterPanel = ({ onClose, filters, setFilters }) => {
             >
               <option value="">Select Warranty</option>
               <option value="No Warranty">No Warranty</option>
-              <option value="6 Months">6 Months</option>
-              <option value="1 Year">1 Year</option>
-              <option value="2 Years">2 Years</option>
+              <option value="Warranty">Warranty</option>
+              
             </select>
           </div>
         )}
@@ -213,7 +210,7 @@ const FilterPanel = ({ onClose, filters, setFilters }) => {
           <label style={{ fontSize: '1rem', color: '#555' }}>By Price:</label>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <input 
-              type="text" 
+              type="number" 
               placeholder="Min"
               value={filters.minPrice || ''} 
               onChange={e => setFilters({ ...filters, minPrice: e.target.value })} 
@@ -228,7 +225,7 @@ const FilterPanel = ({ onClose, filters, setFilters }) => {
               }} 
             />
             <input 
-              type="text" 
+              type="number" 
               placeholder="Max"
               value={filters.maxPrice || ''} 
               onChange={e => setFilters({ ...filters, maxPrice: e.target.value })} 
@@ -396,18 +393,20 @@ const FilterPanel = ({ onClose, filters, setFilters }) => {
     setError(null);
     setNoProductsFound(false);
 
-    if (!searchQuery && !filters.category && !filters.price && !filters.uploadDate) {
-        // If no search query and no filters, fetch all products or reset to default
-        fetchProducts();
-        setLoading(false);
-        return;
-    }
+    if (!searchQuery && !filters.category  && !filters.uploadDate &&
+      !filters.minPrice && !filters.maxPrice && !filters.condition && !filters.size && !filters.warranty) {
+      // If no search query and no filters are set, fetch all products or reset to default
+      fetchProducts();
+      setLoading(false);
+      return;
+  }
+  
 
     const accessToken = localStorage.getItem('accessToken');
     try {
         const url = new URL('https://ihi32c2u6i.execute-api.eu-north-1.amazonaws.com/default/searchqueries');
 
-        if (searchQuery) {
+      if (searchQuery) {
           url.searchParams.append('query_text', searchQuery);
           console.log('query_text:', searchQuery);
       }

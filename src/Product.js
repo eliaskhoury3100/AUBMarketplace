@@ -118,10 +118,14 @@ const ProductDetail = () => {
                 <p>Size: {product[0].Size}</p>
                 <p>Condition: {product[0].Condition}</p>
                 <p>Price: ${product[0].Price}</p>
-                <button className="message-seller-btn" onClick={handleMessageSellerClick}>Message Seller</button>
-            
             </div>
-    </div>
+            <div className="buttons-section">
+                <div className="buttons-container">
+                    <button className="message-seller-button" onClick={handleMessageSellerClick}>Message Seller</button>
+                    <button className="delete-item-button" /*onClick={handleDeleteItemClick}*/>Delete Item</button>
+                </div>
+            </div>
+        </div>
     );
 };
 
