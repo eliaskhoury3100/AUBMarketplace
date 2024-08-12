@@ -129,7 +129,6 @@ const UserProfile = () => {
       const profileData = {
         userId: loggedInUserId,
         nickname: tempNickname,
-        dob: dob,
         major: major,
         aboutText: aboutText,
       };
@@ -241,6 +240,39 @@ const UserProfile = () => {
     window.location.href = '/login';
   };
 
+  const handleDelete = async () => {
+    const url = `https://nae3wlryz2.execute-api.eu-north-1.amazonaws.com/default/deleteprofile?userId=${userId}`;
+ // Replace with your actual API URL
+    console.log(userId)
+    const accessToken = localStorage.getItem('accessToken');
+    try {
+      const response = await fetch(url, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${accessToken}`,  // Setting the authorization header
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        localStorage.removeItem('username');
+        localStorage.removeItem('userId');
+        localStorage.removeItem('accessToken');
+
+        // Redirect to the login page
+        window.location.href = '/login';
+        console.log('User deleted successfully');
+      } else {
+        // Handle errors if the request was unsuccessful
+        console.error('Failed to delete user');
+      }
+    } catch (error) {
+      // Handle errors if the request failed to send
+      console.error('Error sending delete request:', error);
+    }
+  };
+
+
   return (
     <div className="user-profile-container">
       <div className="top-section">
@@ -278,7 +310,7 @@ const UserProfile = () => {
                 Log Out
               </button>
 
-              <button className="delete-button" /*onClick={handleSignOut}*/>
+              <button className="delete-button" onClick={handleDelete}>
                 Delete
               </button>
             </>
@@ -303,8 +335,8 @@ const UserProfile = () => {
             id="major"
             type="text"
             placeholder="Enter your major"
-            /*value={tempNickname}*/
-            /*onChange={(e) => setTempNickname(e.target.value)}*/
+            value={major}
+            onChange={(e) => setMajor(e.target.value)}
             className="form-input"
           />
 
