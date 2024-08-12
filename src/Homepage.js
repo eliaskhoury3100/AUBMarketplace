@@ -10,6 +10,8 @@ const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [category, setCategory] = useState('');
   const [profileImage, setProfileImage] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   useEffect(() => {
     const fetchUserProfile = async () => {
       const accessToken = localStorage.getItem('accessToken');
@@ -108,10 +110,55 @@ const HomePage = () => {
     }
   };
 
-  const handleSearch = (event) => {
+  const handleSearch = async (event) => {
     event.preventDefault();
-    console.log('Searching for:', searchQuery);
+    setLoading(true);
+    setError(null);
+
+    if (!searchQuery) {
+      // If the search query is empty, fetch all products or reset to default
+      fetchProducts();
+      setLoading(false);
+      return;
+    }
+  
+    const accessToken = localStorage.getItem('accessToken');
+    try {
+      const url = new URL('https://ihi32c2u6i.execute-api.eu-north-1.amazonaws.com/default/searchqueries');
+      url.searchParams.append('query_text', searchQuery);  // Append the search query as a parameter
+  
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${accessToken}`
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      console.log('Search results:', data);
+  
+      // Assuming 'data' is the object containing 'hits', and 'hits' contains an array of results
+      if (data.hits && data.hits.hits.length > 0) {
+        // Extract the '_source' from each hit and set it to products
+        const products = data.hits.hits.map(hit => hit._source);
+        setProducts(products);  // This updates your products state
+       
+      } else {
+        setProducts([]);  // Set to empty if no results
+      }
+    } catch (error) {
+      console.error('Failed to fetch:', error);
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
+  
+  
 
   return (
     <div class="homecontainer">
