@@ -270,11 +270,15 @@ const UserProfile = () => {
                 ref={editButtonRef}
                 style={{ backgroundColor: '#f1e4e7', color: 'black' }}
               >
-                {isEditing ? 'Save Profile' : 'Edit Profile'}
+                {isEditing ? 'Save' : 'Edit'}
               </button>
 
               <button className="sign-out-button" onClick={handleSignOut}>
-                Sign Out
+                Log Out
+              </button>
+
+              <button className="delete-button" /*onClick={handleSignOut}*/>
+                Delete
               </button>
             </>
           )}

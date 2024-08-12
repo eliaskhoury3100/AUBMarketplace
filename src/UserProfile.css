@@ -91,6 +91,17 @@ body {
   flex: 1;
   margin: 5px; /* Increased margin between buttons */
 }
+.delete-button {
+  background-color: #f1e4e7;
+  color: #000;
+  border-radius: 25px;
+  cursor: wait;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  flex: 1;
+  margin: 5px; /* Increased margin between buttons */
+}
 
 
 .about-section {
@@ -123,7 +134,7 @@ body {
 .my-items { /* My Items title */
   font-weight: bold;
   font-size: 26px;
-  padding: 2.5%
+  padding: 5% /* for parallelism with "About You" section | 2.5% padding + 2.5% .about-section padding */
 }
 
 
