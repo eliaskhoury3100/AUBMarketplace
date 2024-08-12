@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef} from 'react';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import './UserProfile.css';
 
@@ -101,7 +102,8 @@ const UserProfile = () => {
     const handleDotClick = (index) => {
       setActiveIndex(index);
     };
-
+    const sk= encodeURIComponent(product.SK);
+    const pk= encodeURIComponent(product.PK);
     return (
       <div className="productcard1">
         <Link to={`/productdetail/${sk}/${pk}`} className="product-card-link">

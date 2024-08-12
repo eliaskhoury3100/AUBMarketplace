@@ -33,7 +33,7 @@
 
   height: 10vh; /* 10% of the viewport height */
   width: 100%;
-  padding: 10px 20px;
+  padding: 15px 20px;
   background-color: transparent;
   display: flex;
   justify-content: flex-start;
