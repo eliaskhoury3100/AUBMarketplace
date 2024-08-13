@@ -27,13 +27,13 @@ const App = () => {
           <Route path="/resetpassword" element={<ResetPasswordForm />} />
           
           {/* Routes that include the Bottom Navigation Bar */}
-          <Route path="/uploadproduct" element={<><CategoriesPage /><BottomNav /><UpperNav/></>} />
+          <Route path="/uploadproduct" element={<><CategoriesPage /><BottomNav /></>} />
           <Route path="/homepage" element={<><HomePage /><BottomNav /></>} />
-          <Route path="/productdetail/:id/:pk" element={<><ProductDetail /><BottomNav /><UpperNav/></>} />
+          <Route path="/productdetail/:id/:pk" element={<><ProductDetail /><BottomNav /></>} />
           <Route path="/userprofile" element={<><UserProfile /><BottomNav /></>} />
           <Route path="/userprofile/:sub" element={<><UserProfile /><BottomNav /></>} />
           <Route path="/messages" element={<><MessagingPage /><BottomNav /></>} />
-          <Route path="/conversations" element={<><ConversationPage /><BottomNav /><UpperNav/></>} />
+          <Route path="/conversations" element={<><ConversationPage /><BottomNav /></>} />
           {/* Redirect base URL to either login or another part of the app based on condition */}
           <Route path="/" element={<Navigate replace to="/login" />} />
         </Routes>

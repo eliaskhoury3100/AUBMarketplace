@@ -11,9 +11,10 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow: visible; /* not working? */
   width: 100vw;
   padding-top: 10%;
+  overflow: auto; /* Enable scrolling if content overflows */
+  overflow-y: auto;
 }
 
 
