@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './UpperNav.css';
+import { Link } from 'react-router-dom';
 
 const UpperNav = () => {
     const [profileImage, setProfileImage] = useState('');
@@ -43,7 +44,9 @@ const UpperNav = () => {
                 <img src={'https://marketplacepictures.s3.eu-north-1.amazonaws.com/logo.png'} alt="Website Logo" className="nav-logo"/>
             </div>
             <div className="nav-item profile-container">
-                <img src={profileImage} alt="Profile" className="profile-picture" />
+            <Link to="/userprofile">
+              <img src={profileImage || "https://marketplacepictures.s3.eu-north-1.amazonaws.com/default-profile.png"} alt="Profile" className="profile-picture" />
+            </Link>
             </div>
         </nav>
     );

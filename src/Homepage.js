@@ -14,6 +14,7 @@ const HomePage = () => {
   const [error, setError] = useState(null);
   const [showFilterPanel, setShowFilterPanel] = useState(false);
   const [noProductsFound, setNoProductsFound] = useState(false);
+  
 
   const [filters, setFilters] = useState({
     category: '',
@@ -486,11 +487,9 @@ const FilterPanel = ({ onClose, filters, setFilters }) => {
         <img src="https://marketplacepictures.s3.eu-north-1.amazonaws.com/logo.png" alt="Logo" className="nav-logo" />
         <h1>AUB MarketPlace</h1>
         <div className="profile-picture-container">
-          {profileImage ? (
-            <img src={profileImage} alt="Profile" className="profile-picture" />
-          ) : (
-            <img src="https://marketplacepictures.s3.eu-north-1.amazonaws.com/default-profile.png" alt="Default Profile" className="profile-picture" />
-          )}
+        <Link to="/userprofile">
+              <img src={profileImage || "https://marketplacepictures.s3.eu-north-1.amazonaws.com/default-profile.png"} alt="Profile" className="profile-picture" />
+            </Link>
         </div>
         </nav>
         
