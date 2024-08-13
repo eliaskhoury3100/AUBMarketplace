@@ -13,6 +13,7 @@ import HomePage from './Homepage'
 import ProductDetail from './Product';
 import MessagingPage from './MessagingPage'
 import ConversationPage from './ConversationPage'
+import LostIDsPage from './IDpage'
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/userprofile/:sub" element={<><UserProfile /><BottomNav /></>} />
           <Route path="/messages" element={<><MessagingPage /><BottomNav /></>} />
           <Route path="/conversations" element={<><ConversationPage /><BottomNav /><UpperNav/></>} />
+          <Route path="/lostid" element={<><LostIDsPage /><BottomNav /><UpperNav/></>} />
           {/* Redirect base URL to either login or another part of the app based on condition */}
           <Route path="/" element={<Navigate replace to="/login" />} />
         </Routes>

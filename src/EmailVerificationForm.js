@@ -56,7 +56,7 @@ const EmailVerificationForm = () => {
       });
 
       if (response.ok) {
-        alert('Verification successful!');
+      
         navigate('/login');  // Redirect to the login page or another page
       } else {
         const data = await response.json();
