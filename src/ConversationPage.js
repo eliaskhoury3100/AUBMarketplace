@@ -47,9 +47,7 @@ const ConversationPage = () => {
         </div>
         <img className="profile-pic" src="images/profile.jpg" alt="Profile" />
       </header>
-      <div className="search-bar">
-        <input type="text" placeholder="Search" />
-      </div>
+      
       <main className="messages-list">
       {conversations.map((conversation, index) => (
   <div className="user-item" key={index} onClick={() => handleUserClick(conversation.ConversationID, conversation.OtherParticipant)}>
