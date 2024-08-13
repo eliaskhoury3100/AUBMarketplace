@@ -15,6 +15,7 @@
   height: 100vh;
   overflow: clip;
   width: 100vw;
+  padding-top: 30px;
 }
 
 .profile-picture-container {
