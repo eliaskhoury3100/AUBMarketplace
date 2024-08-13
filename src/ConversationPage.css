@@ -6,8 +6,43 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0;
+    padding-top: 10%;
 }
+
+.topsection {
+    background-image: linear-gradient(to bottom, #efcbd4, #ffffff);
+    justify-content: flex-start;
+    min-height: 10vh;  
+    padding: 15px;
+    text-align: left; /* Center the welcome text and search bar */
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-bottom: 7px;
+    width: 100vw;
+  }
+.uppernav {
+    height: 10vh; /* 10% of the viewport height */
+    width: 100vw;
+    padding: 15px 20px;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  h1 {
+    font-family: 'Oswald', serif; /* Apply Montserrat to h1 */
+    font-weight: 700;
+    font-size: 28px;
+    color: black;
+  }
+  .nav-logo {
+    width: 40px; /* Set width equal to height to form a square */
+    height: 40px; /* Set height to make the logo a square */
+    margin-left: -10px; /* Adjust the value to push the logo to the left */
+    object-fit: contain; /* Ensures the logo fits within the square without being cropped */
+    border-radius: 5px; /* Slightly rounds the corners */
+  }
 
 .logo img, .profile-pic {
     width: 40px;

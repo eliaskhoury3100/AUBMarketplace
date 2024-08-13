@@ -127,10 +127,19 @@ const ProductDetail = () => {
 
     return (
         <div className="full-page-container">
+            
+            <div className="topsection">
+                <nav className="uppernav">
+                <img src="https://marketplacepictures.s3.eu-north-1.amazonaws.com/logo.png" alt="Logo" className="nav-logo" />
+                <h1>AUB MarketPlace</h1>
+                </nav>
+            </div>
+
             <div className="upper-section" onClick={handleProfileRedirect}>
             {profilePicture && <img src={profilePicture} alt="Profile Picture" className="profile-picture" />}
-                    {username && <p className="username">{extractUsername(username)}</p>}
+            {username && <p className="username">{extractUsername(username)}</p>}
             </div>
+            
             <div className="imageecarousel">
                 
                     <img src={product[0].ImageUrl[activeIndex]} alt={`Product ${product[0].Title} Image`} className="producttimage" />
@@ -161,6 +170,7 @@ const ProductDetail = () => {
                     {userId === sub && (
                         <button className="delete-item-button" onClick={handleDeleteItemClick}>Delete Item</button>
                     )}
+                    <button className="mark-as-sold-button" /*onClick={handleDeleteItemClick}*/>Mark as Sold</button>
                 </div>
             </div>
         </div>

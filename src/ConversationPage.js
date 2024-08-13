@@ -41,12 +41,13 @@ const ConversationPage = () => {
   
   return (
     <div className="message-page">
-      <header className="header">
-        <div className="logo">
-          <img src="images/logo.png" alt="Logo" />
-        </div>
-        <img className="profile-pic" src="images/profile.jpg" alt="Profile" />
-      </header>
+
+      <div className="topsection">
+        <nav className="uppernav">
+          <img src="https://marketplacepictures.s3.eu-north-1.amazonaws.com/logo.png" alt="Logo" className="nav-logo" />
+          <h1>AUB MarketPlace</h1>
+        </nav>
+      </div>
       
       <main className="messages-list">
       {conversations.map((conversation, index) => (

@@ -135,7 +135,13 @@ const CategoriesPage = () => {
 
   return (
     <div className="selling">
-      <div className="header"></div>
+
+      <div className="topsection">
+        <nav className="uppernav">
+          <img src="https://marketplacepictures.s3.eu-north-1.amazonaws.com/logo.png" alt="Logo" className="nav-logo" />
+          <h1>AUB MarketPlace</h1>
+        </nav>
+      </div>
       
       <form onSubmit={handleSubmit}>
         <div className="form-group">
