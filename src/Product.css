@@ -6,8 +6,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-   
     background-color: #FFF;
+    padding-top: 10%;
 }
 
 .upper-section {

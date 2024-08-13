@@ -13,6 +13,7 @@ body {
   height: 100vh;
   overflow: visible; /* not working? */
   width: 100vw;
+  padding-top: 10%;
 }
 
 
