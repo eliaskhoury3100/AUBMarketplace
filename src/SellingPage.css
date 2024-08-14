@@ -5,6 +5,9 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    
+       
+    
 }
 
 
@@ -99,7 +102,13 @@ body {
     padding: 5px; /* Padding to prevent images from touching the container edges */
     max-height: 50px; /* Limit height to prevent resizing */
 }
-
+form {
+   
+        padding: 5px;
+    
+    
+    margin-top: -30px;
+}
 .image-preview {
     width: 40px; /* Width automatically adjusts to the content */
     height: 40px; /* Set height to 40px */
@@ -152,6 +161,8 @@ body {
     border-radius: 25px;
     cursor: pointer;
     width: 100vw;
+    padding: 5px;
+    
 }
 
 .formgroupalone {

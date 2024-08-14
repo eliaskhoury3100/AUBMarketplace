@@ -78,7 +78,7 @@
 .producttimage {
     width: 80vw; /* Ensures images are fully responsive within the carousel */
     display: block; /* Removes any inline spacing */
-    max-height: 80vh; /* Adjusts the maximum height of the images */
+    max-height: 33vh; /* Adjusts the maximum height of the images */
     height: 100vh; /* Height of the image, adjust if necessary */
     object-fit: auto; /* Ensures the image covers the area without distortion */
     margin-bottom: 10px; /* Reduce or adjust as necessary to control spacing */

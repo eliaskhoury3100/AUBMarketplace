@@ -20,15 +20,25 @@
 }
 
 .uppernav {
-
   height: 10vh; /* 10% of the viewport height */
   width: 100%;
   padding: 15px 20px;
   background-color: transparent;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  
+  justify-content: space-between; /* Ensures elements are spread out across the full width */
+  align-items: center; /* Vertically centers items within the navbar */
+}
+
+
+
+
+.lost-ids {
+  font-size: 18px; /* Sets the font size */
+  color: #555; /* Sets the text color */
+  font-weight: bold; /* Makes the font bold */
+  cursor: pointer; /* Indicates the text is clickable */
+  text-decoration: none;
+  margin-left: 37px;
 }
 
 h1 {
@@ -147,6 +157,7 @@ h1 {
   overflow-y: auto;
   justify-content: flex-start;
   margin-top: 2.5%;
+  
 }
 
 /* Adjust for medium-sized screens (tablets) */

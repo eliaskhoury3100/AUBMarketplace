@@ -34,7 +34,7 @@ const App = () => {
           <Route path="/userprofile" element={<><UserProfile /><BottomNav /></>} />
           <Route path="/userprofile/:sub" element={<><UserProfile /><BottomNav /></>} />
           <Route path="/messages" element={<><MessagingPage /><BottomNav /></>} />
-          <Route path="/conversations" element={<><ConversationPage /><BottomNav /><UpperNav/></>} />
+          <Route path="/conversations" element={<><ConversationPage /><BottomNav /></>} />
           <Route path="/lostid" element={<><LostIDsPage /><UpperNav/><BottomNav/></>} />
           {/* Redirect base URL to either login or another part of the app based on condition */}
           <Route path="/" element={<Navigate replace to="/login" />} />
