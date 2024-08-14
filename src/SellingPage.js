@@ -22,7 +22,9 @@ const CategoriesPage = () => {
   const [labels, setLabels] = useState({});
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [suggestedCategories, setSuggestedCategories] = useState([]);
 
+  
   const postButtonRef = useRef(null);
 
   const toBase64 = file => new Promise((resolve, reject) => {
@@ -31,6 +33,37 @@ const CategoriesPage = () => {
     reader.onload = () => resolve(reader.result.split(',')[1]);  // Get content part of base64
     reader.onerror = error => reject(error);
   });
+
+  const renderSuggestedCategories = () => {
+    if (suggestedCategories.length > 0) {
+      return (
+        <div className="suggested-categories" style={{ marginBottom: '20px', padding: '10px', border: '1px solid #ccc', borderRadius: '5px', backgroundColor: '#f9f9f9' }}>
+          <h3 style={{ marginBottom: '10px', fontWeight: 'bold' }}>Categories suggested based on the pictures you uploaded:</h3>
+          <ul style={{ listStyleType: 'none', paddingLeft: '0' }}>
+            {suggestedCategories.map((category, index) => (
+              <li key={index} style={{ fontStyle: 'italic', padding: '5px 0' }}>
+                <span style={{ color: '#333', fontSize: '16px' }}>{category}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+    return null;
+  };
+  
+  const ProgressBar = ({ step, totalSteps }) => {
+    const progressPercentage = (step / totalSteps) * 100;
+  
+    return (
+      <div className="progress-bar-container">
+        <div 
+          className="progress-bar" 
+          style={{ width: `${progressPercentage}%` }}
+        ></div>
+      </div>
+    );
+  };
 
   const fetchLabels = async (base64Image, filename) => {
     try {
@@ -47,6 +80,10 @@ const CategoriesPage = () => {
       });
       
       const data = await response.json();
+      console.log(data)
+      const categories = data || []; // Use data directly if it's already the array
+      console.log("Fetched categories:", categories); // Log the fetched categories
+      setSuggestedCategories(categories);
       if (!response.ok) throw new Error(data.message || 'Failed to fetch labels');
   
       setLabels(prev => ({ ...prev, [filename]: data.labels }));
@@ -61,12 +98,24 @@ const CategoriesPage = () => {
       alert('You can only upload a maximum of 6 images.');
       return;
     }
-    const filesWithBase64 = await Promise.all(filesToAdd.map(async file => {
+
+    // Convert all files to Base64 and update UI immediately
+    const filesWithBase64 = await Promise.all(filesToAdd.map(async (file) => {
       const content = await toBase64(file);
-      await fetchLabels(content, file.name);
       return { name: file.name, content };
     }));
-    setSelectedFiles([...selectedFiles, ...filesWithBase64].slice(0, 6));
+
+    // Update selectedFiles immediately to show previews
+    setSelectedFiles(prevFiles => [...prevFiles, ...filesWithBase64].slice(0, 6));
+
+    // Fetch labels only for the first file asynchronously, without awaiting the result here
+    if (selectedFiles.length === 0 && filesWithBase64.length > 0) {
+      const firstFile = filesWithBase64[0];
+      fetchLabels(firstFile.content, firstFile.name)
+        .catch(error => {
+          console.error('Error fetching labels:', error);
+        });
+    }
   };
 
   const handlePostButtonClick = () => {
@@ -128,6 +177,7 @@ const CategoriesPage = () => {
         });
         setSelectedFiles([]);
         setMessage('Product uploaded successfully!');
+        setSuggestedCategories([]);  // Reset suggested categories here
       } else {
         throw new Error(result.message || 'Failed to upload product due to server error');
       }
@@ -163,7 +213,16 @@ const CategoriesPage = () => {
       {selectedFiles.length > 0 ? selectedFiles.map((file, index) => (
         <div key={index} className="image-preview">
           <img src={`data:image/jpeg;base64,${file.content}`} alt={`preview ${index}`} />
-          <button onClick={() => setSelectedFiles(selectedFiles.filter((_, i) => i !== index))} className="remove-image">×</button>
+          <button 
+            onClick={() => {
+              const updatedFiles = selectedFiles.filter((_, i) => i !== index);
+              setSelectedFiles(updatedFiles);
+              // Reset suggested categories if the first image is deleted
+              if (index === 0) {
+                setSuggestedCategories([]);
+              }
+            }} 
+            className="remove-image">×</button>
         </div>
       )) : (
         <p className="no-images-text">No images added yet.</p>
@@ -180,9 +239,11 @@ const CategoriesPage = () => {
   };
 
   const renderStep = () => {
-    switch(step) {
-      case 1:
-        return (
+    const totalSteps = 4;
+
+    return (
+      <div>
+        {step === 1 && (
           <div>
             <div className="form-group">
               <label className="bold-label">Upload Images</label>
@@ -192,9 +253,8 @@ const CategoriesPage = () => {
             </div>
             <button onClick={nextStep} className="next-button">Next</button>
           </div>
-        );
-      case 2:
-        return (
+        )}
+        {step === 2 && (
           <div>
             <div className="form-group">
               <label htmlFor="name">Name of product</label>
@@ -221,10 +281,10 @@ const CategoriesPage = () => {
             <button onClick={prevStep} className="prev-button">Back</button>
             <button onClick={nextStep} className="next-button">Next</button>
           </div>
-        );
-      case 3:
-        return (
+        )}
+        {step === 3 && (
           <div>
+            {renderSuggestedCategories()} {/* Display suggested categories here */}
             <div className="form-group">
               <label htmlFor="category">Category</label>
               <select id="category" name="category" value={formData.category} onChange={handleCategoryChange} required>
@@ -264,45 +324,43 @@ const CategoriesPage = () => {
             <button onClick={prevStep} className="prev-button">Back</button>
             <button onClick={nextStep} className="next-button">Next</button>
           </div>
-        );
-      case 4:
-        return (
+        )}
+        {step === 4 && (
           <div>
            {['Clothing for Men', 'Clothing for Women', 'Sports Wear for Men', 'Sports Wear for Women'].includes(formData.category) && (
-  <div className="form-group">
-    <label htmlFor="size">Size</label>
-    <select 
-      id="size" 
-      name="size" 
-      value={formData.size} 
-      onChange={handleChange} 
-      required
-    >
-      <option value="">Select a size</option>
-      <option value="S">S</option>
-      <option value="M">M</option>
-      <option value="L">L</option>
-      <option value="XL">XL</option>
-    </select>
-  </div>
-)}
-{["Mobile Phones & Accessories", "Laptops & Tablets", "Computers & Computer Parts", "Gaming Consoles & Video Games", "TV", "Speakers", "Cameras"].includes(formData.category) && (
-  <div className="form-group">
-    <label htmlFor="warranty">Warranty</label>
-    <select 
-      id="warranty" 
-      name="warranty" 
-      value={formData.warranty} 
-      onChange={handleChange} 
-      required
-    >
-      <option value="">Select warranty option</option>
-      <option value="Warranty">Warranty</option>
-      <option value="No Warranty">No Warranty</option>
-    </select>
-  </div>
-)}
-
+            <div className="form-group">
+              <label htmlFor="size">Size</label>
+              <select 
+                id="size" 
+                name="size" 
+                value={formData.size} 
+                onChange={handleChange} 
+                required
+              >
+                <option value="">Select a size</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+              </select>
+            </div>
+          )}
+          {["Mobile Phones & Accessories", "Laptops & Tablets", "Computers & Computer Parts", "Gaming Consoles & Video Games", "TV", "Speakers", "Cameras"].includes(formData.category) && (
+            <div className="form-group">
+              <label htmlFor="warranty">Warranty</label>
+              <select 
+                id="warranty" 
+                name="warranty" 
+                value={formData.warranty} 
+                onChange={handleChange} 
+                required
+              >
+                <option value="">Select warranty option</option>
+                <option value="Warranty">Warranty</option>
+                <option value="No Warranty">No Warranty</option>
+              </select>
+            </div>
+          )}
             
             <div className="formgroupalone">
               <label htmlFor="termsCheckbox" className="checkbox-label" style={{ fontStyle: 'italic', fontSize: '14px' }}>
@@ -328,10 +386,11 @@ const CategoriesPage = () => {
               {isSubmitting ? 'Posting...' : 'POST'}
             </button>
           </div>
-        );
-      default:
-        return null;
-    }
+        )}
+        {/* Progress bar */}
+        <ProgressBar step={step} totalSteps={totalSteps} />
+      </div>
+    );
   };
 
   return (
