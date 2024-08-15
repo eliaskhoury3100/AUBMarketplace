@@ -94,6 +94,7 @@ const SignUpForm = () => {
             </ul>
           </div>
         )}
+        <h2>Welcome!</h2>
         <div className="input-field">
           <input
             type="email"

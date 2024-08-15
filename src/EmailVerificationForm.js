@@ -70,7 +70,7 @@ const EmailVerificationForm = () => {
   return (
     <div className="wrapper">
       <form onSubmit={handleSubmit} id="emailVerificationForm">
-        <h2>Email Verification</h2>
+        <h2>Verifying your Email</h2>
         {formError && (
           <div className="alert alert-danger">
             <ul style={{ color: 'red' }}>
