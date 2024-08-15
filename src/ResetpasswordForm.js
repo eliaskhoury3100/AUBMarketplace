@@ -77,7 +77,6 @@ const ResetPasswordForm = () => {
   return (
     <div className="wrapper">
       <form onSubmit={handleSubmit} id="resetPasswordForm">
-        <h2>Reset Password</h2>
         {successMessage && (
           <div className="alert alert-success">
             <ul style={{ color: 'green' }}>

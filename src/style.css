@@ -156,3 +156,8 @@ button:hover {
   color: #ffffff !important;
 }
 
+h2 {
+  color: white;
+  font-size: 22px;
+  padding: 2.5%;
+}

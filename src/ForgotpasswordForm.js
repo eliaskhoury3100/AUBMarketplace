@@ -65,7 +65,7 @@ const ForgotPasswordForm = () => {
   return (
     <div className="wrapper">
       <form onSubmit={handleSubmit} id="forgotPasswordForm">
-        <h2>Forgot Password</h2>
+        <h2>Recovering your Password</h2>
         {formError && (
           <div className="alert alert-danger">
             <ul style={{ color: 'red' }}>

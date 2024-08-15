@@ -87,7 +87,6 @@ const SignUpForm = () => {
   return (
     <div className="wrapper">
       <form onSubmit={handleSubmit} id="signUpForm">
-        <h2>Sign Up</h2>
         {formError && (
           <div className="alert alert-danger">
             <ul style={{ color: 'red' }}>
