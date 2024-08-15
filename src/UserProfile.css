@@ -12,6 +12,9 @@ body {
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+  overflow: auto; /* Enable scrolling if content overflows */
+  overflow-y: auto;
+  padding-bottom: 20%;
 }
 
 
@@ -20,11 +23,12 @@ body {
   justify-content: flex-start;
   top: 0;
   min-height: 10vh;  
-  padding: 5%;
+  padding: 25px;
   text-align: left; /* Center the welcome text and search bar */
   display: flex;
   flex-direction: column;
   justify-content: left;
+  overflow: visible;
 }
 
 
@@ -33,7 +37,6 @@ body {
   align-items: center;
   padding: 2.5%;
   overflow: visible;
-  padding-bottom: 20%;
 }
 .profile-image { 
   border-radius: 25px; /* Circular profile picture */
@@ -74,8 +77,8 @@ body {
 .actions-container {
   display: flex;
   justify-content: space-between;
-  width: 100vw; /* Adjust the width as needed */
-  margin-bottom: 5%; /* Add some margin to the bottom */
+  width: 100%; /* Adjust the width as needed */
+  margin-bottom: 20px; /* Add some margin to the bottom */
 }
 .action-button { /* EDIT BUTTON */
   background-color: #f1e4e7;
@@ -117,7 +120,7 @@ body {
   display: flex;
   flex-direction: column; /* Change to column for stacking elements */
   padding: 2.5%; /* padding from the sides of the screen mainly */
-
+  justify-content: center; /* Center contents vertically */
   text-align: left;
   color: #000;
   font-size: 16px;
@@ -142,29 +145,19 @@ body {
 .my-items { /* My Items title */
   font-weight: bold;
   font-size: 26px;
-  padding: 5% 5% 0% 5%; /* for parallelism with "About You" section | 2.5% padding + 2.5% .about-section padding */
+  padding: 5% 5% 0% 5% /* for parallelism with "About You" section | 2.5% padding + 2.5% .about-section padding */
 }
 
 
 .my-items-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 2.5%;
-  margin-top: 2.5%;
-  justify-content: flex-start;
-  overflow: auto;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 2.5%;
+    overflow-y: auto;
+    justify-content: flex-start;
+    margin-top: 10%;
 }
-
-/* Apply styles directly to disabled textareas */
-textarea:disabled {
-  pointer-events: none; /* Reinforces no interaction */
-  cursor: default; /* Ensures default cursor is shown */
-  background-color: #f0f0f0; /* Indicates non-editable state visually */
-}
-
-
-
 
 .productcard1 {
   border-radius: 25px;
@@ -189,7 +182,6 @@ textarea:disabled {
   text-align: center;
   height: 10px;
   text-align: left;
-  padding: 25px;
 }
 .productimage { /* see in HomePage where this div is added? la tzida hone tzabit 7ajem lsoura*/
   width: 100vw;

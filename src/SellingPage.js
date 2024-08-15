@@ -251,7 +251,12 @@ const CategoriesPage = () => {
               <input type="file" id="fileUpload" style={{ display: 'none' }} multiple onChange={handleFileChange} accept="image/*" />
               {renderImagePreviews()}
             </div>
-            <button onClick={nextStep} className="next-button">Next</button>
+            <div className="navigation-container">
+    
+    <button onClick={nextStep} className="next-button">
+        <i className="fas fa-arrow-right"></i>
+    </button>
+</div>
           </div>
         )}
         {step === 2 && (
@@ -278,117 +283,173 @@ const CategoriesPage = () => {
               <label htmlFor="price">Price (USD)</label>
               <input type="text" id="price" name="price" placeholder="Enter price" value={formData.price} onChange={handleChange} required />
             </div>
-            <button onClick={prevStep} className="prev-button">Back</button>
-            <button onClick={nextStep} className="next-button">Next</button>
+            <div className="navigation-container">
+    <button onClick={prevStep} className="prev-button">
+        <i className="fas fa-arrow-left"></i>
+    </button>
+    <button onClick={nextStep} className="next-button">
+        <i className="fas fa-arrow-right"></i>
+    </button>
+</div>
+
+
           </div>
         )}
-        {step === 3 && (
-          <div>
-            {renderSuggestedCategories()} {/* Display suggested categories here */}
-            <div className="form-group">
-              <label htmlFor="category">Category</label>
-              <select id="category" name="category" value={formData.category} onChange={handleCategoryChange} required>
-                <option value="">Select a category</option>
-                <optgroup label="Electronics">
-                  <option value="Mobile Phones & Accessories">Mobile Phones & Accessories</option>
-                  <option value="Laptops & Tablets">Laptops & Tablets</option>
-                  <option value="Computers & Computer Parts">Computers & Computer Parts</option>
-                  <option value="Gaming Consoles & Video Games">Gaming Consoles & Video Games</option>
-                  <option value="TV">TV</option>
-                  <option value="Speakers">Speakers</option>
-                  <option value="Cameras">Cameras</option>
-                </optgroup>
-                <optgroup label="Fashion">
-                  <option value="Clothing for Men">Clothing for Men</option>
-                  <option value="Accessories for Men">Accessories for Men</option>
-                  <option value="Clothing for Women">Clothing for Women</option>
-                  <option value="Accessories for Women">Accessories for Women</option>
-                  <option value="Makeup and Cosmetics">Makeup and Cosmetics</option>
-                  <option value="Jewelry">Jewelry</option>
-                  <option value="Watches">Watches</option>
-                  <option value="Shoes">Shoes</option>
-                </optgroup>
-                <optgroup label="Sports & Outdoors">
-                  <option value="Sports Wear for Men">Sports Wear for Men</option>
-                  <option value="Sports Wear for Women">Sports Wear for Women</option>
-                  <option value="Sports Equipment">Sports Equipment</option>
-                </optgroup>
-                <optgroup label="Entertainment & Hobbies">
-                  <option value="Musical Instruments & Gear">Musical Instruments & Gear</option>
-                  <option value="Books">Books</option>
-                  <option value="Music & Movies">Music & Movies</option>
-                  <option value="Stationery">Stationery</option>
-                </optgroup>
-              </select>
-            </div>
-            <button onClick={prevStep} className="prev-button">Back</button>
-            <button onClick={nextStep} className="next-button">Next</button>
-          </div>
-        )}
-        {step === 4 && (
-          <div>
-           {['Clothing for Men', 'Clothing for Women', 'Sports Wear for Men', 'Sports Wear for Women'].includes(formData.category) && (
-            <div className="form-group">
-              <label htmlFor="size">Size</label>
-              <select 
-                id="size" 
-                name="size" 
-                value={formData.size} 
-                onChange={handleChange} 
-                required
-              >
-                <option value="">Select a size</option>
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-              </select>
-            </div>
-          )}
-          {["Mobile Phones & Accessories", "Laptops & Tablets", "Computers & Computer Parts", "Gaming Consoles & Video Games", "TV", "Speakers", "Cameras"].includes(formData.category) && (
-            <div className="form-group">
-              <label htmlFor="warranty">Warranty</label>
-              <select 
-                id="warranty" 
-                name="warranty" 
-                value={formData.warranty} 
-                onChange={handleChange} 
-                required
-              >
-                <option value="">Select warranty option</option>
-                <option value="Warranty">Warranty</option>
-                <option value="No Warranty">No Warranty</option>
-              </select>
-            </div>
-          )}
-            
-            <div className="formgroupalone">
-              <label htmlFor="termsCheckbox" className="checkbox-label" style={{ fontStyle: 'italic', fontSize: '14px' }}>
-                <input
-                  type="checkbox"
-                  id="termsCheckbox"
-                  checked={formData.termsAccepted}
-                  onChange={(e) => setFormData({ ...formData, termsAccepted: e.target.checked })}
-                  style={{ marginRight: '20px' }}
-                />
-                I agree to the terms and conditions.
-              </label>
-            </div>
-            <button onClick={prevStep} className="prev-button">Back</button>
-            <button 
-              type="submit" 
-              className="post-button" 
-              disabled={!formData.termsAccepted || isSubmitting}
-              ref={postButtonRef}
-              onClick={handlePostButtonClick}
-              style={{ backgroundColor: '#3d3d3d' }}
-            >
-              {isSubmitting ? 'Posting...' : 'POST'}
-            </button>
-          </div>
-        )}
-        {/* Progress bar */}
-        <ProgressBar step={step} totalSteps={totalSteps} />
+  {step === 3 && (
+  <div>
+     <div style={{ marginTop: '40px' }}> {/* Add margin here */}
+      {renderSuggestedCategories()} {/* Display suggested categories here */}
+    </div>
+
+
+    <div className="form-group">
+      <label htmlFor="category">Category</label>
+      <select id="category" name="category" value={formData.category} onChange={handleCategoryChange} required>
+        <option value="">Select a category</option>
+        <optgroup label="Electronics">
+          <option value="Mobile Phones & Accessories">Mobile Phones & Accessories</option>
+          <option value="Laptops & Tablets">Laptops & Tablets</option>
+          <option value="Computers & Computer Parts">Computers & Computer Parts</option>
+          <option value="Gaming Consoles & Video Games">Gaming Consoles & Video Games</option>
+          <option value="TV">TV</option>
+          <option value="Speakers">Speakers</option>
+          <option value="Cameras">Cameras</option>
+        </optgroup>
+        <optgroup label="Fashion">
+          <option value="Clothing for Men">Clothing for Men</option>
+          <option value="Accessories for Men">Accessories for Men</option>
+          <option value="Clothing for Women">Clothing for Women</option>
+          <option value="Accessories for Women">Accessories for Women</option>
+          <option value="Makeup and Cosmetics">Makeup and Cosmetics</option>
+          <option value="Jewelry">Jewelry</option>
+          <option value="Watches">Watches</option>
+          <option value="Shoes">Shoes</option>
+        </optgroup>
+        <optgroup label="Sports & Outdoors">
+          <option value="Sports Wear for Men">Sports Wear for Men</option>
+          <option value="Sports Wear for Women">Sports Wear for Women</option>
+          <option value="Sports Equipment">Sports Equipment</option>
+        </optgroup>
+        <optgroup label="Entertainment & Hobbies">
+          <option value="Musical Instruments & Gear">Musical Instruments & Gear</option>
+          <option value="Books">Books</option>
+          <option value="Music & Movies">Music & Movies</option>
+          <option value="Stationery">Stationery</option>
+        </optgroup>
+      </select>
+    </div>
+
+    {/* Size field for Fashion categories */}
+    {['Clothing for Men', 'Clothing for Women', 'Sports Wear for Men', 'Sports Wear for Women'].includes(formData.category) && (
+      <div className="form-group">
+        <label htmlFor="size">Size</label>
+        <select 
+          id="size" 
+          name="size" 
+          value={formData.size} 
+          onChange={handleChange} 
+          required
+        >
+          <option value="">Select a size</option>
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+      </div>
+    )}
+
+    {/* Warranty field for Electronics categories */}
+    {["Mobile Phones & Accessories", "Laptops & Tablets", "Computers & Computer Parts", "Gaming Consoles & Video Games", "TV", "Speakers", "Cameras"].includes(formData.category) && (
+      <div className="form-group">
+        <label htmlFor="warranty">Warranty</label>
+        <select 
+          id="warranty" 
+          name="warranty" 
+          value={formData.warranty} 
+          onChange={handleChange} 
+          required
+        >
+          <option value="">Select warranty option</option>
+          <option value="Warranty">Warranty</option>
+          <option value="No Warranty">No Warranty</option>
+        </select>
+      </div>
+    )}
+
+    <div className="navigation-container">
+      <button onClick={prevStep} className="prev-button">
+        <i className="fas fa-arrow-left"></i>
+      </button>
+      <button onClick={nextStep} className="next-button">
+        <i className="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+)}
+
+
+{step === 4 && (
+  <div  className="container">
+    {/* Styled Box for Terms and Conditions */}
+    <div className="terms-and-conditions-box" style={{ 
+        padding: '20px', 
+        backgroundColor: '#f9f9f9', 
+        borderRadius: '8px', 
+        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', 
+        marginBottom: '20px' 
+    }}>
+      <p style={{ fontSize: '16px', fontWeight: 'bold', marginBottom: '10px' }}>Terms and Conditions for Uploading a Product</p>
+      <p style={{ fontSize: '14px', marginBottom: '10px' }}>By uploading a product, you agree to the following:</p>
+      <ul style={{ paddingLeft: '20px', listStyleType: 'disc', fontSize: '14px', color: '#333' }}>
+        <li><strong>Accuracy:</strong> Ensure all product details are correct and not misleading.</li>
+        <li><strong>Ownership:</strong> You confirm you own the rights to the product and that it does not violate any third-party rights.</li>
+        <li><strong>Prohibited Items:</strong> Do not upload illegal, counterfeit, or prohibited items.</li>
+        <li><strong>Compliance:</strong> Your product must comply with all applicable laws.</li>
+        <li><strong>Liability:</strong> AUB MarketPlace is not responsible for disputes arising from your listings.</li>
+        <li><strong>Removal:</strong> We may remove listings that violate these terms.</li>
+      </ul>
+      <p style={{ fontSize: '14px' }}>By proceeding, you agree to these terms.</p>
+    </div>
+
+    {/* Checkbox to agree to terms */}
+    <div className="formgroupalone">
+      <label htmlFor="termsCheckbox" className="checkbox-label" style={{ fontStyle: 'italic', fontSize: '14px' }}>
+        <input
+          type="checkbox"
+          id="termsCheckbox"
+          checked={formData.termsAccepted}
+          onChange={(e) => setFormData({ ...formData, termsAccepted: e.target.checked })}
+          style={{ marginRight: '10px' }}
+        />
+        I agree to the terms and conditions.
+      </label>
+    </div>
+    
+    <button 
+      type="submit" 
+      className="post-button" 
+      disabled={!formData.termsAccepted || isSubmitting}
+      ref={postButtonRef}
+      onClick={handlePostButtonClick}
+      style={{ backgroundColor: '#3d3d3d' }}
+    >
+      {isSubmitting ? 'Posting...' : 'POST'}
+    </button>
+    <div className="navigation-container">
+      <button onClick={prevStep} className="prev-button">
+        <i className="fas fa-arrow-left"></i>
+      </button>
+    </div>
+  </div>
+)}
+
+
+
+
+
+<ProgressBar step={step} totalSteps={totalSteps} />
+
       </div>
     );
   };
