@@ -3,32 +3,29 @@
 * {
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
-  padding-top: 10%;
 }
 
 html, body {
-  height: 100%; /* Ensures the full height of the viewport */
-  width: 100%; /* Ensures the full width of the viewport */
+  height: 100vh; /* Ensures the full height of the viewport */
+  width: 100vw; /* Ensures the full width of the viewport */
   display: flex; /* Enables flexbox */
   align-items: center; /* Centers children vertically */
   justify-content: center; /* Centers children horizontally */
   position: relative; /* Necessary for absolute positioning inside */
-  margin: 0; /* Removes default margin */
-  padding: 0; /* Removes default padding */
+  overflow: hidden;
 }
 
 
-
 .wrapper {
-  width: 400px;
-  border-radius: 8px;
-  padding: 30px;
+  width: 90vw;
+  border-radius: 25px;
+  padding: 15% 5% 2.5%;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(9px);
-  -webkit-backdrop-filter: blur(9px);
+  border: 1px solid rgba(255, 255, 255, 0.5); /* border of the "glass" box */
+  backdrop-filter: blur(9px); /* creates glass morphism effect */
+  -webkit-backdrop-filter: blur(9px); /* ???? */
   position: relative;
-  z-index: 1;
+  z-index: 1; /* show it on the background - higher layer */
   /* No need to set left and top here because flexbox takes care of centering */
 }
 
@@ -36,18 +33,13 @@ html, body {
 form {
   display: flex;
   flex-direction: column;
-}
-
-h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #fff;
+  border-radius: 25px;
 }
 
 .input-field {
   position: relative;
-  border-bottom: 2px solid #ccc;
-  margin: 15px 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  margin: 5% 0% 5%;
 }
 
 .input-field label {
@@ -62,20 +54,20 @@ h2 {
 }
 
 .input-field input {
-  width: 100%;
-  height: 40px;
+  width: 100vw;
+  height: 5vh;
   background: transparent; /* Ensure background is transparent */
   border: none;
   outline: none;
   font-size: 16px;
   color: #fff;
-  padding: 10px; /* Add padding for better appearance */
 }
 
-.input-field input:focus ~ label,
-.input-field input:valid ~ label {
-  font-size: 0.8rem;
-  top: 10px;
+.input-field input:focus ~ label, 
+.input-field input:valid ~ label,
+.input-field input:-webkit-autofill ~ label { /* needs the valid input to remain translated-Y */
+  font-size: 16px;
+  top: 2.5%;
   transform: translateY(-120%);
 }
 
@@ -83,30 +75,9 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 25px 0 35px 0;
+  margin: 5% 2.5% 5% 2.5%;
   color: #fff;
-}
-
-#remember {
-  accent-color: #fff;
-}
-
-.forget label {
-  display: flex;
-  align-items: center;
-}
-
-.forget label p {
-  margin-left: 8px;
-}
-
-.wrapper a {
-  color: #efefef;
-  text-decoration: none;
-}
-
-.wrapper a:hover {
-  text-decoration: underline;
+  font-size: 16.5px;
 }
 
 button {
@@ -116,10 +87,34 @@ button {
   border: none;
   padding: 12px 20px;
   cursor: pointer;
-  border-radius: 3px;
-  font-size: 16px;
+  border-radius: 25px;
+  font-size: 18px;
   border: 2px solid transparent;
   transition: 0.3s ease;
+}
+
+#remember {
+  accent-color: #fff;
+}
+
+.forget label {
+  display: flex;
+  align-items: center;
+  padding: 1%;
+}
+
+.forget a {
+  margin-top: -2.5%;
+  padding-left: 2.5%;
+}
+
+.wrapper a {
+  color: #efefef;
+  text-decoration: none;
+}
+
+.wrapper a:hover {
+  text-decoration: underline;
 }
 
 button:hover {
@@ -133,3 +128,31 @@ button:hover {
   margin-top: 30px;
   color: #fff;
 }
+
+.login {
+  padding: 2.5%;
+  color: black;
+  font-style: italic;
+}
+
+/* Remove the white background from autofilled inputs */
+.input-field input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px transparent inset !important; /* Ensures the background is transparent */
+  -webkit-text-fill-color: #fff !important;
+  border-bottom: none;
+  font-size: 16px;
+}
+
+/* Optional: Further customize the appearance of autofilled inputs */
+.input-field input:-webkit-autofill {
+  border-bottom: none;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: #fff;
+}
+
+/* Ensure proper text alignment and color in autofill */
+.input-field input:-webkit-autofill::first-line {
+  color: #ffffff !important;
+}
+

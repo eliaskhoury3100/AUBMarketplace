@@ -80,7 +80,6 @@ const LoginForm = () => {
   return (
     <div className="wrapper">
       <form onSubmit={handleSubmit}>
-        <h2>Login</h2>
         {error && <p style={{ color: 'red' }}>{error}</p>}
         <div className="input-field">
           <input
@@ -103,16 +102,6 @@ const LoginForm = () => {
           <label>Enter your password</label>
         </div>
         <div className="forget">
-          <label htmlFor="remember">
-            <input
-              type="checkbox"
-              id="remember"
-              name="remember"
-              checked={remember}
-              onChange={() => setRemember(!remember)}
-            />
-            <p>Remember me</p>
-          </label>
           <a href="/forgotpassword">Forgot password?</a>
         </div>
         <button type="submit" disabled={loading}>  {/* Disable the button while loading */}
