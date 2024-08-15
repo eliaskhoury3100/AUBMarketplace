@@ -7,6 +7,7 @@
     flex-direction: column;
     align-items: center;
     background-color: #FFF;
+    overflow: auto;
 }
 
 .topsection {

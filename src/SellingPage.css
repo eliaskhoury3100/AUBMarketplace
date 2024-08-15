@@ -17,6 +17,7 @@ body {
     height: 100vh;
     overflow: auto; /* Enable scrolling if content overflows */
     overflow-y: auto;
+    padding-bottom: 20%;
 }
 
 .topsection {
