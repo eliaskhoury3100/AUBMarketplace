@@ -157,6 +157,16 @@ body {
   justify-content: flex-start;
 }
 
+/* Apply styles directly to disabled textareas */
+textarea:disabled {
+  pointer-events: none; /* Reinforces no interaction */
+  cursor: default; /* Ensures default cursor is shown */
+  background-color: #f0f0f0; /* Indicates non-editable state visually */
+}
+
+
+
+
 .productcard1 {
   border-radius: 25px;
   overflow: hidden;

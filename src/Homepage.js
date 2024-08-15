@@ -76,12 +76,27 @@ const FilterPanel = ({ onClose, filters, setFilters }) => {
         boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
         fontFamily: 'Arial, sans-serif'
       }}>
-        <h2 style={{
-          marginBottom: '20px',
-          color: '#333',
-          fontSize: '1.5rem',
-          textAlign: 'center'
-        }}>Filter Products</h2>
+         <div style={{
+          display: 'flex', 
+          justifyContent: 'start', // Align items to start of the flex container
+          alignItems: 'center',
+          marginBottom: '20px'
+        }}>
+          <button onClick={onClose} style={{
+            marginRight: '10px', // Add some margin to separate from the title
+            background: 'transparent',
+            border: 'none',
+            color: 'gray',
+            cursor: 'pointer',
+            fontSize: '20px'
+          }}>
+            &#x2715; {/* Unicode character for "X" (close) */}
+          </button>
+          <h2 style={{
+            color: '#333',
+            fontSize: '1.5rem',
+          }}>Filter Products</h2>
+        </div>
         
         <div style={{ marginBottom: '15px' }}>
           <label style={{ fontSize: '1rem', color: '#555' }}>By Category:</label>

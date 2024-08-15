@@ -20,7 +20,10 @@ const ConversationPage = () => {
 
         if (response.ok) {
           const data = await response.json();
-          setConversations(data);
+          const filteredConversations = data.filter(conversation => 
+            !(conversation.ProductDetails && conversation.ProductDetails === "No product details found")
+          );
+          setConversations(filteredConversations);
           console.log("Conversations fetched successfully:", data);
         } else {
           throw new Error(`Failed to fetch conversations: ${response.status}`);
