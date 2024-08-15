@@ -43,6 +43,13 @@
     border-radius: 5px; /* Slightly rounds the corners */
   }
 
+  .last-updated {
+    font-size: 0.85rem;
+    color: gray;
+    margin-left: auto;  /* Pushes the element to the right */
+    white-space: nowrap;  /* Prevents text wrapping */
+}
+
 .logo img, .profile-pic {
     width: 40px;
     height: 40px;

@@ -36,6 +36,20 @@ const ConversationPage = () => {
     fetchConversations();
   }, []);
 
+  function formatDateOrTime(lastUpdated) {
+    const date = new Date(lastUpdated);
+    const today = new Date();
+    
+    const isToday = date.toDateString() === today.toDateString();
+    
+    if (isToday) {
+        return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // Show time if today
+    } else {
+        return date.toLocaleDateString(); // Show date if not today
+    }
+}
+
+
   const handleUserClick = (convoId, otherparticipant) => {
     const encodedConvoId = encodeURIComponent(convoId);
     const encodedOtherParticipant = (otherparticipant);
@@ -54,25 +68,29 @@ const ConversationPage = () => {
       
       <main className="messages-list">
       {conversations.map((conversation, index) => (
-  <div className="user-item" key={index} onClick={() => handleUserClick(conversation.ConversationID, conversation.OtherParticipant)}>
-     <img 
-      className="user-image" 
-      src={conversation.ProfilePictureURL ? conversation.ProfilePictureURL : 'fallback-image-url.jpg'} 
-      alt="User Profile"
-    />
-
-    <div className="user-info">
-    <div className="user-name">
-      {conversation.OtherParticipant.split("@")[0] ? conversation.OtherParticipant.split('@')[0] : 'Unknown User'}
-    </div>
-      {conversation.ProductDetails && (
-        <div className="product-info">
-          <span>$ {conversation.ProductDetails.Price}</span>
-          <div className="product-image" style={{ backgroundImage: `url(${conversation.ProductDetails.ImageUrl[0]})` }}></div>
-        </div>
-      )}
-    </div>
+      <div className="user-item" key={index} onClick={() => handleUserClick(conversation.ConversationID, conversation.OtherParticipant)}>
+      <img 
+          className="user-image" 
+          src={conversation.ProfilePictureURL ? conversation.ProfilePictureURL : 'fallback-image-url.jpg'} 
+          alt="User Profile"
+      />
+  
+      <div className="user-info">
+          <div className="user-name">
+              {conversation.OtherParticipant.split("@")[0] ? conversation.OtherParticipant.split('@')[0] : 'Unknown User'}
+          </div>
+          {conversation.ProductDetails && (
+              <div className="product-info">
+                  <span>$ {conversation.ProductDetails.Price}</span>
+                  <div className="product-image" style={{ backgroundImage: `url(${conversation.ProductDetails.ImageUrl[0]})` }}></div>
+              </div>
+          )}
+          <div className="last-updated">
+              {formatDateOrTime(conversation.LastUpdated)}
+          </div>
+      </div>
   </div>
+  
 ))}
 
       </main>
