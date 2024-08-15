@@ -543,7 +543,7 @@ const FilterPanel = ({ onClose, filters, setFilters }) => {
         <p>No products found!</p>
       ) : (
         products.map(product => (
-          <ProductCard key={product.ProductID} product={product} />
+          <ProductCard key={product.SK} product={product} />
         ))
         
       )}
