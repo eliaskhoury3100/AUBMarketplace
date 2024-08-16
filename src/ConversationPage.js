@@ -61,7 +61,7 @@ const ConversationPage = () => {
 
       <div className="topsection">
         <nav className="uppernav">
-          <h1>Conversations</h1>
+          <h1>Chats</h1>
         </nav>
       </div>
       

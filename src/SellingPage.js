@@ -225,7 +225,7 @@ const CategoriesPage = () => {
             className="remove-image">×</button>
         </div>
       )) : (
-        <p className="no-images-text">No images added yet.</p>
+        <p className="no-images-text">No images added yet. Add up to 6 images!</p>
       )}
     </div>
   );
@@ -242,15 +242,19 @@ const CategoriesPage = () => {
     const totalSteps = 4;
 
     return (
-      <div>
-        {step === 1 && (
-          <div>
-            <div className="form-group">
-              <label className="bold-label">Upload Images</label>
-              <button type="button" onClick={() => document.getElementById('fileUpload').click()} className="upload-trigger">+</button>
-              <input type="file" id="fileUpload" style={{ display: 'none' }} multiple onChange={handleFileChange} accept="image/*" />
-              {renderImagePreviews()}
-            </div>
+     <div>
+  {step === 1 && (
+   <div className="form-group">
+   <div className="upload-container">
+       <label className="boldlabelspecial">Upload Images</label>
+       <div className="vertical-line"></div> 
+       <button type="button" onClick={() => document.getElementById('fileUpload').click()} className="upload-trigger">+</button>
+       <input type="file" id="fileUpload" style={{ display: 'none' }} multiple onChange={handleFileChange} accept="image/*" />
+   </div>
+   <div className="image-preview-container">
+        {renderImagePreviews()}
+    </div>
+
             <div className="navigation-container">
     
     <button onClick={nextStep} className="next-button">
@@ -458,8 +462,8 @@ const CategoriesPage = () => {
     <div className="selling">
       <div className="topsection">
         <nav className="uppernav">
-          <img src="https://marketplacepictures.s3.eu-north-1.amazonaws.com/logo.png" alt="Logo" className="nav-logo" />
-          <h1>AUB MarketPlace</h1>
+         
+          <h1>Upload Product</h1>
         </nav>
       </div>
       
