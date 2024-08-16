@@ -1,88 +1,74 @@
 .full-page-container {
     width: 100vw;   /* Full viewport width */
     height: 100vh;  /* Full viewport height */
-    overflow: auto; /* Allows content to scroll if it exceeds the viewport */
+
     position: relative; /* Ensures positioning context for child elements */
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #FFF;
 
-    overflow: auto; /* Enable scrolling if content overflows */
     overflow-y: auto;
     overflow-x: hidden; /* remove horizontal scroll */
+
+    padding-bottom: 10%;
 }
 
 .topsection {
     background-image: linear-gradient(to bottom, #efcbd4, #ffffff);
     justify-content: flex-start;
-    min-height: 10vh;  
-    padding: 15px;
-    text-align: left; /* Center the welcome text and search bar */
+    text-align: left; 
     display: flex;
     flex-direction: column;
     justify-content: left;
-    margin-bottom: 7px;
     width: 100vw;
-  }
-.uppernav {
-    height: 10vh; /* 10% of the viewport height */
-    width: 100%;
-    padding: 15px 20px;
-    background-color: transparent;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  h1 {
-    font-family: 'Oswald', serif; /* Apply Montserrat to h1 */
-    font-weight: 700;
-    font-size: 28px;
-    color: black;
-  }
-  .nav-logo {
-    width: 40px; /* Set width equal to height to form a square */
-    height: 40px; /* Set height to make the logo a square */
-    margin-left: -10px; /* Adjust the value to push the logo to the left */
-    object-fit: contain; /* Ensures the logo fits within the square without being cropped */
-    border-radius: 5px; /* Slightly rounds the corners */
-  }
+}
 
 
 .upper-section {
-    width: 100%; /* Takes full width of the container */
-    height : 120px; /* Reserve 50px height, adjust as needed */
+    width: 100vw; /* Takes full width of the container */
+    height : 20vh; /* Reserve 50px height, adjust as needed */
     font-size: 4px; 
     display: flex;
     align-items: center; 
-    gap: 10px;
-    margin-left: 10px;
+    gap: 2.5%;
+    padding-bottom: 2.5%;
 }
 .profile-picture {
-    width: 8vh; /* Set the width of the picture */
-    height: 8vh; /* Set the height of the picture */
+    width: 5vh; /* Set the width of the picture */
+    height: 5vh; /* Set the height of the picture */
     border-radius: 25px; /* Makes the picture round */
     object-fit: cover; /* Ensures the image fits within the container without distortion */
     overflow: hidden; /* Ensures no overflow outside the round container */
     /*border: 2px solid #ccc; Optional: Adds a border around the picture */
     box-shadow: 2px 12px 10px rgba(0, 0, 0, 0.1);
   }
+  .upper-section p {
+    padding-left: 2.5%;
+  }
+  .back-arrow {
+    width: 5vw; /* Increase size for better visibility */
+    height: 7vh; 
+    margin: 1.5%;
+    border-radius: 25px;
+    cursor: pointer; /* Indicate that it is clickable */
+    background-color: transparent;
+    border: none;
+}
+
 
 .imageecarousel {
-    padding: 5%;
     width: 100vw; /* Full width of the container */
     height: 100vh;
-    overflow: auto; /* Keeps any overflowing parts of images from showing outside the carousel */
+    overflow: visible;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .producttimage {
-    width: 80vw; /* Ensures images are fully responsive within the carousel */
-    display: block; /* Removes any inline spacing */
-    max-height: 33vh; /* Adjusts the maximum height of the images */
-    height: 100vh; /* Height of the image, adjust if necessary */
+    width: 50vw; /* Ensures images are fully responsive within the carousel */
+    max-height: 50vh; /* Adjusts the maximum height of the images */
     object-fit: auto; /* Ensures the image covers the area without distortion */
     margin-bottom: 10px; /* Reduce or adjust as necessary to control spacing */
     border-radius: 25px;
@@ -116,9 +102,9 @@
 .producttinfo {
     width: 100%; /* Full width */
     text-align: left; /* Aligns the text to the left */
-    padding: 2.5%; /* Padding around the text for better spacing */
+    padding: 5%; /* Padding around the text for better spacing */
     background: #fff; /* Gives a background color for distinction */
-    font-size: 18px; /* Increased font size from default */
+    font-size: 20px; /* Increased font size from default */
     line-height: 1.6; /* Increases line height for better readability and spacing */
     letter-spacing: 0.5px; /* Slightly increases spacing between letters */
 }
@@ -157,7 +143,7 @@
     font-weight: bold;
     text-align: center;
     flex: 1;
-    margin: 5px; /* Increased margin between buttons */
+    margin: 2.5%; /* Increased margin between buttons */
     transition: background-color 3s, box-shadow 0.3s;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
 }
@@ -171,7 +157,7 @@
     font-weight: bold;
     text-align: center;
     flex: 1;
-    margin: 5px; /* Increased margin between buttons */
+    margin: 2.5%; /* Increased margin between buttons */
     transition: background-color 3s, box-shadow 0.3s;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
 }
@@ -185,7 +171,7 @@
     font-weight: bold;
     text-align: center;
     flex: 1;
-    margin: 5px; /* Increased margin between buttons */
+    margin: 2.5%; /* Increased margin between buttons */
     transition: background-color 3s, box-shadow 0.3s;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);     
 }

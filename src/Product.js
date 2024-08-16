@@ -129,15 +129,13 @@ const ProductDetail = () => {
         <div className="full-page-container">
             
             <div className="topsection">
-                <nav className="uppernav">
-                <img src="https://marketplacepictures.s3.eu-north-1.amazonaws.com/logo.png" alt="Logo" className="nav-logo" />
-                <h1>AUB MarketPlace</h1>
-                </nav>
-            </div>
-
-            <div className="upper-section" onClick={handleProfileRedirect}>
-            {profilePicture && <img src={profilePicture} alt="Profile Picture" className="profile-picture" />}
-            {username && <p className="username">{extractUsername(username)}</p>}
+                <div className="upper-section" onClick={handleProfileRedirect}>
+                    <button /*onClick={prevStep}*/ className="back-arrow">
+                    <i className="fas fa-arrow-left"></i>
+                    </button>
+                    {profilePicture && <img src={profilePicture} alt="Profile Picture" className="profile-picture" />}
+                    {username && <p className="username">{extractUsername(username)}</p>}
+                </div>
             </div>
             
             <div className="imageecarousel">
