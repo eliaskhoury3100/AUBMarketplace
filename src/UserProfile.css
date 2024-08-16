@@ -35,14 +35,15 @@ body {
 .profile-header-container {
   display: flex;
   align-items: center;
-  padding: 2.5%;
+  padding: 2%;
+  padding-top: 0.25%;
   overflow: visible;
 }
 .profile-image { 
   border-radius: 25px; /* Circular profile picture */
   width: 80px; /* Increased size */
   height: 80px;
-  box-shadow: 2px 10px 10px rgba(0, 0, 0, 0.2); /* Add shadow for better focus */
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3); /* Add shadow for better focus */
 }
 .profile-text {
   display: flex;
@@ -72,7 +73,8 @@ body {
   display: flex;
   flex-direction: column; /* Change to column for stacking elements */
   align-items: center;
-  margin-top: 2.5%;
+  margin-top: 12%;
+  padding-top: 2.5%;
 }
 .actions-container {
   display: flex;
@@ -90,6 +92,7 @@ body {
   text-align: center;
   flex: 1;
   margin: 5px; /* Increased margin between buttons */
+  box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.2);
 }
 .sign-out-button {
   background-color: #f1e4e7;
@@ -101,6 +104,7 @@ body {
   text-align: center;
   flex: 1;
   margin: 5px; /* Increased margin between buttons */
+  box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.2);
 }
 .delete-button {
   background-color: #f1e4e7;
@@ -112,6 +116,7 @@ body {
   text-align: center;
   flex: 1;
   margin: 5px; /* Increased margin between buttons */
+  box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -139,6 +144,7 @@ body {
   border: 1px solid #ccc; /* border of the rounded corners box */
   border-radius: 25px;
   background-color: #f2f2f2; /* Softer background */
+  box-shadow: 2px 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -151,12 +157,13 @@ body {
 
 .my-items-container {
   display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 2.5%;
-    overflow-y: auto;
-    justify-content: flex-start;
-    margin-top: 10%;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 2.5%;
+  overflow-y: auto;
+  justify-content: flex-start;
+  margin-top: 0.25%;
 }
 
 .productcard1 {
@@ -189,7 +196,6 @@ body {
   object-fit: cover;
   border-radius: 8px;
 } 
-
 
 
 .edit-form {
