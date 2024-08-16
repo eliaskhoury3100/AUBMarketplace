@@ -6,6 +6,42 @@ body {
     height: 100vh;
 }
 
+.topsection {
+    background-image: linear-gradient(to bottom, #efcbd4, #ffffff);
+    justify-content: flex-start;
+    min-height: 10vh;  
+    padding: 15px;
+    text-align: left; /* Center the welcome text and search bar */
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-bottom: 7px;
+    width: 100vw;
+  }
+.uppernav {
+    height: 10vh; /* 10% of the viewport height */
+    width: 100vw;
+    padding: 15px 20px;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  h1 {
+    font-family: 'Oswald', serif; /* Apply Montserrat to h1 */
+    font-weight: 700;
+    font-size: 28px;
+    color: black;
+  }
+  .nav-logo {
+    width: 40px; /* Set width equal to height to form a square */
+    height: 40px; /* Set height to make the logo a square */
+    margin-left: -10px; /* Adjust the value to push the logo to the left */
+    object-fit: contain; /* Ensures the logo fits within the square without being cropped */
+    border-radius: 5px; /* Slightly rounds the corners */
+  }
+
+
 a {
     text-decoration: none;
     display: inline-block;
@@ -21,15 +57,11 @@ a {
     background-color: #fff;
     width: 100vw; /* Set width to fit the screen width of 430px */
     height: 100vh;
-    max-width: 430px; /* Ensure it doesn’t exceed the screen width */
-   
-    padding: 20px;
-    border-radius: 0; /* Optional: set to 0 for full screen coverage without rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box; /* Include padding and border in element's width and height */
-    overflow: auto; /* Enable scrolling if content overflows */
+
     overflow-y: auto;
-    margin-top: 30px;
+    overflow-x: hidden;
+
+    padding-bottom: 20%;
 }
 
 
@@ -119,40 +151,3 @@ input[type="checkbox"] {
     opacity: 0.5; 
     cursor: not-allowed; 
   }
-  
-
-
-@media (min-width: 768px) {
-    .productcard {
-        width: calc(33.33% - 13.33px); 
-        height: 340px; 
-    }
-
-    .productimage {
-        height: 260px; 
-    }
-}
-
-/* Adjust for larger screens (desktops) */
-@media (min-width: 1024px) {
-    .productcard {
-        width: calc(25% - 15px); 
-        height: 380px; 
-    }
-
-    .productimage {
-        height: 300px; 
-    }
-}
-
-/* Adjust for extra-large screens */
-@media (min-width: 1440px) {
-    .productcard {
-        width: calc(20% - 16px); 
-        height: 380px; 
-    }
-
-    .productimage {
-        height: 320px; 
-    }
-}
