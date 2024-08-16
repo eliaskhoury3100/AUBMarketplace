@@ -130,8 +130,6 @@ body {
   color: #000;
   font-size: 16px;
   line-height: 1.5;
-  border-top: 1px solid #f1e4e7; /* Top border to separate sections */
-  border-bottom: 1px solid #f1e4e7; /* Bottom border for the line */
 }
 .aboutText {
   font-weight: bold;

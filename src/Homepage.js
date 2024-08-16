@@ -503,7 +503,7 @@ const FilterPanel = ({ onClose, filters, setFilters }) => {
         <img src="https://marketplacepictures.s3.eu-north-1.amazonaws.com/logo.png" alt="Logo" className="nav-logo" />
         <h1>AUB MarketPlace</h1>
         <Link to="/lostid" className="lost-ids">Lost IDs</Link>  {/* This will redirect to the Lost IDs page */}
-        </nav>
+      </nav>
         
         <form onSubmit={handleSearch} className="search-form">
             <div className="search-wrapper" style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
