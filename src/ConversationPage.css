@@ -11,19 +11,22 @@
     overflow: auto; /* Enable scrolling if content overflows */
     overflow-y: auto;
     overflow-x: hidden; /* remove horizontal scroll */
+    
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
 }
 
 .topsection {
     background-image: linear-gradient(to bottom, #efcbd4, #ffffff);
     justify-content: flex-start;
+    top: 0;
     min-height: 10vh;  
-    padding: 15px;
+    padding: 2.5%;
     text-align: left; /* Center the welcome text and search bar */
     display: flex;
     flex-direction: column;
     justify-content: left;
     margin-bottom: 7px;
-    width: 100vw;
   }
 .uppernav {
     height: 10vh; /* 10% of the viewport height */
