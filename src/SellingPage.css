@@ -39,12 +39,7 @@ body {
     justify-content: flex-start;
     align-items: center;
   }
-  h1 {
-    font-family: 'Oswald', serif; /* Apply Montserrat to h1 */
-    font-weight: 700;
-    font-size: 28px;
-    color: black;
-  }
+
   .nav-logo {
     width: 40px; /* Set width equal to height to form a square */
     height: 40px; /* Set height to make the logo a square */
@@ -66,6 +61,8 @@ body {
     padding: 2.5%;
     display: block;
 }
+
+
 
 .form-group:first-child {
     margin-top: 2.5%; /* Increase margin-top as needed */
@@ -95,36 +92,42 @@ body {
     vertical-align: middle;
 }
 
-/* Image Previews Container Styles */
 .image-previews-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px; /* Increased gap for equal spacing between images */
-   
-    overflow: hidden; /* Prevent container resizing by hiding overflow */
-    padding: 5px; /* Padding to prevent images from touching the container edges */
-    max-height: 50px; /* Limit height to prevent resizing */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 10px;
+  overflow: hidden;
+  padding: 10px;
+  justify-content: space-around; /* Even space around each item */
+  align-items: center;
+  align-content: center;
+  border: 2px solid #ccc; /* Adds a border around the container */
+  background-color: #f7f7f7; /* Light grey background for visibility */
+  border-radius: 8px; /* Optional: adds rounded corners */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds subtle shadow for depth */
 }
+
+
 form {
-   
         padding: 5px;
-    
-    
     margin-top: -30px;
 }
+
 .image-preview {
-    width: 40px; /* Width automatically adjusts to the content */
-    height: 40px; /* Set height to 40px */
-    position: relative;
-    border-radius: 4px;
-    overflow: hidden;
+  width: 80px; /* Increased width from 40px to 80px */
+  height: 80px; /* Increased height from 40px to 80px */
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 .image-preview img {
-    width: auto; /* Adjust width automatically to maintain aspect ratio */
-    height: 100%; /* Full height of the preview */
-    object-fit: cover; /* Cover to ensure images are not distorted */
+  width: auto; /* Keeps width automatic to maintain aspect ratio */
+  height: 100%; /* Full height of the preview */
+  object-fit: cover; /* Ensures images are not distorted */
 }
+
 
 .no-images-text {
     text-align: center; /* Center the text horizontally */
@@ -143,8 +146,8 @@ form {
     background-color: #fff;
     border: none;
     border-radius: 50%;
-    width: 12px; /* Appropriately sized for the small preview */
-    height: 12px; /* Keep height and width the same for a circle shape */
+    width: 18px; /* Appropriately sized for the small preview */
+    height: 18px; /* Keep height and width the same for a circle shape */
     color: #f00;
     font-weight: bold;
     cursor: pointer;
@@ -152,7 +155,7 @@ form {
     align-items: center;
     justify-content: center;
     padding: 0; /* Remove padding to fit the button inside the small area */
-    font-size: 10px; /* Adjust font size for visibility */
+    font-size: 15px; /* Adjust font size for visibility */
 }
 
 .post-button {
@@ -249,3 +252,40 @@ input[type="checkbox"] {
   margin-left: auto; /* Center the progress bar */
   margin-right: auto;
 }
+
+
+.form-group {
+  margin-bottom: 20px; /* Provides spacing from one form group to another */
+}
+
+.bold-label {
+  display: block; /* Ensures the label takes the full width */
+  margin-bottom: 10px; /* Space between label and input */
+  font-weight: bold; /* Makes label text bold */
+}
+
+.upload-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Positions the plus button to the right */
+  padding: 10px;
+
+  
+
+}
+
+.upload-trigger {
+  background-color: rgb(61, 61, 61);
+  color: white; /* White text color */
+  border: none;
+  padding: 8px 16px;
+  border-radius: 50%; /* Makes the button round */
+  font-size: 24px; /* Increases the font size for visibility */
+  cursor: pointer; /* Changes cursor to pointer to indicate it's clickable */
+  
+}
+
+.upload-trigger:hover {
+  background-color: rgb(61, 61, 61);
+}
+

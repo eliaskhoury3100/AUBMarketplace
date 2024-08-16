@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import './IDPage.css';
+import { Link } from 'react-router-dom'; 
 function LostIDsPage() {
     const [name, setName] = useState('');
     const [initials, setInitials] = useState('');
@@ -52,10 +53,19 @@ function LostIDsPage() {
     };
 
     return (
-        <div className="selling">
-            <a href="#" className="previous round">&#8249;</a>
-            <h2>Welcome to the Lost IDs Page!</h2>
-            <p>Found a lost ID? Add the name found on the ID, your phone number (Optional) and a description of where the ID will be dropped. We will send an email to all users who match these initials. We’ll find them and let them contact you!</p>
+    <div className="selling1">
+  <nav className="uppernav1">
+    <div className="navitem">
+      <Link to="/homepage" className="back-link">
+        <i className="fas fa-arrow-left back-icon"></i>
+      </Link>
+    </div>
+    <h1 className="nav-title">Report a Lost ID</h1>
+  </nav>
+
+
+        
+<p class="page-description">Found a lost ID? Fill the form below.We'll find the owner and let them contact you!</p>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="name">Full Name</label>
@@ -86,7 +96,7 @@ function LostIDsPage() {
                     <textarea
                         id="comments"
                         name="comments"
-                        placeholder="Add any additional comments here"
+                        placeholder="Will the ID be dropped or kept with you?..."
                         value={comments}
                         onChange={(e) => setComments(e.target.value)}
                     />

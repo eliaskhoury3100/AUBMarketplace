@@ -499,11 +499,22 @@ const FilterPanel = ({ onClose, filters, setFilters }) => {
     <div class="homecontainer">
       <div className="topsection">
         
-       <nav className="uppernav">
-        <img src="https://marketplacepictures.s3.eu-north-1.amazonaws.com/logo.png" alt="Logo" className="nav-logo" />
-        <h1>AUB MarketPlace</h1>
-        <Link to="/lostid" className="lost-ids">Lost IDs</Link>  {/* This will redirect to the Lost IDs page */}
-      </nav>
+       
+      <nav className="uppernav">
+  <img src="https://marketplacepictures.s3.eu-north-1.amazonaws.com/logo.png" alt="Logo" className="nav-logo" />
+  <h1>AUB MarketPlace</h1>
+  <Link to="/lostid" className="lost-ids">
+    <div className="lost-ids-content">
+      <img 
+        src="https://marketplacepictures.s3.eu-north-1.amazonaws.com/image+(1).png" 
+        alt="Lost IDs" 
+        style={{ width: '40px', height: '40px' }} 
+      />
+      <p className="subtitle">Report Lost IDs</p>
+    </div>
+  </Link>
+</nav>
+
         
         <form onSubmit={handleSearch} className="search-form">
             <div className="search-wrapper" style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
@@ -526,6 +537,7 @@ const FilterPanel = ({ onClose, filters, setFilters }) => {
               transform: 'translateY(-50%)',
               border: 'none',
               background: 'transparent',
+              fontSize: '12px', // Decrease the font size
               color: 'gray',
               cursor: 'pointer',
               outline: 'none'

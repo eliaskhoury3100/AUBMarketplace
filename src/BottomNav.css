@@ -12,7 +12,7 @@
     margin: 0 auto;
     width: 90%; /* for floating effect; not connected to the borders of the screen */
     background-color: #ffffff; /* Light background for better contrast */
-    padding: 5% 0%;
+    padding: 4% 0%;
     z-index: 1;
     border-radius: 25px; /* Rounded Corners */
     box-shadow: 2px 12px 10px rgba(0, 0, 0, 0.2); /* add box shadow effect */ /* horizontal vertical blur color(x, y, z, q => color and transparancy of shadow) */
@@ -23,6 +23,7 @@
     text-align: center;
     text-decoration: none;
     color: #cacfd0; /* Default icon color */
+    padding: 0 10px;
 }
 
 .nav-item i {
