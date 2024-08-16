@@ -53,6 +53,14 @@ function LostIDsPage() {
 
     return (
         <div className="selling">
+
+             <div className="topsection">      
+                <nav className="uppernav">
+                    <img src="https://marketplacepictures.s3.eu-north-1.amazonaws.com/logo.png" alt="Logo" className="nav-logo" />
+                    <h1>AUB MarketPlace</h1>
+                </nav>
+            </div>
+
             <a href="#" className="previous round">&#8249;</a>
             <h2>Welcome to the Lost IDs Page!</h2>
             <p>Found a lost ID? Add the name found on the ID, your phone number (Optional) and a description of where the ID will be dropped. We will send an email to all users who match these initials. We’ll find them and let them contact you!</p>

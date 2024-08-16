@@ -8,7 +8,6 @@ import ResetPasswordForm from './ResetpasswordForm';
 import CategoriesPage from './SellingPage';
 import UserProfile from './UserProfile';
 import BottomNav from './BottomNav'; // Assume you have a BottomNav component
-import UpperNav from './UpperNav';
 import HomePage from './Homepage'
 import ProductDetail from './Product';
 import MessagingPage from './MessagingPage'
@@ -35,7 +34,7 @@ const App = () => {
           <Route path="/userprofile/:sub" element={<><UserProfile /><BottomNav /></>} />
           <Route path="/messages" element={<><MessagingPage /><BottomNav /></>} />
           <Route path="/conversations" element={<><ConversationPage /><BottomNav /></>} />
-          <Route path="/lostid" element={<><LostIDsPage /><UpperNav/><BottomNav/></>} />
+          <Route path="/lostid" element={<><LostIDsPage /><BottomNav/></>} />
           {/* Redirect base URL to either login or another part of the app based on condition */}
           <Route path="/" element={<Navigate replace to="/login" />} />
         </Routes>
