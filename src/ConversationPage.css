@@ -11,6 +11,8 @@
     overflow: auto; /* Enable scrolling if content overflows */
     overflow-y: auto;
     overflow-x: hidden; /* remove horizontal scroll */
+    border-top-left-radius: 0; /* Remove top-left border radius */
+    border-top-right-radius: 0; 
     
     border-top-right-radius: 0;
     border-top-left-radius: 0;
