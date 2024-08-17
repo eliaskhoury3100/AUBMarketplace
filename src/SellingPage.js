@@ -37,45 +37,44 @@ const CategoriesPage = () => {
   const renderSuggestedCategories = () => {
     if (suggestedCategories.length > 0) {
       return (
-        <div className="suggested-categories"style={{marginBottom: '20px', 
-            padding: '10px', 
-           
-            borderRadius: '10px', 
-            backgroundColor: '#ffffff' // Setcontainerbackgroundtowhite
-          }}
-        >
+        <div className="suggested-categories" style={{marginBottom: '20px', padding: '10px', borderRadius: '10px', backgroundColor: '#ffffff'}}>
           <formspecial>
             {suggestedCategories.map((category, index) => (
-              <div key={index}style={{marginBottom: '10px' }}><button
+              <div key={index} style={{marginBottom: '10px'}}>
+                <button
                   type="button"
-                  onClick={() => handleCategorySelection(category)} // This function will handle the button click
+                  onClick={() => handleCategorySelection(category)}  // Pass category directly
                   style={{ 
-                    width: '100%', // Make button take full width
+                    width: '100%', 
                     padding: '10px 20px', 
                     fontSize: '16px', 
                     color: '#333', 
                     backgroundColor: '#f1f1f1', 
                     border: '1px solid #ccc', 
-                    borderRadius: '25px', // Make button borders rounded
+                    borderRadius: '25px', 
                     cursor: 'pointer'
                   }}
                 >
                   {category}
-                </button></div>
+                </button>
+              </div>
             ))}
             <p style={{ fontSize: '12px', color: '#777', marginTop: '10px', textAlign: 'left', fontStyle: 'italic' }}>
-            Not quite the correct? Pick from the list below
-        </p>
-          </formspecial></div>
+              Not quite correct? Pick from the list below
+            </p>
+          </formspecial>
+        </div>
       );
     }
     return null;
   };
   
 
-  const handleCategorySelection = (event) => {
-    const { value, checked } = event.target;
-    // Implement logic to manage the selection state, e.g., adding/removing categories from a selection array
+  const handleCategorySelection = (category) => {
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      category: category
+    }));
   };
   
   const ProgressBar = ({ step, totalSteps }) => {
