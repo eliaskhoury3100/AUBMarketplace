@@ -363,35 +363,32 @@ const UserProfile = () => {
         </div>
       )}
 
-<div className="about-section">
-  <div className="aboutText">
-    {isOwnProfile ? 'About You' : `About ${nickname || username}`}
-  </div>
-  <textarea
-    className="about-input"
-    placeholder={isOwnProfile ? "Tell us about yourself..." : `About ${nickname || username}`}
-    value={aboutText}
-    onChange={(e) => setAboutText(e.target.value)}
-    disabled={!isEditing || !isOwnProfile} // This properly controls the editability and cursor
-  ></textarea>
-</div>
-
-
-
-
-      <div className="my-items">
-        {isOwnProfile ? 'My Items' : `${nickname || username}'s Items`}
-      </div>
-      <div className="my-items-container">
-        {products.length > 0 ? (
-          products.map((product) => <ProductCard key={product.SK} product={product} />)
-        ) : (
-          <p>
-            No products found. <a href="/uploadproduct" style={{ color: 'blue', textDecoration: 'underline' }}>Add some items!</a>
-          </p>
-        )}
-      </div>
+<div className={`about-section ${isOwnProfile ? '' : 'raised'}`}>
+    <div className="aboutText">
+      {isOwnProfile ? 'About You' : `About ${nickname || username}`}
     </div>
+    <textarea
+      className={`about-input ${isOwnProfile ? '' : 'raised'}`}
+      placeholder={isOwnProfile ? "Tell us about yourself..." : `About ${nickname || username}...`}
+      value={aboutText}
+      onChange={(e) => setAboutText(e.target.value)}
+      disabled={!isEditing || !isOwnProfile}
+    ></textarea>
+  </div>
+
+  <div className={`my-items ${isOwnProfile ? '' : 'raised'}`}>
+    {isOwnProfile ? 'My Items' : `${nickname || username}'s Items`}
+  </div>
+  <div className={`my-items-container ${isOwnProfile ? '' : 'raised'}`}>
+    {products.length > 0 ? (
+      products.map((product) => <ProductCard key={product.SK} product={product} />)
+    ) : (
+      <p>
+        No products found. <a href="/uploadproduct" style={{ color: 'blue', textDecoration: 'underline' }}>Add some items!</a>
+      </p>
+    )}
+  </div>
+</div>
   );
 };
 

@@ -160,8 +160,11 @@ const ProductDetail = () => {
           <i className="fas fa-arrow-left"></i>
         </button>
       </Link>
-                    {profilePicture && <img src={profilePicture} alt="Profile Picture" className="profile-picture" />}
-                    {username && <p className="username">{extractUsername(username)}</p>}
+         <Link to={`/userprofile/${product[0].UserID}`} className="profile-link">
+      {profilePicture && <img src={profilePicture} alt="Profile Picture" className="profile-picture" />}
+      </Link>
+      {username && <p className="username">{extractUsername(username)}</p>}
+   
                 </div>
             </div>
             

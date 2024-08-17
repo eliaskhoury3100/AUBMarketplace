@@ -210,6 +210,9 @@ const CategoriesPage = () => {
         setSelectedFiles([]);
         setMessage('Product uploaded successfully!');
         setSuggestedCategories([]);  // Reset suggested categories here
+          setTimeout(() => {
+        setStep(0);  // Go back to step 0 after a delay
+    }, 3000);
       } else {
         throw new Error(result.message || 'Failed to upload product due to server error');
       }
@@ -217,7 +220,7 @@ const CategoriesPage = () => {
       setTimeout(() => {
         setIsSubmitting(false);
         setMessage('');
-      }, 10000);
+      }, 4000);
     } catch (error) {
       console.error('Error uploading product:', error);
       setMessage(error.message || 'Failed to upload product');
@@ -372,7 +375,7 @@ const CategoriesPage = () => {
           <option value="Computers & Computer Parts">Computers & Computer Parts</option>
           <option value="Gaming Consoles & Video Games">Gaming Consoles & Video Games</option>
           <option value="TV">TV</option>
-          <option value="Speakers">Speakers</option>
+          <option value="Sound Systems & Accessories">Sound Systems & Accessories</option>
           <option value="Cameras">Cameras</option>
         </optgroup>
         <optgroup label="Fashion">
@@ -380,6 +383,7 @@ const CategoriesPage = () => {
           <option value="Accessories for Men">Accessories for Men</option>
           <option value="Clothing for Women">Clothing for Women</option>
           <option value="Accessories for Women">Accessories for Women</option>
+          <option value="Beauty & Personal Care">Beauty & Personal Care</option>
           <option value="Makeup and Cosmetics">Makeup and Cosmetics</option>
           <option value="Jewelry">Jewelry</option>
           <option value="Watches">Watches</option>
@@ -389,12 +393,14 @@ const CategoriesPage = () => {
           <option value="Sports Wear for Men">Sports Wear for Men</option>
           <option value="Sports Wear for Women">Sports Wear for Women</option>
           <option value="Sports Equipment">Sports Equipment</option>
+          <option value="Outdoor & Adventure Gear">Sports Equipment</option>
         </optgroup>
         <optgroup label="Entertainment & Hobbies">
           <option value="Musical Instruments & Gear">Musical Instruments & Gear</option>
-          <option value="Books">Books</option>
+          <option value="Books & Accessories">Books & Accessories</option>
           <option value="Music & Movies">Music & Movies</option>
           <option value="Stationery">Stationery</option>
+          <option value="Travel Accessories">Travel Accessories</option>
         </optgroup>
       </select>
     </div>
@@ -420,7 +426,7 @@ const CategoriesPage = () => {
     )}
 
     {/* Warranty field for Electronics categories */}
-    {["Mobile Phones & Accessories", "Laptops & Tablets", "Computers & Computer Parts", "Gaming Consoles & Video Games", "TV", "Speakers", "Cameras"].includes(formData.category) && (
+    {["Mobile Phones & Accessories", "Laptops & Tablets", "Computers & Computer Parts", "Gaming Consoles & Video Games", "TV", "Sound Systems & Accessories", "Cameras"].includes(formData.category) && (
       <div className="form-group">
         <label htmlFor="warranty">Warranty</label>
         <select 

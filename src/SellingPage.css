@@ -228,7 +228,7 @@ input[type="checkbox"] {
         font-size: 18px;
         font-weight: bold;
         position: absolute;
-      
+        bottom: 0;
         left: 0;
         right: 0;
         text-align: center; /* Center the message horizontally */
@@ -249,22 +249,6 @@ input[type="checkbox"] {
         margin-bottom: 60%;
 }
 
-.message-success,
-.message-error {
-    font-size: 18px;
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-    right: 0;
-    text-align: center; /* Center the message horizontally */
-    margin-bottom: 60%;
-    opacity: 1; /* Start fully visible */
-    transition: opacity 2s ease-in-out; /* 2 seconds fade-out transition */
-}
-
-.message-hidden {
-    opacity: 0; /* Fully transparent */
-}
 
 
 /* Styling for the previous and next buttons */
