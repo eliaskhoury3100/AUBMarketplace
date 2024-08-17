@@ -3,296 +3,332 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Raleway", sans-serif;
+  font-family: "Raleway", sans-serif; /* Default font for the page */
 }
 
-
-.user-profile-container { /* container of the entire page content */
+/* Container for the entire user profile page content */
+.user-profile-container { 
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Stack elements vertically */
   height: 100vh;
   width: 100vw;
   overflow: auto; /* Enable scrolling if content overflows */
   overflow-y: auto;
-  padding-bottom: 20%;
+  padding-bottom: 20%; /* Add extra space at the bottom */
 }
 
-
-.top-section { /* gradient of top of the page */
-  background-image: linear-gradient(to bottom, #efcbd4, #ffffff);
+/* Top section with gradient background */
+.top-section { 
+  background-image: linear-gradient(to bottom, #efcbd4, #ffffff); /* Gradient from pink to white */
   justify-content: flex-start;
   top: 0;
   min-height: 10vh;  
-  padding: 25px;
-  text-align: left; /* Center the welcome text and search bar */
+  padding: 25px; /* Padding around the content */
+  text-align: left; /* Align text to the left */
   display: flex;
-  flex-direction: column;
-  justify-content: left;
-  overflow: visible;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: left; /* Align content to the left */
+  overflow: visible; /* Ensure all content is visible */
 }
 
-
+/* Profile header container */
 .profile-header-container {
   display: flex;
-  align-items: center;
-  padding: 2%;
-  padding-top: 0.25%;
-  overflow: visible;
+  align-items: center; /* Center content vertically */
+  padding: 2%; /* Padding around the container */
+  padding-top: 0.25%; /* Slightly less padding on top */
+  overflow: visible; /* Ensure all content is visible */
 }
+
+/* Profile image styling */
 .profile-image { 
-  border-radius: 25px; /* Circular profile picture */
-  width: 80px; /* Increased size */
+  border-radius: 25px; /* Rounded corners for the profile picture */
+  width: 80px; /* Set the size of the profile image */
   height: 80px;
-  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3); /* Add shadow for better focus */
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3); /* Add shadow for emphasis */
 }
+
+/* Container for profile text (username, nickname, etc.) */
 .profile-text {
   display: flex;
-  flex-direction: column;
-  padding-left: 10%; /* move profile text (username, nickname) to the right */
+  flex-direction: column; /* Stack text vertically */
+  padding-left: 10%; /* Move text to the right */
 }
+
+/* Styling for the username */
 .username { 
   font-size: 28px;
   font-weight: bold;
-  color: #000000
+  color: #000000; /* Black text color */
 }
+
+/* Styling for the nickname */
 .nickname {
   font-size: 18px;
   font-weight: bold; 
-  font-style: oblique 15deg;
-  color: grey;
+  font-style: oblique 15deg; /* Slightly italicized */
+  color: grey; /* Gray text color */
 }
+
+/* Styling for the major (academic field) */
 .major { 
   font-size: 14px;
   font-weight: bold; 
-  font-style: oblique 15deg;
-  color: grey;
+  font-style: oblique 15deg; /* Slightly italicized */
+  color: grey; /* Gray text color */
 }
 
+/* Section for editing profile information */
 .edit-section {
-  background-color: #ffffff;
+  background-color: #ffffff; /* White background */
   display: flex;
-  flex-direction: column; /* Change to column for stacking elements */
-  align-items: center;
-  margin-top: 12%;
-  padding-top: 2.5%;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center content horizontally */
+  margin-top: 12%; /* Space above the section */
+  padding-top: 2.5%; /* Padding on top */
 }
+
+/* Container for the action buttons (Edit, Sign Out, Delete) */
 .actions-container {
   display: flex;
-  justify-content: space-between;
-  width: 100%; /* Adjust the width as needed */
-  margin-bottom: 20px; /* Add some margin to the bottom */
+  justify-content: space-between; /* Space between buttons */
+  width: 100%; /* Full width of the container */
+  margin-bottom: 20px; /* Space below the container */
 }
-.action-button { /* EDIT BUTTON */
-  background-color: #f1e4e7;
-  color: #000;
-  border-radius: 25px;
-  cursor: grab;
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-  flex: 1;
-  margin: 5px; /* Increased margin between buttons */
-  box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.2);
+
+/* Styling for the action buttons (Edit, Sign Out, Delete) */
+.action-button { /* General styling for all action buttons */
+  background-color: #f1e4e7; /* Light pink background */
+  color: #000; /* Black text color */
+  border-radius: 25px; /* Rounded corners */
+  cursor: grab; /* Grab cursor on hover */
+  font-size: 18px; /* Font size */
+  font-weight: bold; /* Bold text */
+  text-align: center; /* Center text within the button */
+  flex: 1; /* Flex to make buttons equal in size */
+  margin: 5px; /* Space between buttons */
+  box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.2); /* Add shadow for emphasis */
 }
+
+/* Specific styling for the Sign Out button */
 .sign-out-button {
-  background-color: #f1e4e7;
-  color: #000;
-  border-radius: 25px;
-  cursor: wait;
+  background-color: #f1e4e7; /* Same background as other action buttons */
+  color: #000; /* Black text color */
+  border-radius: 25px; /* Rounded corners */
+  cursor: wait; /* Wait cursor on hover */
   font-size: 18px;
   font-weight: bold;
   text-align: center;
   flex: 1;
-  margin: 5px; /* Increased margin between buttons */
-  box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.2);
+  margin: 5px; /* Space between buttons */
+  box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.2); /* Add shadow for emphasis */
 }
+
+/* Specific styling for the Delete button */
 .delete-button {
-  background-color: #f1e4e7;
-  color: #000;
-  border-radius: 25px;
-  cursor: wait;
+  background-color: #f1e4e7; /* Same background as other action buttons */
+  color: #000; /* Black text color */
+  border-radius: 25px; /* Rounded corners */
+  cursor: wait; /* Wait cursor on hover */
   font-size: 18px;
   font-weight: bold;
   text-align: center;
   flex: 1;
-  margin: 5px; /* Increased margin between buttons */
-  box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.2);
+  margin: 5px; /* Space between buttons */
+  box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.2); /* Add shadow for emphasis */
 }
 
-
+/* About section containing user details */
 .about-section {
-  background-color: #ffffff;
+  background-color: #ffffff; /* White background */
   display: flex;
-  flex-direction: column; /* Change to column for stacking elements */
-  padding: 2.5%; /* padding from the sides of the screen mainly */
-  justify-content: center; /* Center contents vertically */
-  text-align: left;
-  color: #000;
-  font-size: 16px;
-  line-height: 1.5;
+  flex-direction: column; /* Stack elements vertically */
+  padding: 2.5%; /* Padding inside the section */
+  justify-content: center; /* Center content vertically */
+  text-align: left; /* Align text to the left */
+  color: #000; /* Black text color */
+  font-size: 16px; /* Font size */
+  line-height: 1.5; /* Line height for readability */
 }
+
+/* Styling for the "About You" text */
 .aboutText {
   font-weight: bold;
-  font-size: 26px;
-  padding: 2.5%
+  font-size: 26px; /* Large font size */
+  padding: 2.5%; /* Padding around the text */
 }
+
+/* Input styling within the about section */
 .about-input {
-  padding: 2.5%;
-  font-size: 16px;
-  border: 1px solid #ccc; /* border of the rounded corners box */
-  border-radius: 25px;
-  background-color: #f2f2f2; /* Softer background */
-  box-shadow: 2px 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 2.5%; /* Padding inside the input */
+  font-size: 16px; /* Font size */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 25px; /* Rounded corners */
+  background-color: #f2f2f2; /* Soft gray background */
+  box-shadow: 2px 6px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-
-.my-items { /* My Items title */
+/* Styling for the "My Items" title */
+.my-items { 
   font-weight: bold;
-  font-size: 26px;
-  padding: 5% 5% 0% 5% /* for parallelism with "About You" section | 2.5% padding + 2.5% .about-section padding */
+  font-size: 26px; /* Large font size */
+  padding: 5% 5% 0% 5%; /* Padding around the title */
 }
 
-
+/* Container for displaying user's items */
 .my-items-container {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  padding: 2.5%;
-  justify-content: flex-start;
-  margin-top: 0.25%;
+  flex-wrap: wrap; /* Wrap items to the next line if necessary */
+  align-items: center; /* Center items vertically */
+  gap: 10px; /* Space between items */
+  padding: 2.5%; /* Padding inside the container */
+  justify-content: flex-start; /* Align items to the left */
+  margin-top: 0.25%; /* Slight space above the container */
 }
 
+/* Styling for individual product cards */
 .productcard1 {
-  border-radius: 25px;
-  overflow: hidden;
-  box-shadow: 2px 12px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 25px; /* Rounded corners */
+  overflow: hidden; /* Hide overflow content */
+  box-shadow: 2px 12px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  gap: 10px;
-  padding: 2.5%;
-  height: 35vh; /* Increased card height */
-  width: 45vw; /* Default: two cards per row */
+  flex-direction: column; /* Stack elements vertically */
+  background-color: #fff; /* White background */
+  gap: 10px; /* Space between elements */
+  padding: 2.5%; /* Padding inside the card */
+  height: 35vh; /* Set card height */
+  width: 45vw; /* Two cards per row by default */
 }
+
+/* Carousel for displaying product images */
 .imagecarousel1 {
   display: flex;
-  padding: 0;
-  align-items: center; 
-  justify-content: center;
+  padding: 0; /* No padding */
+  align-items: center; /* Center images vertically */
+  justify-content: center; /* Center images horizontally */
 }
+
+/* Styling for product information within the card */
 .productinfo1 {
-  margin-left: 7px;
-  text-align: center;
-  height: 10px;
-  text-align: left;
+  margin-left: 7px; /* Space to the left */
+  text-align: center; /* Center align text */
+  height: 10px; /* Set height */
+  text-align: left; /* Align text to the left */
 }
-.productimage { /* see in HomePage where this div is added? la tzida hone tzabit 7ajem lsoura*/
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  border-radius: 8px;
-} 
 
+/* Styling for product images */
+.productimage { 
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  object-fit: cover; /* Ensure image covers the container */
+  border-radius: 8px; /* Rounded corners */
+}
 
+/* Styling for the edit form */
 .edit-form {
-  width: 100%;
-  padding: 20px;
+  width: 100%; /* Full width */
+  padding: 20px; /* Padding around the form */
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Stack form elements vertically */
 }
 
+/* Input and upload button styling within the edit form */
 .edit-form input, .upload-button {
-  margin-bottom: 10px;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-sizing: border-box;
+  margin-bottom: 10px; /* Space below each element */
+  padding: 10px; /* Padding inside elements */
+  font-size: 16px; /* Font size */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 10px; /* Rounded corners */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
   background-color: #ffffff; /* White background */
-  color: #000; /* Black text */
+  color: #000; /* Black text color */
 }
 
+/* Styling for the upload button */
 .upload-button {
-  cursor: pointer; /* Indicates that the element is clickable */
-  text-align: center;
-  Color: black;
+  cursor: pointer; /* Pointer cursor on hover */
+  text-align: center; /* Center text */
+  color: black; /* Black text color */
 }
 
+/* Styling for the plus icon within the upload button */
 .upload-button .plus-icon {
   color: #000; /* Black color for the plus icon */
   margin-left: 5px; /* Space between text and icon */
 }
 
+/* Focus and active state for the upload button */
 .upload-button:focus, .upload-button:active {
-  background-color: #ffffff; /* Ensure background stays white */
-  color: #000; /* Ensure text stays black */
+  background-color: #ffffff; /* White background */
+  color: #000; /* Black text color */
   border: 1px solid #ccc; /* Keep the border the same */
 }
 
+/* Hover state for the upload button */
 .upload-button:hover {
   background-color: #e7e7e7; /* Slightly darker background on hover */
 }
 
+/* Message displayed when there are no items */
 .no-items-message {
-  margin-top: 10px;
-  font-size: 14px;
-  color: grey;
+  margin-top: 10px; /* Space above the message */
+  font-size: 14px; /* Font size */
+  color: grey; /* Gray text color */
 }
 
-.nickname {
-  font-size: 18px;
-  color: grey;
-}
-
+/* Styling for links within the no-items message */
 .no-items-message a {
-  color: black;
-  text-decoration: underline;
+  color: black; /* Black text color */
+  text-decoration: underline; /* Underlined text */
 }
 
+/* Styling for individual product images */
 .product-image {
-  max-width: 100%;
-  height: 90px;
-  flex-shrink: 0;
-  display: block;
-  
-
+  max-width: 100%; /* Full width */
+  height: 90px; /* Set height */
+  flex-shrink: 0; /* Prevent shrinking */
+  display: block; /* Display as block element */
 }
 
+/* Styling for product information headings */
 .product-info h3 {
-  margin: 0;
-  font-size: 1.2em;
-  color: #333;
+  margin: 0; /* No margin */
+  font-size: 1.2em; /* Font size */
+  color: #333; /* Dark gray color */
 }
 
+/* Styling for product information paragraphs */
 .product-info p {
-  font-size: 1em;
-  color: #666;
-  margin: 5px 0 0;
+  font-size: 1em; /* Font size */
+  color: #666; /* Medium gray color */
+  margin: 5px 0 0; /* Margin at the top */
 }
 
+/* Carousel indicators for product images */
 .carousel-indicators {
   display: flex;
-  justify-content: center;
-  padding: 10px;
+  justify-content: center; /* Center indicators horizontally */
+  padding: 10px; /* Padding around indicators */
 }
 
+/* Individual dot styling for the carousel indicators */
 .dot {
-  cursor: pointer;
-  height: 10px;
-  width: 10px;
-  margin: 0 5px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+  cursor: pointer; /* Pointer cursor on hover */
+  height: 10px; /* Dot height */
+  width: 10px; /* Dot width */
+  margin: 0 5px; /* Space between dots */
+  background-color: #bbb; /* Default dot color */
+  border-radius: 50%; /* Circular dots */
+  display: inline-block; /* Display as inline block */
+  transition: background-color 0.6s ease; /* Smooth transition for color change */
 }
 
+/* Active state for the dots */
 .dot.active {
   background-color: #717171; /* Active dot color */
 }
 
-/* Add hover effect for dots */
+/* Hover effect for the dots */
 .dot:hover {
-  background-color: #555;
+  background-color: #555; /* Darker background on hover */
 }
