@@ -1,165 +1,181 @@
+/* Importing Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;700&display=swap');
 
-
+/* Apply box-sizing and set default font for all elements */
 * {
-  box-sizing: border-box;
-  font-family: "Raleway", sans-serif;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  font-family: "Raleway", sans-serif; /* Set default font */
 }
 
+/* Set height and width of the viewport, and center content both horizontally and vertically */
 html, body {
-  height: 100vh; /* Ensures the full height of the viewport */
-  width: 100vw; /* Ensures the full width of the viewport */
-  display: flex; /* Enables flexbox */
-  align-items: center; /* Centers children vertically */
-  justify-content: center; /* Centers children horizontally */
-  position: relative; /* Necessary for absolute positioning inside */
-  overflow: hidden;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  display: flex; /* Enable flexbox layout */
+  align-items: center; /* Center children vertically */
+  justify-content: center; /* Center children horizontally */
+  position: relative; /* Set position relative for absolute positioning inside */
+  overflow: hidden; /* Hide overflow to prevent scrolling */
 }
 
-
+/* Styling for the main wrapper/container */
 .wrapper {
-  width: 90vw;
-  border-radius: 25px;
-  padding: 15% 5% 2.5%;
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.5); /* border of the "glass" box */
-  backdrop-filter: blur(9px); /* creates glass morphism effect */
-  -webkit-backdrop-filter: blur(9px); /* ???? */
-  position: relative;
-  z-index: 1; /* show it on the background - higher layer */
-  /* No need to set left and top here because flexbox takes care of centering */
+  width: 90vw; /* 90% of the viewport width */
+  border-radius: 25px; /* Rounded corners */
+  padding: 15% 5% 2.5%; /* Padding inside the wrapper */
+  text-align: center; /* Center text */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Semi-transparent border */
+  backdrop-filter: blur(9px); /* Apply a blur effect to create a glassmorphism effect */
+  -webkit-backdrop-filter: blur(9px); /* Apply blur effect for WebKit browsers */
+  position: relative; /* Position relative for layering */
+  z-index: 1; /* Ensure it appears above the background */
 }
 
-
+/* Form styling */
 form {
-  display: flex;
-  flex-direction: column;
-  border-radius: 25px;
+  display: flex; /* Enable flexbox layout */
+  flex-direction: column; /* Stack form elements vertically */
+  border-radius: 25px; /* Rounded corners */
 }
 
+/* Styling for input fields within the form */
 .input-field {
-  position: relative;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-  margin: 5% 0% 5%;
+  position: relative; /* Position relative for label positioning */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* Semi-transparent bottom border */
+  margin: 5% 0% 5%; /* Margin around the input field */
 }
 
+/* Label styling within input fields */
 .input-field label {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  color: #fff;
-  font-size: 16px;
-  pointer-events: none;
-  transition: 0.15s ease;
+  position: absolute; /* Position absolute for proper placement */
+  top: 50%; /* Center vertically */
+  left: 0; /* Align to the left */
+  transform: translateY(-50%); /* Adjust to center the label exactly */
+  color: #fff; /* White text color */
+  font-size: 16px; /* Font size */
+  pointer-events: none; /* Disable pointer events */
+  transition: 0.15s ease; /* Smooth transition for label movement */
 }
 
+/* Input field styling */
 .input-field input {
-  width: 100vw;
-  height: 5vh;
-  background: transparent; /* Ensure background is transparent */
-  border: none;
-  outline: none;
-  font-size: 16px;
-  color: #fff;
+  width: 100vw; /* Full viewport width */
+  height: 5vh; /* Set height relative to viewport height */
+  background: transparent; /* Transparent background */
+  border: none; /* No border */
+  outline: none; /* Remove default outline */
+  font-size: 16px; /* Font size */
+  color: #fff; /* White text color */
 }
 
+/* Adjust label position when the input is focused or valid */
 .input-field input:focus ~ label, 
 .input-field input:valid ~ label,
-.input-field input:-webkit-autofill ~ label { /* needs the valid input to remain translated-Y */
-  font-size: 16px;
-  top: 2.5%;
-  transform: translateY(-120%);
+.input-field input:-webkit-autofill ~ label {
+  font-size: 16px; /* Maintain font size */
+  top: 2.5%; /* Adjust position to stay above the input */
+  transform: translateY(-120%); /* Move label above the input */
 }
 
+/* Styling for the forget password section */
 .forget {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 5% 2.5% 5% 2.5%;
-  color: #fff;
-  font-size: 16.5px;
+  display: flex; /* Enable flexbox layout */
+  align-items: center; /* Center content vertically */
+  justify-content: space-between; /* Space between elements */
+  margin: 5% 2.5% 5% 2.5%; /* Margin around the section */
+  color: #fff; /* White text color */
+  font-size: 16.5px; /* Font size */
 }
 
+/* General button styling */
 button {
-  background: #fff;
-  color: #000;
-  font-weight: 600;
-  border: none;
-  padding: 12px 20px;
-  cursor: pointer;
-  border-radius: 25px;
-  font-size: 18px;
-  border: 2px solid transparent;
-  transition: 0.3s ease;
+  background: #fff; /* White background */
+  color: #000; /* Black text color */
+  font-weight: 600; /* Bold text */
+  border: none; /* No border */
+  padding: 12px 20px; /* Padding inside the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 25px; /* Rounded corners */
+  font-size: 18px; /* Font size */
+  border: 2px solid transparent; /* Transparent border */
+  transition: 0.3s ease; /* Smooth transition for hover effect */
 }
 
+/* Checkbox styling */
 #remember {
-  accent-color: #fff;
+  accent-color: #fff; /* White accent color for checkbox */
 }
 
+/* Styling for labels in the forget password section */
 .forget label {
-  display: flex;
-  align-items: center;
-  padding: 1%;
+  display: flex; /* Enable flexbox layout */
+  align-items: center; /* Center content vertically */
+  padding: 1%; /* Padding inside the label */
 }
 
+/* Link styling within the forget password section */
 .forget a {
-  margin-top: -2.5%;
-  padding-left: 2.5%;
+  margin-top: -2.5%; /* Adjust margin for proper alignment */
+  padding-left: 2.5%; /* Padding to the left */
 }
 
+/* Link styling within the wrapper */
 .wrapper a {
-  color: #efefef;
-  text-decoration: none;
+  color: #efefef; /* Light gray color */
+  text-decoration: none; /* Remove underline from links */
 }
 
+/* Hover effect for links */
 .wrapper a:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Underline on hover */
 }
 
+/* Hover effect for buttons */
 button:hover {
-  color: #fff;
-  border-color: #fff;
-  background: rgba(255, 255, 255, 0.15);
+  color: #fff; /* White text color */
+  border-color: #fff; /* White border */
+  background: rgba(255, 255, 255, 0.15); /* Semi-transparent background */
 }
 
+/* Styling for the register section */
 .register {
-  text-align: center;
-  margin-top: 30px;
-  color: #fff;
+  text-align: center; /* Center text */
+  margin-top: 30px; /* Space above the section */
+  color: #fff; /* White text color */
 }
 
+/* Styling for the login text */
 .login {
-  padding: 2.5%;
-  color: black;
-  font-style: italic;
+  padding: 2.5%; /* Padding around the text */
+  color: black; /* Black text color */
+  font-style: italic; /* Italicized text */
 }
 
-/* Remove the white background from autofilled inputs */
+/* Remove white background from autofilled inputs */
 .input-field input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 30px transparent inset !important; /* Ensures the background is transparent */
-  -webkit-text-fill-color: #fff !important;
-  border-bottom: none;
-  font-size: 16px;
+  -webkit-box-shadow: 0 0 0 30px transparent inset !important; /* Transparent background */
+  -webkit-text-fill-color: #fff !important; /* White text color */
+  border-bottom: none; /* Remove bottom border */
+  font-size: 16px; /* Font size */
 }
 
-/* Optional: Further customize the appearance of autofilled inputs */
+/* Customize the appearance of autofilled inputs */
 .input-field input:-webkit-autofill {
-  border-bottom: none;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: #fff;
+  border-bottom: none; /* Remove bottom border */
+  background-clip: text; /* Clip background to text */
+  -webkit-background-clip: text; /* WebKit-specific background clipping */
+  color: #fff; /* White text color */
 }
 
 /* Ensure proper text alignment and color in autofill */
 .input-field input:-webkit-autofill::first-line {
-  color: #ffffff !important;
+  color: #ffffff !important; /* Ensure white text color */
 }
 
+/* Styling for h2 headers */
 h2 {
-  color: white;
-  font-size: 22px;
-  padding: 2.5%;
+  color: white; /* White text color */
+  font-size: 22px; /* Font size */
+  padding: 2.5%; /* Padding around the header */
 }
