@@ -352,3 +352,19 @@ body {
 .about-input.raised {
   margin-top: 0; /* Reduce the margin when raised */
 }
+
+.sold-watermark {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust position to center the text exactly */
+  background-color: rgba(255, 0, 0, 0.8); /* Red background with slightly less transparency */
+  color: white; /* White text */
+  font-weight: bold; /* Bold text */
+  padding: 15px 30px; /* Increased padding for a bigger area */
+  border-radius: 8px; /* Slightly more rounded corners */
+  z-index: 10; /* Ensure the watermark appears above the image */
+  font-size: 1.5rem; /* Increased font size for better visibility */
+  pointer-events: none; /* Prevent interactions with the watermark */
+}
+

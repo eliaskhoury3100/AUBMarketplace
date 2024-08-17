@@ -110,10 +110,13 @@ const UserProfile = () => {
     return (
       <div className="productcard1">
         <Link to={`/productdetail/${sk}/${pk}`} className="product-card-link">
-          <div className="imagecarousel1">
+          <div className="imagecarousel1" style={{position: 'relative'}}>
               {product.ImageUrl && product.ImageUrl.length > 0 && (
                   <img src={product.ImageUrl[activeIndex]} alt={`Product ${product.Title} Image`} className="productimage" />
               )}
+            {product.State === 'sold' && (
+            <div className="sold-watermark">SOLD</div>
+          )}
           </div>
           
           <div className="productinfo1">
