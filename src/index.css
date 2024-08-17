@@ -1,13 +1,15 @@
+/* Base styles for the body */
 body {
-  margin: 0;
+  margin: 0; /* Remove default margin */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    sans-serif; /* Set a list of fallback fonts for the body */
+  -webkit-font-smoothing: antialiased; /* Improve font rendering on WebKit-based browsers */
+  -moz-osx-font-smoothing: grayscale; /* Improve font rendering on macOS */
 }
 
+/* Styles for code elements */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    monospace; /* Set a list of fallback fonts for code elements */
 }
