@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import './SellingPage.css';
 
 const CategoriesPage = () => {
-  const [step, setStep] = useState(1);  // Current step of the form
+  const [step, setStep] = useState(0);  // Current step of the form
 
   // State for form fields
   const [formData, setFormData] = useState({
@@ -37,19 +37,45 @@ const CategoriesPage = () => {
   const renderSuggestedCategories = () => {
     if (suggestedCategories.length > 0) {
       return (
-        <div className="suggested-categories" style={{ marginBottom: '20px', padding: '10px', border: '1px solid #ccc', borderRadius: '5px', backgroundColor: '#f9f9f9' }}>
-          <h3 style={{ marginBottom: '10px', fontWeight: 'bold' }}>Categories suggested based on the pictures you uploaded:</h3>
-          <ul style={{ listStyleType: 'none', paddingLeft: '0' }}>
+        <div className="suggested-categories"style={{marginBottom: '20px', 
+            padding: '10px', 
+           
+            borderRadius: '10px', 
+            backgroundColor: '#ffffff' // Setcontainerbackgroundtowhite
+          }}
+        >
+          <formspecial>
             {suggestedCategories.map((category, index) => (
-              <li key={index} style={{ fontStyle: 'italic', padding: '5px 0' }}>
-                <span style={{ color: '#333', fontSize: '16px' }}>{category}</span>
-              </li>
+              <div key={index}style={{marginBottom: '10px' }}><button
+                  type="button"
+                  onClick={() => handleCategorySelection(category)} // This function will handle the button click
+                  style={{ 
+                    width: '100%', // Make button take full width
+                    padding: '10px 20px', 
+                    fontSize: '16px', 
+                    color: '#333', 
+                    backgroundColor: '#f1f1f1', 
+                    border: '1px solid #ccc', 
+                    borderRadius: '25px', // Make button borders rounded
+                    cursor: 'pointer'
+                  }}
+                >
+                  {category}
+                </button></div>
             ))}
-          </ul>
-        </div>
+            <p style={{ fontSize: '12px', color: '#777', marginTop: '10px', textAlign: 'left', fontStyle: 'italic' }}>
+            Not quite the correct? Pick from the list below
+        </p>
+          </formspecial></div>
       );
     }
     return null;
+  };
+  
+
+  const handleCategorySelection = (event) => {
+    const { value, checked } = event.target;
+    // Implement logic to manage the selection state, e.g., adding/removing categories from a selection array
   };
   
   const ProgressBar = ({ step, totalSteps }) => {
@@ -230,6 +256,10 @@ const CategoriesPage = () => {
     </div>
   );
 
+  const handleStart = () => {
+    setStep(1); // Move from the welcome page to the first step
+  };
+
   const nextStep = () => {
     setStep(step + 1);
   };
@@ -243,6 +273,22 @@ const CategoriesPage = () => {
 
     return (
      <div>
+    {step === 0 && (
+          <>
+          <div className="welcome-page">
+            <header className="welcome-header">
+              <h1 className="welcome-title">Ready to sell what you don’t need anymore?</h1>
+              <p className="welcome-description">Start uploading your product now and make space for something new.</p>
+            </header>
+          </div>
+          <footer className="welcome-footer">
+            <button onClick={handleStart} className="start-button">Start</button>
+          </footer>
+        </>
+        
+  
+    )
+  }
   {step === 1 && (
    <div className="form-group">
    <div className="upload-container">
@@ -256,6 +302,9 @@ const CategoriesPage = () => {
     </div>
 
             <div className="navigation-container">
+            <button onClick={prevStep} className="prev-button">
+        <i className="fas fa-arrow-left"></i>
+      </button>
     
     <button onClick={nextStep} className="next-button">
         <i className="fas fa-arrow-right"></i>
@@ -302,12 +351,13 @@ const CategoriesPage = () => {
   {step === 3 && (
   <div>
      <div style={{ marginTop: '40px' }}> {/* Add margin here */}
+     <h2 style={{fontSize: '18px', fontWeight: 'bold', marginBottom: '10px', color: 'black', marginTop: '-8%'}}>Choose Category</h2>
       {renderSuggestedCategories()} {/* Display suggested categories here */}
     </div>
 
 
     <div className="form-group">
-      <label htmlFor="category">Category</label>
+   
       <select id="category" name="category" value={formData.category} onChange={handleCategoryChange} required>
         <option value="">Select a category</option>
         <optgroup label="Electronics">
@@ -448,11 +498,12 @@ const CategoriesPage = () => {
   </div>
 )}
 
-
-
-
-
-<ProgressBar step={step} totalSteps={totalSteps} />
+{step > 0 && (
+        <>
+          {/* All other steps rendering */}
+          <ProgressBar step={step} totalSteps={totalSteps} />
+        </>
+      )}
 
       </div>
     );

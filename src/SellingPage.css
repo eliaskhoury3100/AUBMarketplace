@@ -14,8 +14,9 @@ body {
     height: 100vh;
     overflow: auto; /* Enable scrolling if content overflows */
     overflow-y: auto;
-    overflow-x: hidden; /* remove horizontal scroll */
+    overflow-x: hidden; 
     padding-bottom: 20%;
+    
 }
 
 .topsection {
@@ -30,6 +31,8 @@ body {
     margin-bottom: 7px;
     width: 100vw;
   }
+
+  
 .uppernav {
     height: 10vh; /* 10% of the viewport height */
     width: 100vw;
@@ -243,7 +246,7 @@ input[type="checkbox"] {
 /* For the progress bar */
 .progress-bar-container {
   position: relative; /* Element will scroll with the page */
-  margin-top: 140px; /* Add margin to position it vertically */
+ 
   width: 90%; /* Set the width of the progress bar */
   height: 10px;
   background-color: #e0e0e0;
@@ -253,10 +256,6 @@ input[type="checkbox"] {
   margin-right: auto;
 }
 
-
-.form-group {
-  margin-bottom: 20px; /* Provides spacing from one form group to another */
-}
 
 .bold-label {
   display: block; /* Ensures the label takes the full width */
@@ -289,3 +288,47 @@ input[type="checkbox"] {
   background-color: rgb(61, 61, 61);
 }
 
+.welcome-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  margin-top: 60%;  /* Reset any previously set margins */
+  border-radius: 8px;
+
+}
+
+.welcome-title {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.welcome-description {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+.welcome-footer {
+  display: flex;
+  justify-content: flex-end; /* Aligns children (the button) to the right */
+  width: 100%; /* Ensures the container spans the full width of its parent */
+  padding-right: 20px; /* Optional padding for spacing from the edge */
+}
+
+
+.start-button {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 25px;
+  font-size: 18px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+  margin-top: 5%;
+  margin-left: auto; /* Pushes the button to the right */
+}
