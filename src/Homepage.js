@@ -552,7 +552,10 @@ const FilterPanel = ({ onClose, filters, setFilters }) => {
     {showFilterPanel && <FilterPanel onClose={() => setShowFilterPanel(false)} filters={filters} setFilters={setFilters} />}
     <div className="myitemscontainer">
       {noProductsFound ? (
-        <p>No products found!</p>
+          <>
+              <h2>Sorry, no products found!</h2>
+              <h3>Try looking for something else...</h3>
+          </>
       ) : (
         products.map(product => (
           <ProductCard key={product.SK} product={product} />

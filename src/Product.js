@@ -155,20 +155,22 @@ const ProductDetail = () => {
                 <p>Size: {product[0].Size}</p>
                 )}
                 {warrantyCategories.includes(product[0].PK) && (
-                <p>{product[0].Warranty}</p> // Assuming 'Warranty' is a field in your product
+                <p>{product[0].Warranty}</p>
                 )}
                 <p>Condition: {product[0].Condition}</p>
                 <p>Price: ${product[0].Price}</p>
             </div>
             <div className="buttons-section">
                 <div className="buttons-container">
-                    {userId != sub && (
-                    <button className="message-seller-button" onClick={handleMessageSellerClick}>Message Seller</button>
+                    {userId !== sub && (
+                    <button className="product-action-button message-seller-button" onClick={handleMessageSellerClick}>Message Seller</button>
                     )}
                     {userId === sub && (
-                        <button className="delete-item-button" onClick={handleDeleteItemClick}>Delete Item</button>
+                        <>
+                            <button className="product-action-button delete-item-button" onClick={handleDeleteItemClick}>Delete Item</button>
+                            <button className="product-action-button mark-as-sold-button" /*onClick={handleDeleteItemClick}*/>Mark as Sold</button>
+                        </>
                     )}
-                    <button className="mark-as-sold-button" /*onClick={handleDeleteItemClick}*/>Mark as Sold</button>
                 </div>
             </div>
         </div>
@@ -176,10 +178,10 @@ const ProductDetail = () => {
 };
 
 
-    if (isLoading) return <div className="full-page-container">Loading...</div>;
-    if (error) return <div className="full-page-container">Error: {error}</div>;
+    if (isLoading) return <div className="full-page-container"><div className="centered-text">Loading...</div></div>;
+    if (error) return <div className="full-page-container"><div className="centered-text">Error: {error}</div></div>;
     if (!product || Object.keys(product).length === 0) {
-        return <div className="full-page-container">No product details available.</div>;
+        return <div className="full-page-container"><div className="centered-text">No product details available.</div></div>;
     }
 
     // Render ProductCard component inside ProductDetail component

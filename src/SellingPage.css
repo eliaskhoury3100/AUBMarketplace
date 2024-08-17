@@ -14,9 +14,8 @@ body {
     height: 100vh;
     overflow: auto; /* Enable scrolling if content overflows */
     overflow-y: auto;
-    overflow-x: hidden; 
+    overflow-x: hidden;
     padding-bottom: 20%;
-    
 }
 
 .topsection {
@@ -32,7 +31,6 @@ body {
     width: 100vw;
   }
 
-  
 .uppernav {
     height: 10vh; /* 10% of the viewport height */
     width: 100vw;
@@ -55,7 +53,6 @@ body {
 /* Form Group Styles */
 .form-group {
     padding: 2.5%;
-    padding-bottom: 5%;
 }
 
 .form-group label {
@@ -162,13 +159,12 @@ form {
 }
 
 .post-button {
-  background-color: #3d3d3d;
+  background-color: #048c7f;
   color: #fff;
-  padding: 5px; /* Adjusted padding */
+  padding: 9px 5px;
   border-radius: 25px;
   cursor: pointer;
-  width: 100%; /* Use 100% width of the parent container */
-  max-width: 500px; /* Set a maximum width to prevent the button from stretching too wide */
+  width: 140px; /* Use 100% width of the parent container */
   margin: 0 auto; /* Center the button horizontally */
   display: block; /* Ensure the button behaves as a block element */
 }
@@ -203,7 +199,6 @@ input[type="checkbox"] {
     outline: none;  
 }
 
-
 .post-button:disabled {
     opacity: 0.5; 
     cursor: not-allowed; 
@@ -211,17 +206,19 @@ input[type="checkbox"] {
   
 /* SellingPage.css */
 .message-success {
-    color: green;
+    color: #46853a;
     font-size: 16px;
     margin-top: 2px;
     font-weight: bold;
+    align-self: center;
 }
 
 .message-error {
-    color: red;
+    color: #832e2e;
     font-size: 16px;
     margin-top: 2px;
     font-weight: bold;
+    align-self: center;
 }
 
 /* For the previous and next buttons */
@@ -232,7 +229,6 @@ input[type="checkbox"] {
   color: inherit; /* Inherit text color */
   cursor: pointer; /* Pointer cursor to indicate clickability */
   font-size: 1.5rem; /* Size of the icon */
-  margin-top: 90px; /* Add margin to position them vertically */
 }
 
 .prev-button {
@@ -246,7 +242,6 @@ input[type="checkbox"] {
 /* For the progress bar */
 .progress-bar-container {
   position: relative; /* Element will scroll with the page */
- 
   width: 90%; /* Set the width of the progress bar */
   height: 10px;
   background-color: #e0e0e0;
@@ -293,7 +288,7 @@ input[type="checkbox"] {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
+
   margin-top: 60%;  /* Reset any previously set margins */
   border-radius: 8px;
 

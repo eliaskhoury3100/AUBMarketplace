@@ -512,7 +512,6 @@ const CategoriesPage = () => {
     <div className="selling">
       <div className="topsection">
         <nav className="uppernav">
-         
           <h1>Upload Product</h1>
         </nav>
       </div>

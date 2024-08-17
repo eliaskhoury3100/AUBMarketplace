@@ -60,12 +60,12 @@ function LostIDsPage() {
         <i className="fas fa-arrow-left back-icon"></i>
       </Link>
     </div>
-    <h1 className="nav-title">Report a Lost ID</h1>
+    <h1 className="nav-title">Lost ID?</h1>
   </nav>
 
 
         
-<p class="page-description">Found a lost ID? Fill the form below.We'll find the owner and let them contact you!</p>
+<p class="page-description">Found a lost ID? Fill the form below. We'll find the owner and let them contact you!</p>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="name">Full Name</label>
@@ -73,7 +73,7 @@ function LostIDsPage() {
                         type="text"
                         id="name"
                         name="name"
-                        placeholder="Enter the full name seen on the ID"
+                        placeholder="Enter the full name, as seen on the ID"
                         required
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -96,7 +96,7 @@ function LostIDsPage() {
                     <textarea
                         id="comments"
                         name="comments"
-                        placeholder="Will the ID be dropped or kept with you?..."
+                        placeholder="Will the ID be dropped at some office or kept with you?..."
                         value={comments}
                         onChange={(e) => setComments(e.target.value)}
                     />
