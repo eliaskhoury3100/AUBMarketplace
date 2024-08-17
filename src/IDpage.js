@@ -5,6 +5,7 @@ function LostIDsPage() {
     const [name, setName] = useState('');
     const [initials, setInitials] = useState('');
     const [phone, setPhone] = useState('');
+    const [finderName, setFinderName] = useState('');
     const [comments, setComments] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false); // New state for submission status
@@ -19,6 +20,7 @@ function LostIDsPage() {
         if (name) data.name = name;
         if (initials) data.initials = initials;
         if (phone) data.phone = phone;
+        if (finderName) data.finderName = finderName
         if (comments) data.comments = comments;
         console.log(data)
         const accessToken = localStorage.getItem('accessToken');
@@ -43,6 +45,7 @@ function LostIDsPage() {
             setInitials('');
             setPhone('');
             setComments('');
+            setFinderName('')
 
         } catch (error) {
             console.error('Error:', error);
@@ -79,14 +82,26 @@ function LostIDsPage() {
                         onChange={(e) => setName(e.target.value)}
                     />
                 </div>
-                
+
+                <div className="form-group">
+                    <label htmlFor="finder-name">Your Name (Optional)</label>
+                    <input
+                        type="text"
+                        id="finderName"
+                        name="finderName"
+                        placeholder="Enter your name"
+                        value={finderName}
+                        onChange={(e) => setFinderName(e.target.value)}
+                    />
+                </div>
+
                 <div className="form-group">
                     <label htmlFor="phone">Phone Number (Optional)</label>
                     <input
                         type="number"
                         id="phone"
                         name="phone"
-                        placeholder="Enter a contact phone number"
+                        placeholder="Enter your contact phone number"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                     />
@@ -102,7 +117,7 @@ function LostIDsPage() {
                     />
                 </div>
                 <button type="submit" className="post-button" style={{ backgroundColor: '#3d3d3d' }} disabled={isSubmitting}>
-                    {isSubmitting ? 'Submitting...' : 'POST'}
+                    {isSubmitting ? 'Submitting...' : 'REPORT ID'}
                 </button>
                 {errorMessage && <p className="message-error">{errorMessage}</p>}
             </form>
