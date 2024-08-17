@@ -1,192 +1,208 @@
+/* Container for the entire page content */
 .full-page-container {
     width: 100vw;   /* Full viewport width */
     height: 100vh;  /* Full viewport height */
-
     position: relative; /* Ensures positioning context for child elements */
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #FFF;
-
-    overflow-y: auto;
-    overflow-x: hidden; /* remove horizontal scroll */
-
-    padding-bottom: 10%;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center content horizontally */
+    background-color: #FFF; /* White background */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Disable horizontal scrolling */
+    padding-bottom: 10%; /* Add extra space at the bottom */
 }
 
+/* Centered text within the full-page container */
 .full-page-container .centered-text {
-    margin: auto;
-    width: 50%;
-    text-align: center;
-    font-weight: bold;
+    margin: auto; /* Auto margins to center the text */
+    width: 50%; /* Half of the container's width */
+    text-align: center; /* Center the text horizontally */
+    font-weight: bold; /* Bold text */
 }
 
+/* Top section with gradient background */
 .topsection {
-    background-image: linear-gradient(to bottom, #efcbd4, #ffffff);
+    background-image: linear-gradient(to bottom, #efcbd4, #ffffff); /* Gradient from pink to white */
     justify-content: flex-start;
-    text-align: left;
+    text-align: left; /* Align text to the left */
     display: flex;
-    flex-direction: column;
-    justify-content: left;
-    width: 100vw;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: left; /* Align content to the left */
+    width: 100vw; /* Full viewport width */
 }
 
-
+/* Upper section of the product page */
 .upper-section {
-    width: 100vw; /* Takes full width of the container */
-    height : 20vh; /* Reserve 50px height, adjust as needed */
-    font-size: 4px; 
+    width: 100vw; /* Full width of the container */
+    height: 20vh; /* Set the height of the section */
+    font-size: 4px; /* Small font size, adjust as needed */
     display: flex;
-    align-items: center; 
-    gap: 2.5%;
-    padding-bottom: 2.5%;
+    align-items: center; /* Center content vertically */
+    gap: 2.5%; /* Space between elements */
+    padding-bottom: 2.5%; /* Padding at the bottom */
 }
+
+/* Styling for the profile picture within the upper section */
 .profile-picture {
     width: 5vh; /* Set the width of the picture */
     height: 5vh; /* Set the height of the picture */
     border-radius: 25px; /* Makes the picture round */
     object-fit: cover; /* Ensures the image fits within the container without distortion */
     overflow: hidden; /* Ensures no overflow outside the round container */
-    /*border: 2px solid #ccc; Optional: Adds a border around the picture */
-    box-shadow: 2px 12px 10px rgba(0, 0, 0, 0.1);
-  }
-  .upper-section p {
-    padding-left: 2.5%;
-  }
-  .back-arrow {
-    width: 5vw; /* Increase size for better visibility */
-    height: 7vh; 
-    margin: 1.5%;
-    border-radius: 25px;
-    cursor: pointer; /* Indicate that it is clickable */
-    background-color: transparent;
-    border: none;
+    box-shadow: 2px 12px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
 }
 
+/* Paragraphs within the upper section */
+.upper-section p {
+    padding-left: 2.5%; /* Padding to the left */
+}
 
+/* Back arrow button styling */
+.back-arrow {
+    width: 5vw; /* Set the width of the arrow */
+    height: 7vh; /* Set the height of the arrow */
+    margin: 1.5%; /* Margin around the arrow */
+    border-radius: 25px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor to indicate clickability */
+    background-color: transparent; /* Transparent background */
+    border: none; /* No border */
+}
+
+/* Carousel container for images */
 .imageecarousel {
     width: 100vw; /* Full width of the container */
-    height: 100vh;
-    overflow: visible;
+    height: 100vh; /* Full height of the container */
+    overflow: visible; /* Ensure all content is visible */
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center content horizontally */
 }
 
+/* Styling for individual images within the carousel */
 .producttimage {
     width: 50vw; /* Ensures images are fully responsive within the carousel */
-    max-height: 50vh; /* Adjusts the maximum height of the images */
-    object-fit: auto; /* Ensures the image covers the area without distortion */
-    margin-bottom: 10px; /* Reduce or adjust as necessary to control spacing */
-    border-radius: 25px;
+    max-height: 50vh; /* Adjust the maximum height of the images */
+    object-fit: auto; /* Ensure the image covers the area without distortion */
+    margin-bottom: 10px; /* Margin below the image */
+    border-radius: 25px; /* Rounded corners */
 }
 
+/* Styling for the carousel dots (navigation indicators) */
 .carousel-dots {
-    text-align: center; /* Centers the navigation dots below the carousel */
-    padding: 5px; /* Reduces padding to decrease space */
-    /* margin-top: -5px; Reduce margin to bring dots closer to the images */
+    text-align: center; /* Center the dots horizontally */
+    padding: 5px; /* Padding around the dots */
 }
+
+/* Styling for the username displayed on the product page */
 .username {
-    font-size: 20px;
-    font-weight: bold;
-    color: #000000;
+    font-size: 20px; /* Font size */
+    font-weight: bold; /* Bold text */
+    color: #000000; /* Black text color */
 }
 
-
+/* Styling for the individual dots in the carousel */
 .dot {
-    cursor: pointer; /* Indicates that dots are interactive */
-    height: 10px;
-    width: 10px;
-    margin: 0 5px;
+    cursor: pointer; /* Pointer cursor to indicate interactivity */
+    height: 10px; /* Set the height of the dots */
+    width: 10px; /* Set the width of the dots */
+    margin: 0 5px; /* Space between dots */
     background-color: #ccc; /* Default dot color */
-    border-radius: 50%; /* Makes dots circular */
+    border-radius: 50%; /* Make dots circular */
 }
 
+/* Styling for the active dot in the carousel */
 .dot.active {
-    background-color: #333; /* Color for the active dot */
+    background-color: #333; /* Darker color for the active dot */
 }
 
+/* Container for product information */
 .producttinfo {
-    width: 100%; /* Full width */
-    text-align: left; /* Aligns the text to the left */
-    padding: 5%; /* Padding around the text for better spacing */
-    background: #fff; /* Gives a background color for distinction */
-    font-size: 20px; /* Increased font size from default */
-    line-height: 1.6; /* Increases line height for better readability and spacing */
-    letter-spacing: 0.5px; /* Slightly increases spacing between letters */
+    width: 100%; /* Full width of the container */
+    text-align: left; /* Align text to the left */
+    padding: 5%; /* Padding around the text */
+    background: #fff; /* White background */
+    font-size: 20px; /* Font size */
+    line-height: 1.6; /* Increase line height for readability */
+    letter-spacing: 0.5px; /* Increase spacing between letters slightly */
 }
 
+/* Styling for headings within the product information section */
 .producttinfo h3 {
-    margin-bottom: 10px; /* Adds space below the title */
-    font-size: 24px; /* Larger font size for headings */
+    margin-bottom: 10px; /* Margin below the heading */
+    font-size: 24px; /* Font size for headings */
 }
 
+/* Styling for paragraphs within the product information section */
 .producttinfo p {
-    margin-bottom: 8px; /* Adds more space between paragraphs */
+    margin-bottom: 8px; /* Margin below paragraphs */
 }
 
+/* Container for action buttons (e.g., Message Seller, Mark as Sold) */
 .buttons-container {
-    background-color: #ffffff;
+    background-color: #ffffff; /* White background */
     display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-around; /* Space around buttons */
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center buttons horizontally */
     margin-top: 0%;
-
-    width: 100vw;
-    margin-bottom: 25px;
+    width: 100vw; /* Full width of the container */
+    margin-bottom: 25px; /* Space below the container */
 }
 
+/* General styling for product action buttons */
 .product-action-button {
-    border-radius: 11px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 700;
-    text-align: center;
-    margin: 2.5%;
-    padding: 2px 12px;
-    align-items: center;
-    display: flex;
-    justify-items: center;
-    line-height: 34px;
+    border-radius: 11px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor to indicate clickability */
+    font-size: 1rem; /* Font size */
+    font-weight: 700; /* Bold text */
+    text-align: center; /* Center text within the button */
+    margin: 2.5%; /* Margin around the button */
+    padding: 2px 12px; /* Padding inside the button */
+    align-items: center; /* Center items within the button */
+    display: flex; /* Use flexbox for layout */
+    justify-items: center; /* Center items within the button */
+    line-height: 34px; /* Line height for vertical alignment */
 }
 
+/* Styling for the "Message Seller" button */
 .message-seller-button {
-    background-color: #78b9d3;
-    color: #2d596b;
-    border: 1px solid #FEE0E0;
+    background-color: #78b9d3; /* Light blue background */
+    color: #2d596b; /* Dark blue text color */
+    border: 1px solid #FEE0E0; /* Light border */
 }
 
+/* Styling for the "Delete Item" button */
 .delete-item-button {
-    background-color: #FFE7E7;
-    color: #D33A2C;
-    border-radius: 11px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 700;
-    text-align: center;
-    margin: 2.5%;
-    padding: 2px 12px;
-    align-items: center;
-    border: 1px solid #FEE0E0;
-    display: flex;
-    justify-items: center;
-    line-height: 34px;
+    background-color: #FFE7E7; /* Light red background */
+    color: #D33A2C; /* Dark red text color */
+    border-radius: 11px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor to indicate clickability */
+    font-size: 1rem; /* Font size */
+    font-weight: 700; /* Bold text */
+    text-align: center; /* Center text within the button */
+    margin: 2.5%; /* Margin around the button */
+    padding: 2px 12px; /* Padding inside the button */
+    align-items: center; /* Center items within the button */
+    border: 1px solid #FEE0E0; /* Light border */
+    display: flex; /* Use flexbox for layout */
+    justify-items: center; /* Center items within the button */
+    line-height: 34px; /* Line height for vertical alignment */
 }
 
+/* Styling for the "Mark as Sold" button */
 .mark-as-sold-button {
-    background-color: #cfffc5;
-    color: #346c28;
-    border-radius: 11px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 700;
-    text-align: center;
-    margin: 2.5%;
-    padding: 2px 12px;
-    align-items: center;
-    border: 1px solid #FEE0E0;
-    display: flex;
-    justify-items: center;
-    line-height: 34px;
+    background-color: #cfffc5; /* Light green background */
+    color: #346c28; /* Dark green text color */
+    border-radius: 11px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor to indicate clickability */
+    font-size: 1rem; /* Font size */
+    font-weight: 700; /* Bold text */
+    text-align: center; /* Center text within the button */
+    margin: 2.5%; /* Margin around the button */
+    padding: 2px 12px; /* Padding inside the button */
+    align-items: center; /* Center items within the button */
+    border: 1px solid #FEE0E0; /* Light border */
+    display: flex; /* Use flexbox for layout */
+    justify-items: center; /* Center items within the button */
+    line-height: 34px; /* Line height for vertical alignment */
 }
