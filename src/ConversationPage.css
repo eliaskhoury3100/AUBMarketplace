@@ -104,6 +104,7 @@ h1 {
     display: flex;
     align-items: center; /* Center content vertically */
     padding: 10px 20px; /* Padding around the user item */
+    border-top: 0.5px solid #e0e0e0;
     border-bottom: 1px solid #e0e0e0; /* Light gray border at the bottom */
 }
 
@@ -116,20 +117,38 @@ h1 {
     background-size: cover; /* Ensure the background covers the container */
     background-position: center; /* Center the background image */
 }
+.last-updated {
+    margin-top: -38px; /* Negative value to move up */
+    margin-bottom: 5px;
+}
+
+.username1 {
+    font-weight: bold;  /* Correct property for making text bold */
+}
 
 /* Container for user information */
 .user-info {
     display: flex;
+    justify-content: center; /* Centers children vertically */
     flex-direction: column; /* Stack information vertically */
     align-items: flex-start; /* Align content to the start of the flex container */
     flex-grow: 1; /* Allow the container to grow and fill available space */
 }
 
+.username, .product-price {
+    display: block; /* Each will naturally occupy its own line */
+    margin-bottom: 5px; /* Optional: Adds space below each item for visual separation */
+}
+
+
 /* Styling for the user name and product information */
-.user-name, .product-info {
+.user-name  {
     display: flex;
     align-items: center; /* Center content vertically */
+  
+    
 }
+
 
 /* Styling for the product image within the user item */
 .product-image {
@@ -141,6 +160,11 @@ h1 {
     background-position: center; /* Center the background image */
 }
 
+.product-image-container {
+    display: flex;      /* Enable flexbox to manage children */
+    justify-content: flex-end; /* Align children to the end (right) */
+    width: 100%;        /* Full width of its parent container */
+}
 /* Styling for the text within product information */
 .product-info span {
     margin-right: 5px; /* Space between text and image */

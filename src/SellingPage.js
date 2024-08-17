@@ -157,6 +157,13 @@ const CategoriesPage = () => {
     setIsSubmitting(true);
     const userId = localStorage.getItem('userId');
     const accessToken = localStorage.getItem('accessToken');
+    if (!formData.name && !formData.description && !formData.condition && !formData.price && 
+      !formData.category && selectedFiles.length === 0) {
+    setMessage('Please fill out all fields.');
+    setTimeout(() => setMessage(''), 5000); 
+    setIsSubmitting(false);
+    return;
+  }
     if (!accessToken) {
       setMessage('You are not authenticated. Please login.');
       setIsSubmitting(false);
@@ -444,7 +451,9 @@ const CategoriesPage = () => {
 
 {step === 4 && (
   <div  className="container">
-    {/* Styled Box for Terms and Conditions */}
+    <p className={message.includes('successfully') ? 'message-success' : 'message-error'}>
+    {message}
+  </p>
     <div className="terms-and-conditions-box" style={{ 
         padding: '20px', 
         backgroundColor: '#f9f9f9', 
@@ -518,11 +527,7 @@ const CategoriesPage = () => {
       
       <form onSubmit={handleSubmit}>
         {renderStep()}
-        {message && (
-          <p className={message.includes('successfully') ? 'message-success' : 'message-error'}>
-            {message}
-          </p>
-        )}
+       
       </form>
     </div>
   );

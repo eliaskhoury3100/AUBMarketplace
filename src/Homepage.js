@@ -359,20 +359,27 @@ const FilterPanel = ({ onClose, filters, setFilters }) => {
     return (
       
       <div className="productcard">
-        <Link to={`/productdetail/${sk}/${pk}`} className="product-card-link">
-          <div className="imagecarousel">
-              {product.ImageUrl && product.ImageUrl.length > 0 && (
-                  <img src={product.ImageUrl[activeIndex]} alt={`Product ${product.Title} Image`} className="productimage" />
-              )}
-          </div>
-          
-          <div className="productinfo">
-            
-              <h3>{product.Title}</h3>
-              <p>${product.Price}</p>
-          </div>
-        </Link>
-      </div>
+      <Link to={`/productdetail/${sk}/${pk}`} className="product-card-link">
+        <div className="imagecarousel" style={{ position: 'relative' }}>
+          {product.ImageUrl && product.ImageUrl.length > 0 && (
+            <img 
+              src={product.ImageUrl[activeIndex]} 
+              alt={`Product ${product.Title} Image`} 
+              className="productimage" 
+            />
+          )}
+          {product.State === 'sold' && (
+            <div className="sold-watermark">SOLD</div>
+          )}
+        </div>
+        
+        <div className="productinfo">
+          <h3>{product.Title}</h3>
+          <p>${product.Price}</p>
+        </div>
+      </Link>
+    </div>
+    
       
   );
   };
@@ -501,7 +508,7 @@ const FilterPanel = ({ onClose, filters, setFilters }) => {
         
        
       <nav className="uppernav">
-  <img src="https://marketplacepictures.s3.eu-north-1.amazonaws.com/logo.png" alt="Logo" className="nav-logo" />
+  <img src="https://marketplacepictures.s3.eu-north-1.amazonaws.com/logo.png" alt="Logo" className="nav-logo1" />
   <h1>AUB MarketPlace</h1>
   <Link to="/lostid" className="lost-ids">
     <div className="lost-ids-content">
@@ -510,7 +517,7 @@ const FilterPanel = ({ onClose, filters, setFilters }) => {
         alt="Lost IDs" 
         style={{ width: '40px', height: '40px' }} 
       />
-      <p className="subtitle">Report Lost IDs</p>
+      <p className="subtitle">Lost ID?</p>
     </div>
   </Link>
 </nav>

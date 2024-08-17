@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './UserProfile.css';
 
+
 const UserProfile = () => {
   const { sub } = useParams(); // Get the 'sub' parameter from the URL, if it exists
   const [aboutText, setAboutText] = useState('');

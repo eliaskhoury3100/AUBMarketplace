@@ -116,7 +116,7 @@ const MessagingPage = () => {
       </header>
       <div className="product-info-section">
 
-          <div className="product-info">
+          <div className="product-info1">
           <img src={productImage || productDetails?.ImageUrl[0]} alt={productName || productDetails?.Title} />
   <div className="product-details">
     <div className="product-title">{productName || (productDetails && productDetails.Title)}</div>
@@ -132,16 +132,22 @@ const MessagingPage = () => {
           </div>
         ))}
       </main>
-      <form onSubmit={handleSendMessage} className="message-input">
-        <input
-          type="text"
-          placeholder="Type a message..."
-          value={newMessage}
-          onChange={(e) => setNewMessage(e.target.value)}
-          className="inputfield1"
-        />
-      </form>
-    </div>
+      <div className="message-container">
+  <form onSubmit={handleSendMessage} className="message-input">
+    <input
+      type="text"
+      placeholder="Type a message..."
+      value={newMessage}
+      onChange={(e) => setNewMessage(e.target.value)}
+      className="inputfield1"
+    />
+    <button type="submit" className="send-button">
+      <i className="fas fa-paper-plane"></i>
+    </button>
+  </form>
+</div>
+
+</div>
   );
 };
 

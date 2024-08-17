@@ -9,7 +9,8 @@ function LostIDsPage() {
     const [comments, setComments] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false); // New state for submission status
-
+    const [message, setMessage] = useState('');
+    const [messageType, setMessageType] = useState(''); // 'success' or 'error'
     const handleSubmit = async (e) => {
         e.preventDefault();
         setErrorMessage('');
@@ -37,7 +38,13 @@ function LostIDsPage() {
             if (!response.ok) {
                 throw new Error('Failed to submit data');
             }
+            setMessage('Form submitted successfully!');
+            setMessageType('success');
 
+            setTimeout(() => {
+                setMessage('');
+                setMessageType('');
+              }, 5000); // 5000 milliseconds = 5 seconds
             const result = await response.json();
             console.log('Submission successful:', result);
             // Further actions based on the result (e.g., show a success message, redirect, etc.)
@@ -121,6 +128,11 @@ function LostIDsPage() {
                 </button>
                 {errorMessage && <p className="message-error">{errorMessage}</p>}
             </form>
+            {message && (
+      <p className={messageType === 'success' ? 'success-message' : 'error-message'}>
+        {message}
+      </p>
+    )}
         </div>
     );
 }

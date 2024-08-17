@@ -80,9 +80,9 @@
 
 /* Styling for individual images within the carousel */
 .producttimage {
-    width: 50vw; /* Ensures images are fully responsive within the carousel */
-    max-height: 50vh; /* Adjust the maximum height of the images */
-    object-fit: auto; /* Ensure the image covers the area without distortion */
+    width: 90vw; /* Ensures images are fully responsive within the carousel */
+    max-height: 38vh; /* Adjust the maximum height of the images */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
     margin-bottom: 10px; /* Margin below the image */
     border-radius: 25px; /* Rounded corners */
 }
@@ -142,7 +142,7 @@
     background-color: #ffffff; /* White background */
     display: flex;
     justify-content: space-around; /* Space around buttons */
-    flex-direction: column; /* Stack buttons vertically */
+    flex-direction: row; /* Stack buttons vertically */
     align-items: center; /* Center buttons horizontally */
     margin-top: 0%;
     width: 100vw; /* Full width of the container */
@@ -206,3 +206,21 @@
     justify-items: center; /* Center items within the button */
     line-height: 34px; /* Line height for vertical alignment */
 }
+
+.back-arrow {
+  text-decoration: none; /* Removes underline from link */
+  color: inherit; /* Inherits text color from parent elements */
+}
+
+.back-arrow button {
+  background: none; /* Removes any background styling from the button */
+  border: none; /* Removes border */
+  cursor: pointer; /* Shows a pointer cursor to indicate clickable */
+  padding: 10px; /* Add padding for better click area */
+  margin-top: 10px;
+}
+
+.back-arrow i {
+  color: #000; /* Example color for the icon */
+}
+

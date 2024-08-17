@@ -43,6 +43,12 @@ body {
     align-items: center; /* Centers content vertically */
 }
 
+.welcome-header {
+ 
+    padding-right: 15px;  /* Padding on the right */
+  
+    padding-left: 15px;   /* Padding on the left */
+}
 /* Logo inside the navigation bar */
 .nav-logo {
     width: 40px; /* Logo width */
@@ -218,21 +224,48 @@ input[type="checkbox"] {
 
 /* Success message styling */
 .message-success {
-    color: #46853a; /* Green color for success */
-    font-size: 16px; /* Font size */
-    margin-top: 2px; /* Space above the message */
-    font-weight: bold; /* Bold text for emphasis */
-    align-self: center; /* Center the message within its container */
+        color: green;
+        font-size: 18px;
+        font-weight: bold;
+        position: absolute;
+      
+        left: 0;
+        right: 0;
+        text-align: center; /* Center the message horizontally */
+   
+        margin-bottom: 60%;
 }
 
 /* Error message styling */
 .message-error {
-    color: #832e2e; /* Red color for error messages */
-    font-size: 16px; /* Font size */
-    margin-top: 2px; /* Space above the message */
-    font-weight: bold; /* Bold text for emphasis */
-    align-self: center; /* Center the message within its container */
+        color: red;
+        font-size: 18px;
+        font-weight: bold;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center; /* Center the message horizontally */
+        margin-bottom: 60%;
 }
+
+.message-success,
+.message-error {
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center; /* Center the message horizontally */
+    margin-bottom: 60%;
+    opacity: 1; /* Start fully visible */
+    transition: opacity 2s ease-in-out; /* 2 seconds fade-out transition */
+}
+
+.message-hidden {
+    opacity: 0; /* Fully transparent */
+}
+
 
 /* Styling for the previous and next buttons */
 .prev-button, .next-button {

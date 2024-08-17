@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './Product.css'; // Ensure the CSS file path is correct
+import { Link } from 'react-router-dom';
 
 
 const ProductDetail = () => {
@@ -65,7 +66,31 @@ const ProductDetail = () => {
 
         fetchProductDetails();
     }, [id, pk]); // Fetch product details whenever `id` changes
-
+    
+    const handleItemSoldClick = async (itemNumber, category) => {
+        try {
+          const apiUrl = `https://auy64nh6j7.execute-api.eu-north-1.amazonaws.com/default/markasSold?id=${encodedId}`;
+          const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${localStorage.getItem('accessToken')}`, // Include if authorization is required
+            },
+           
+          });
+      
+          if (!response.ok) {
+            throw new Error('Failed to mark item as sold');
+          }
+      
+          const result = await response.json();
+          console.log('Item sold successfully:', result);
+          // Handle success (e.g., update UI, show a success message)
+        } catch (error) {
+          console.error('Error marking item as sold:', error);
+          // Handle error (e.g., show an error message to the user)
+        }
+      };
     const extractUsername = (email) => {
         return email ? email.split('@')[0] : '';
     };
@@ -129,10 +154,12 @@ const ProductDetail = () => {
         <div className="full-page-container">
             
             <div className="topsection">
-                <div className="upper-section" onClick={handleProfileRedirect}>
-                    <button /*onClick={prevStep}*/ className="back-arrow">
-                    <i className="fas fa-arrow-left"></i>
-                    </button>
+                <div className="upper-section">
+                <Link to="/homepage" className="back-arrow">
+        <button>
+          <i className="fas fa-arrow-left"></i>
+        </button>
+      </Link>
                     {profilePicture && <img src={profilePicture} alt="Profile Picture" className="profile-picture" />}
                     {username && <p className="username">{extractUsername(username)}</p>}
                 </div>
@@ -168,7 +195,7 @@ const ProductDetail = () => {
                     {userId === sub && (
                         <>
                             <button className="product-action-button delete-item-button" onClick={handleDeleteItemClick}>Delete Item</button>
-                            <button className="product-action-button mark-as-sold-button" /*onClick={handleDeleteItemClick}*/>Mark as Sold</button>
+                            <button className="product-action-button mark-as-sold-button" onClick={handleItemSoldClick}>Mark as Sold</button>
                         </>
                     )}
                 </div>

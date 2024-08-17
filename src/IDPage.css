@@ -88,6 +88,7 @@ h1 {
     font-size: 28px; /* Font size */
     color: black; /* Black text color */
     align-items: center; /* Center align text */
+    margin-right: 21px;
 }
 
 /* Page description styles */
@@ -215,3 +216,14 @@ input[type="checkbox"] {
         height: 320px; /* Set height of the image */
     }
 }
+
+/* Add this to your CSS file or in a <style> tag */
+.success-message, .error-message {
+    padding-left: 20px; /* Add 20px padding on the left */
+    color: green; /* Example for success messages */
+  }
+  
+  .error-message {
+    color: red; /* Example for error messages */
+  }
+  

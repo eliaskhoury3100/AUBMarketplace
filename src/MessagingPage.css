@@ -55,19 +55,19 @@
     align-items: center; /* Center content vertically */
     height: 60px; /* Set the height of the section */
     background-color: #fff; /* White background */
-    margin-top: 0; /* Remove top margin */
+    margin-top: -25px;
     border-bottom: 1px solid #e0e0e0; /* Light gray border at the bottom */
 }
 
 /* Container for product information */
-.product-info {
+.product-info1 {
     display: flex;
     align-items: center; /* Center content vertically */
     width: 100%; /* Full width of the container */
 }
 
 /* Styling for the product image within the product information section */
-.product-info img {
+.product-info1 img {
     width: 50px; /* Set the width of the image */
     height: 50px; /* Set the height of the image */
     margin-right: 15px; /* Space to the right of the image */
@@ -140,7 +140,13 @@
     color: #000; /* Black text color */
     align-self: flex-end; /* Align text to the end of the container */
 }
-
+.message-container {
+    width: 100%; /* Full width of the container */
+    padding: 10px; /* Padding for some space around */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+    background-color: #f9f9f9; /* Optional: Set a background color */
+    border-top: 1px solid #ddd; /* Optional: Add a border at the top */
+  }
 /* Container for the message input field */
 .message-input {
     width: 100%; /* Full width of the container */
@@ -151,29 +157,44 @@
     bottom: 7%; /* Adjust based on the height of the navigation bar */
     left: 0; /* Align to the left edge of the page */
     display: flex;
-    align-items: center; /* Center content vertically */
+    flex-direction: row;
     border-top: 1px solid #e0e0e0; /* Light gray border at the top */
     margin-bottom: 22px; /* Space below the input */
+   
+   
 }
 
-/* Styling for the input field within the message input container */
-.inputfield1 {
-    width: calc(100% - 80px); /* Full width minus space for the send button */
-    padding: 10px; /* Padding inside the input field */
-    border-radius: 20px; /* Rounded corners */
-    border: 1px solid #ccc; /* Light gray border */
-    outline: none; /* Remove default outline */
-}
-
-/* Styling for the send button */
-.send-button {
-    width: 60px; /* Set the width of the button */
-    height: 40px; /* Set the height of the button */
-    margin-left: 10px; /* Space to the left of the button */
-    background-color: #f8c7d4; /* Light pink background */
-    border: none; /* Remove default border */
-    border-radius: 20px; /* Rounded corners */
-    color: #fff; /* White text color */
-    font-weight: bold; /* Bold text */
-    cursor: pointer; /* Pointer cursor to indicate clickability */
-}
+  /* Styling for the input field */
+  .inputfield1 {
+    flex-grow: 1; /* Allow input to take up remaining space */
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-right: 10px; /* Space between input and button */
+  }
+  
+  /* Styling for the send button */
+  .send-button {
+    background-color: #1E9E4A;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .send-button:hover {
+background-color: #1E9E4A;
+  }
+  
+  .send-button i {
+    font-size: 18px;
+  }
+  

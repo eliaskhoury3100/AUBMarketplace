@@ -32,18 +32,20 @@
 }
 
 /* Navigation logo */
-.nav-logo {
+.nav-logo1 {
   height: 45px; /* Logo height */
   width: 45px; /* Logo width */
-  margin-top: -9px; /* Adjust position relative to other elements */
+ 
   object-fit: cover; /* Ensure the image covers the space without distortion */
-  margin-right: 10px; /* Space between logo and adjacent elements */
+  margin-left: -19px; /* Space between logo and adjacent elements */
 }
 
 /* Styling for lost and found IDs section */
 .lost-ids {
   display: flex;
   align-items: center; /* Align content vertically with other items */
+  height: 45px;
+  width:45px;
 }
 
 /* Content within the lost and found section */
@@ -56,7 +58,7 @@
 .subtitle {
   font-size: 10px; /* Small text size */
   color: gray; /* Gray color for subtitles */
-  margin-top: -10px; /* Adjust position relative to the image */
+  margin-top: -6px; /* Adjust position relative to the image */
   text-decoration: none; /* Remove underline */
 }
 
@@ -116,8 +118,9 @@
   flex-wrap: wrap; /* Wrap items to the next line if necessary */
   gap: 10px; /* Space between items */
   overflow-y: auto; /* Enable vertical scrolling */
-  justify-content: space-around; /* Distribute space between items */
+  justify-content: space-between; /* Distribute space between items */
   padding: 15px 2.5% 25%; /* Padding around the container */
+  margin-top: 5%;
 }
 
 /* Adjust product card layout for medium-sized screens */
@@ -242,3 +245,20 @@
   align-items: center; /* Center items vertically */
   justify-content: center; /* Center items horizontally */
 }
+
+
+.sold-watermark {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust position to center the text exactly */
+  background-color: rgba(255, 0, 0, 0.8); /* Red background with slightly less transparency */
+  color: white; /* White text */
+  font-weight: bold; /* Bold text */
+  padding: 15px 30px; /* Increased padding for a bigger area */
+  border-radius: 8px; /* Slightly more rounded corners */
+  z-index: 10; /* Ensure the watermark appears above the image */
+  font-size: 1.5rem; /* Increased font size for better visibility */
+  pointer-events: none; /* Prevent interactions with the watermark */
+}
+

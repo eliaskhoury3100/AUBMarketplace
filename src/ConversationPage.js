@@ -3,9 +3,10 @@ import './ConversationPage.css';
 
 const ConversationPage = () => {
   const [conversations, setConversations] = useState([]);
-
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const fetchConversations = async () => {
+      setIsLoading(true);
       const accessToken = localStorage.getItem('accessToken');
       const userId = localStorage.getItem('username');
       const apiUrl = `https://tv6a49ucmd.execute-api.eu-north-1.amazonaws.com/default/retreivelistofusers?userId=${userId}`;
@@ -31,6 +32,9 @@ const ConversationPage = () => {
       } catch (error) {
         console.error('Error fetching conversations:', error);
       }
+      finally {
+        setIsLoading(false);
+      }
     };
 
     fetchConversations();
@@ -55,7 +59,7 @@ const ConversationPage = () => {
     const encodedOtherParticipant = (otherparticipant);
     window.location.href = `/messages?convoId=${encodedConvoId}&otheruser=${encodedOtherParticipant}`;
   };
-  
+  if (isLoading) return <div className="full-page-container"><div className="centered-text">Loading...</div></div>;
   return (
     <div className="message-page">
 
@@ -74,20 +78,28 @@ const ConversationPage = () => {
           alt="User Profile"
       />
   
-      <div className="user-info">
-          <div className="user-name">
-              {conversation.OtherParticipant.split("@")[0] ? conversation.OtherParticipant.split('@')[0] : 'Unknown User'}
-          </div>
-          {conversation.ProductDetails && (
-              <div className="product-info">
-                  <span>$ {conversation.ProductDetails.Price}</span>
-                  <div className="product-image" style={{ backgroundImage: `url(${conversation.ProductDetails.ImageUrl[0]})` }}></div>
-              </div>
-          )}
-          <div className="last-updated">
-              {formatDateOrTime(conversation.LastUpdated)}
-          </div>
+  <div className="user-info">
+  <div className="user-details">
+    <div className="username1">
+      {conversation.OtherParticipant.split("@")[0] ? conversation.OtherParticipant.split('@')[0] : 'Unknown User'}
+    </div>
+    {conversation.ProductDetails && (
+      <div className="product-price">
+        $ {conversation.ProductDetails.Price}
       </div>
+    )}
+  </div>
+  <div className="last-updated">
+    {formatDateOrTime(conversation.LastUpdated)}
+  </div>
+  {conversation.ProductDetails && (
+    <div className="product-image-container">
+      <div className="product-image" style={{ backgroundImage: `url(${conversation.ProductDetails.ImageUrl[0]})` }}></div>
+    </div>
+  )}
+</div>
+
+
   </div>
   
 ))}
