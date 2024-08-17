@@ -1,150 +1,126 @@
+/* Import fonts from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
+/* Apply basic resets and set default font */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Raleway", sans-serif;
+  box-sizing: border-box; /* Ensures padding and borders are included in the element's total width and height */
+  font-family: "Raleway", sans-serif; /* Default font for all text */
 }
 
+/* Main container for the homepage */
 .homecontainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Stack children vertically */
   height: 100vh;
   width: 100vw;
   overflow: auto; /* Enable scrolling if content overflows */
-  overflow-x: hidden; /* remove horizontal scroll */
+  overflow-x: hidden; /* Disable horizontal scroll */
 }
 
+/* Top navigation bar */
 .uppernav {
   height: 10vh; /* 10% of the viewport height */
   width: 100vw;
   padding: 15px 20px;
   background-color: transparent;
   display: flex;
-  justify-content: center; /* Distributes space between the left, center, and right elements */
-  align-items: center; /* Vertically centers the elements */
+  justify-content: center; /* Center elements horizontally */
+  align-items: center; /* Center elements vertically */
 }
 
+/* Navigation logo */
 .nav-logo {
-  height: 45px; /* Height of the logo */
-  width: 45px; /* Width of the logo */
-  margin-top: -9px;
-  object-fit: cover; /* Ensure the image covers the space without distorting */
-  margin-right: 10px; /* Add some space between the logo and the text */
+  height: 45px; /* Logo height */
+  width: 45px; /* Logo width */
+  margin-top: -9px; /* Adjust position relative to other elements */
+  object-fit: cover; /* Ensure the image covers the space without distortion */
+  margin-right: 10px; /* Space between logo and adjacent elements */
 }
 
+/* Styling for lost and found IDs section */
 .lost-ids {
   display: flex;
-  align-items: center; /* Aligns the lost-ids content vertically with the other items */
+  align-items: center; /* Align content vertically with other items */
 }
 
+/* Content within the lost and found section */
 .lost-ids-content {
-  text-align: center; /* Center-aligns the image and subtitle */
-  text-decoration: none; 
+  text-align: center; /* Center-aligns the image and text */
+  text-decoration: none; /* Remove underline from links */
 }
 
+/* Subtitle styling */
 .subtitle {
-  font-size: 10px; /* Adjust the font size as needed */
-  color: gray; /* Adjust the color as needed */
-  margin-top: -10px; /* Adds some space between the image and the text */
-  text-decoration: none; 
+  font-size: 10px; /* Small text size */
+  color: gray; /* Gray color for subtitles */
+  margin-top: -10px; /* Adjust position relative to the image */
+  text-decoration: none; /* Remove underline */
 }
 
+/* Font styling for headings */
 .h1, .h2, .h3 {
   font-family: 'Raleway', sans-serif;
 }
 
+/* Styling for secondary headings */
 .h2 {
-  color: #000000;
+  color: #000000; /* Black text color */
 }
 
+/* Responsive font size adjustments for headings */
 @media (max-width: 768px) {
   h1 {
-    font-size: 28px; /* Smaller size for smaller screens */
+    font-size: 28px; /* Smaller font size on medium screens */
   }
 }
 
 @media (max-width: 480px) {
   h1 {
-    font-size: 26px; /* Even smaller size for very small screens */
+    font-size: 26px; /* Even smaller font size on small screens */
   }
 }
 
-
-/* 
-.myitemscontainer {
-  width: 100%;
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  flex-grow: 1;
-  gap: 20px;
-  height: 1500px;
-  overflow-y: auto; 
-  padding-bottom: 100px;
-  margin-top:-15px;
-  justify-content: left;
-  margin-left: 10px;
-
-} */
-
+/* Product card link styling */
 .product-card-link {
-  text-decoration: none;
-  color: inherit;
-  display: block; /* Change this to block if the grid isn't necessary for the link itself */
-  width: 100%; /* Make sure the link takes the full width to not shrink */
+  text-decoration: none; /* Remove underline from links */
+  color: inherit; /* Inherit color from parent element */
+  display: block; /* Make link block-level to fill available width */
+  width: 100%; /* Full width to avoid shrinking */
 }
 
-/* .productcard {
-  
-  border-radius: 8px;
-  overflow: hidden;
- 
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  width: 45%;
-  height: 260px;
-}
-
-.productimage {
-  width: 100%;
-  height: 192px;
-  object-fit: cover;
-  border-radius: 8px;
-} */
+/* Product card styling */
 .productcard {
-  border-radius: 25px;
-  overflow: hidden;
-  box-shadow: 2px 12px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 25px; /* Rounded corners */
+  overflow: hidden; /* Hide content that overflows */
+  box-shadow: 2px 12px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  height: 320px; /* Increased card height */
-  width: calc(50% - 10px); /* Default: two cards per row */
+  flex-direction: column; /* Stack children vertically */
+  background-color: #fff; /* White background */
+  height: 320px; /* Card height */
+  width: calc(50% - 10px); /* Two cards per row by default */
 }
 
+/* Product image styling */
 .productimage {
-  width: 100%;
-  height: 240px; /* Increased image height to match taller card */
-  object-fit: cover;
+  width: 100%; /* Full width to fit card */
+  height: 240px; /* Set image height to match taller card */
+  object-fit: cover; /* Ensure the image covers the space without distortion */
 }
 
+/* Container for my items section */
 .myitemscontainer {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  overflow-y: auto;
-  justify-content: space-around;
-  padding: 15px 2.5% 25%;
+  flex-wrap: wrap; /* Wrap items to the next line if necessary */
+  gap: 10px; /* Space between items */
+  overflow-y: auto; /* Enable vertical scrolling */
+  justify-content: space-around; /* Distribute space between items */
+  padding: 15px 2.5% 25%; /* Padding around the container */
 }
 
-
-/* Adjust for medium-sized screens (tablets) */
+/* Adjust product card layout for medium-sized screens */
 @media (min-width: 768px) {
   .productcard {
     width: calc(33.33% - 13.33px); /* Three cards per row */
@@ -156,7 +132,7 @@
   }
 }
 
-/* Adjust for larger screens (desktops) */
+/* Adjust product card layout for larger screens */
 @media (min-width: 1024px) {
   .productcard {
     width: calc(25% - 15px); /* Four cards per row */
@@ -168,7 +144,7 @@
   }
 }
 
-/* Adjust for extra-large screens */
+/* Adjust product card layout for extra-large screens */
 @media (min-width: 1440px) {
   .productcard {
     width: calc(20% - 16px); /* Five cards per row */
@@ -180,80 +156,89 @@
   }
 }
 
+/* Product information styling */
 .productinfo {
   margin-left: 13px;
   text-align: center;
   height: 10px;
-  text-align: left;
+  text-align: left; /* Align text to the left */
 }
 
+/* Action button styling */
 .actionbutton {
   padding: 10px 20px;
-  background-color: #f1e4e7;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 5px;
+  background-color: #f1e4e7; /* Light background color */
+  border-radius: 10px; /* Rounded corners */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Font size */
+  font-weight: bold; /* Bold text */
+  margin-top: 5px; /* Space above button */
 }
 
+/* Hover effect for action buttons */
 .actionbutton:hover {
-  background-color: #e0d1d5;
+  background-color: #e0d1d5; /* Slightly darker background on hover */
 }
 
+/* Search wrapper styling */
 .search-wrapper {
-  padding: 2.5%;
-  margin-bottom: 10%;
+  padding: 2.5%; /* Padding around search wrapper */
+  margin-bottom: 10%; /* Space below the search wrapper */
 }
 
+/* Search form layout */
 .search-form {
-  
   width: 100%;
   display: flex;
   margin-top: 0px;
   margin-left: 6px;
 }
 
+/* Search input field styling */
 .search-input {
-  flex-grow: 1;
+  flex-grow: 1; /* Allow input field to grow and fill available space */
   padding: 10px;
   margin-right: 10px;
-  border: 0.4px solid #2f2a2a;
-  border-radius: 25px;
+  border: 0.4px solid #2f2a2a; /* Thin border */
+  border-radius: 25px; /* Rounded input field */
 }
+
+/* Carousel indicators container */
 .carouselindicators {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Center dots horizontally */
   padding: 10px;
-  height:5px;
-  
+  height: 5px;
 }
 
+/* Individual dot styling */
 .dot {
-  cursor: pointer;
-  height: 7px;
-  width: 7px;
-  margin: 0 5px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+  cursor: pointer; /* Pointer cursor on hover */
+  height: 7px; /* Dot height */
+  width: 7px; /* Dot width */
+  margin: 0 5px; /* Space between dots */
+  background-color: #bbb; /* Default dot color */
+  border-radius: 50%; /* Circular dots */
+  display: inline-block; /* Inline block layout */
+  transition: background-color 0.6s ease; /* Smooth transition for color change */
 }
 
+/* Active dot styling */
 .dot.active {
   background-color: #717171; /* Active dot color */
 }
 
-/* Add hover effect for dots */
+/* Hover effect for dots */
 .dot:hover {
-  background-color: #555;
+  background-color: #555; /* Darker color on hover */
 }
 
+/* Image carousel layout */
 .imagecarousel {
   display: flex;
-  overflow-x: auto;
+  overflow-x: auto; /* Enable horizontal scrolling */
   padding: 10px;
-  align-items: center; 
-  justify-content: center;
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
 }
