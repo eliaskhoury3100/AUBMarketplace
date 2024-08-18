@@ -1,0 +1,65 @@
+# This AWS Lambda function queries a DynamoDB table for products associated with a specific `userId` 
+# using a secondary index. It returns the list of products if found, 
+# or an appropriate error message if no products are found or if an error occurs during the query.
+
+import json
+import boto3
+from boto3.dynamodb.conditions import Key
+from decimal import Decimal
+
+# Initialize a DynamoDB client
+dynamodb = boto3.resource('dynamodb')
+
+def decimal_default(obj):
+    if isinstance(obj, Decimal):
+        return float(obj)  # Convert Decimal to float for JSON serialization
+
+def lambda_handler(event, context):
+    # Extract the userId from the event object
+    userId = event['queryStringParameters']['userId']
+    print("Querying for userId:", userId)
+
+    # Reference the DynamoDB table
+    table = dynamodb.Table('AUBMarketPlaceMainTable')
+
+    # Query the table using the specific index and both partition and sort keys
+    try:
+        response = table.query(
+            IndexName='UserID-PRODUCT-index',  # Specify the index name
+            KeyConditionExpression='UserID = :userIdValue AND PRODUCT = :productValue',
+            ExpressionAttributeValues={
+                ':userIdValue': userId,  # Use the actual user ID from the query string
+                ':productValue': 'product'  # Assuming 'product' is the sort key value you want to query
+            }
+        )
+        print(response)
+        # Check if the response has items
+        if 'Items' in response and response['Items']:
+            print("Found items:", response['Items'])
+            return {
+                'statusCode': 200,
+                'body': json.dumps(response['Items'], default=decimal_default),
+                'headers': {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                }
+            }
+        else:
+            return {
+                'statusCode': 404,
+                'body': json.dumps({'message': 'No products found for the given userId'}, default=decimal_default),
+                'headers': {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                }
+            }
+    except Exception as e:
+        print("Error:", e)
+        return {
+            'statusCode': 500,
+            'body': json.dumps({'message': 'Internal server error'}, default=decimal_default),
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            }
+        }
