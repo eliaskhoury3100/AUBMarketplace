@@ -5,21 +5,32 @@ import { Link } from 'react-router-dom';
 
 
 const ProductDetail = () => {
+    // Extract `id` and `pk` from the URL parameters
     const { id, pk } = useParams();
+
+     // State variables to store product details, loading state, error messages, etc.
     const [product, setProduct] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [activeIndex, setActiveIndex] = useState(0);
     const [profilePicture, setProfilePicture] = useState(null);
     const [username, setusername]= useState('');
-    const decodedId = decodeURIComponent(id);
     const [sub, setSub] = useState(''); // State variable to store sub
+
+    // Decode `id` and `pk` to handle special characters like '#'
     const decodedPk = decodeURIComponent(pk);
+    const decodedId = decodeURIComponent(id);
+
+    // Encode `id` and `pk` for use in API requests
     const encodedId = encodeURIComponent(id);  // This will convert '#' to '%23'
     const encodedPk = encodeURIComponent(pk);
+
     const userId = localStorage.getItem('userId'); // Get userId from local storage
+
+    // Arrays of categories for products that might require size or warranty details
     const sizeCategories = ['Clothing for Men', 'Clothing for Women', 'Sports Wear for Men', 'Sports Wear for Women'];
     const warrantyCategories = ["Mobile Phones & Accessories", "Laptops & Tablets", "Computers & Computer Parts", "Gaming Consoles & Video Games", "TV", "Speakers", "Cameras"];
+    
     useEffect(() => {
         const fetchProductDetails = async () => {
             setIsLoading(true);
@@ -67,6 +78,7 @@ const ProductDetail = () => {
         fetchProductDetails();
     }, [id, pk]); // Fetch product details whenever `id` changes
     
+     // Function to handle "Mark as Sold" button click
     const handleItemSoldClick = async (itemNumber, category) => {
         try {
           const apiUrl = `https://auy64nh6j7.execute-api.eu-north-1.amazonaws.com/default/markasSold?id=${encodedId}`;
@@ -116,6 +128,7 @@ const ProductDetail = () => {
         window.location.href = `/messages?name=${nameParam}&price=${priceParam}&image=${imageParam}&sellerID=${userID}&productID=${productID}`;
     };
 
+    // Function to handle "Delete Item" button click
     const handleDeleteItemClick = async () => {
         const accessToken = localStorage.getItem('accessToken'); // Ensure the accessToken is retrieved securely
         const productId = product[0].SK; // Assuming 'SK' is your product identifier
@@ -217,7 +230,7 @@ const ProductDetail = () => {
     );
 };
 
-
+     // Render loading state, error messages, or the product details
     if (isLoading) return <div className="full-page-container"><div className="centered-text">Loading...</div></div>;
     if (error) return <div className="full-page-container"><div className="centered-text">Error: {error}</div></div>;
     if (!product || Object.keys(product).length === 0) {

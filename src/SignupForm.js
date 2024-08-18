@@ -19,6 +19,7 @@ const SignUpForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Set background image for the form
     document.body.style.backgroundImage = "url('https://marketplacepictures.s3.eu-north-1.amazonaws.com/loginbackgroundcompressed.jpg')";
     document.body.style.backgroundSize = "cover";
     document.body.style.backgroundPosition = "center center";
@@ -57,15 +58,16 @@ const SignUpForm = () => {
     // Set loading state to true and start the sign-up process
     setLoading(true);
 
+    // Simulate a successful sign-up process and navigate to the homepage
     try {
-      const response = await fetch('https://1f756dhgyb.execute-api.eu-north-1.amazonaws.com/Project/signup', {
+      const response = await fetch('https://1f756dhgyb.execute-api.eu-north-1.amazonaws.com/Project/signup', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(requestBody),  // Send requestBody as JSON
       });
-
+      // Simulate signup process
       if (response.ok) {
         const data = await response.json();
         const { username } = data;  // Get UserSub from the response

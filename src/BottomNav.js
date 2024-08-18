@@ -7,6 +7,7 @@ const BottomNav = () => {
   return (
 /* isActive is a parameter which is true if the link is active and false otherwise. 
 If isActive is true, it sets the class to nav-item active; otherwise, it sets the class to nav-item.*/
+ // The main container for the bottom navigation
     <nav className="bottom-nav">
       <NavLink to="/homepage" exact className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
         <i className="fas fa-home"></i>
@@ -26,5 +27,5 @@ If isActive is true, it sets the class to nav-item active; otherwise, it sets th
     </nav>
   );
 };
-
+// Export the BottomNav component as the default export of this module
 export default BottomNav;

@@ -401,7 +401,7 @@ const FilterPanel = ({ onClose, filters, setFilters }) => {
       if (response.ok) {
         const data = await response.json();
         
-        setProducts(data);
+        setProducts(data); // Set fetched products to state
         
         console.log("Products fetched successfully:", data);
       } else {

@@ -2,13 +2,16 @@ import React, { useState, useEffect } from 'react';
 import './ConversationPage.css';
 
 const ConversationPage = () => {
+  // State hooks for storing conversations and loading status
   const [conversations, setConversations] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Fetch conversations when the component mounts
   useEffect(() => {
     const fetchConversations = async () => {
       setIsLoading(true);
-      const accessToken = localStorage.getItem('accessToken');
-      const userId = localStorage.getItem('username');
+      const accessToken = localStorage.getItem('accessToken'); // Retrieve access token from local storage
+      const userId = localStorage.getItem('username'); // Retrieve the user's ID from local storage
       const apiUrl = `https://tv6a49ucmd.execute-api.eu-north-1.amazonaws.com/default/retreivelistofusers?userId=${userId}`;
 
       try {
@@ -21,6 +24,7 @@ const ConversationPage = () => {
 
         if (response.ok) {
           const data = await response.json();
+          // Filter out conversations with missing product details
           const filteredConversations = data.filter(conversation => 
             !(conversation.ProductDetails && conversation.ProductDetails === "No product details found")
           );
@@ -33,13 +37,14 @@ const ConversationPage = () => {
         console.error('Error fetching conversations:', error);
       }
       finally {
-        setIsLoading(false);
+        setIsLoading(false); // Stop loading state after fetch completes
       }
     };
 
     fetchConversations();
   }, []);
 
+  // Format the date or time based on whether the conversation was updated today
   function formatDateOrTime(lastUpdated) {
     const date = new Date(lastUpdated);
     const today = new Date();
@@ -53,13 +58,17 @@ const ConversationPage = () => {
     }
 }
 
-
+  // Handle clicking on a user's conversation
   const handleUserClick = (convoId, otherparticipant) => {
     const encodedConvoId = encodeURIComponent(convoId);
     const encodedOtherParticipant = (otherparticipant);
+    // Redirect to the messages page for the selected conversation
     window.location.href = `/messages?convoId=${encodedConvoId}&otheruser=${encodedOtherParticipant}`;
   };
+
+  // Display loading message while conversations are being fetched
   if (isLoading) return <div className="full-page-container"><div className="centered-text">Loading...</div></div>;
+  
   return (
     <div className="message-page">
 

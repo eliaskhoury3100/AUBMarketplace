@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom';
 import './MessagingPage.css';
 
 const MessagingPage = () => {
+  // State variables for messages, new message input, and product details
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const [productDetails, setProductDetails] = useState(null); // State to store product details
+
+  // Retrieve user and product information from local storage and URL parameters
   const userId = localStorage.getItem('username');
   const urlParams = new URLSearchParams(window.location.search);
   const recipientId = urlParams.get('sellerID');
@@ -21,6 +24,7 @@ const MessagingPage = () => {
 
   useEffect(() => {
     const fetchMessages = async () => {
+      // Determine the API URL based on whether a ProductID is available
       let apiUrl = ProductID ?
         `https://0z3s33sr47.execute-api.eu-north-1.amazonaws.com/default/fetchmessages?user_id=${userId}&recipient_id=${recipientId}&product_id=${productID}` :
         `https://0z3s33sr47.execute-api.eu-north-1.amazonaws.com/default/fetchmessages?convo_id=${convoID}`;
@@ -38,6 +42,8 @@ const MessagingPage = () => {
 
         const data = await response.json();
         setMessages(data);
+
+        // If product details are present in the messages, fetch additional product details
         if (data.length > 0 && data[0].ProductID) {
           fetchProductDetails(data[0].ProductID);
         }
@@ -93,7 +99,7 @@ const MessagingPage = () => {
         },
         body: JSON.stringify(messageData)
       });
-  
+      // Reload messages after sending a new one
       if (response.ok) {
         const updatedMessages = [...messages, { SenderID: userId, Message: newMessage }];
         setMessages(updatedMessages);

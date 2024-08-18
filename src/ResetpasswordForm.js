@@ -7,6 +7,7 @@ import { useLocation } from 'react-router-dom';  // Import useLocation from reac
 const ResetPasswordForm = () => {
   const location = useLocation();
   const { username } = location.state || {};  // Get the email from the location state
+  // State variables for form inputs and error/success messages
   const [verificationCode, setVerificationCode] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -29,8 +30,8 @@ const ResetPasswordForm = () => {
   // Form submission handler
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setFormError('');
-    setSuccessMessage('');
+    setFormError(''); // Reset error message
+    setSuccessMessage(''); // Reset success message
 
     // Validate the form inputs
     if (!verificationCode) {
@@ -52,6 +53,7 @@ const ResetPasswordForm = () => {
     const requestBody = { username, verificationCode, password, confirmPassword };
     console.log("Request Body:", JSON.stringify(requestBody));
 
+     // Simulate successful password reset and display success message
     try {
       const response = await fetch('https://jqz0btoi3a.execute-api.eu-north-1.amazonaws.com/Project/resetpassword', {
         method: 'POST',

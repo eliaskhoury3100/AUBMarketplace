@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './IDPage.css';
 import { Link } from 'react-router-dom'; 
 function LostIDsPage() {
+    // State hooks for form fields, error messages, submission status, and response messages
     const [name, setName] = useState('');
     const [initials, setInitials] = useState('');
     const [phone, setPhone] = useState('');
@@ -11,6 +12,7 @@ function LostIDsPage() {
     const [isSubmitting, setIsSubmitting] = useState(false); // New state for submission status
     const [message, setMessage] = useState('');
     const [messageType, setMessageType] = useState(''); // 'success' or 'error'
+    // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         setErrorMessage('');
