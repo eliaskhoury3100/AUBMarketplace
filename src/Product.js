@@ -198,7 +198,17 @@ const ProductDetail = () => {
                     {userId === sub && (
                         <>
                             <button className="product-action-button delete-item-button" onClick={handleDeleteItemClick}>Delete Item</button>
-                            <button className="product-action-button mark-as-sold-button" onClick={handleItemSoldClick}>Mark as Sold</button>
+                            <button
+                            className="mark-as-sold-button"
+                            style={{
+                                backgroundColor: product[0].State === "sold" ? "#FFE7D6" : "", // Light orange color when sold
+                                color: product[0].State === "sold" ? "#D3752C" :"",
+                                pointerEvents: product[0].State === "sold" ? "none" : "auto", // Makes button unclickable when sold
+                            }}
+                            onClick={product[0].State !== "sold" ? handleItemSoldClick : undefined} // Prevents function from firing when sold
+                            >
+                            {product[0].State === "sold" ? "Sold" : "Mark as Sold"}
+                            </button>
                         </>
                     )}
                 </div>

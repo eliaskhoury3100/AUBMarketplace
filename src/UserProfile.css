@@ -334,24 +334,7 @@ body {
   background-color: #555; /* Darker background on hover */
 }
 
-.my-items-container.raised {
-  margin-top: -20%; /* Remove or reduce the margin */
-  padding-top: 100px; /* Add padding if needed */
-}
 
-.about-section.raised {
-  margin-top: -20%; /* Remove or reduce the margin */
-  padding-top: 10px; /* Add some padding if necessary */
-}
-
-.my-items.raised {
-  margin-top: 5%; /* Remove or reduce the margin */
-  padding-top: 10px; /* Add some padding if necessary */
-}
-
-.about-input.raised {
-  margin-top: 0; /* Reduce the margin when raised */
-}
 
 .sold-watermark {
   position: absolute;

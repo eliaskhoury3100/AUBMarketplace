@@ -208,9 +208,11 @@
     align-items: center; /* Center items within the button */
     border: 1px solid #FEE0E0; /* Light border */
     display: flex; /* Use flexbox for layout */
-    justify-items: center; /* Center items within the button */
+    justify-content: center; /* Center content within the button */
     line-height: 34px; /* Line height for vertical alignment */
+    min-width: 115.65px; /* Set to a width that fits the longer text */
 }
+
 
 .back-arrow {
   text-decoration: none; /* Removes underline from link */
