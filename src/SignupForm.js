@@ -88,13 +88,13 @@ const SignUpForm = () => {
     <div className="wrapper">
       <form onSubmit={handleSubmit} id="signUpForm">
         {formError && (
-          <div className="alert alert-danger">
-            <ul style={{ color: 'red' }}>
+          <div className="sign-up-error">
+            <ul>
               <li>{formError}</li>
             </ul>
           </div>
         )}
-        <h2>Welcome!</h2>
+        <h2>Welcome to the AUB MarketPlace!</h2>
         <div className="input-field">
           <input
             type="email"

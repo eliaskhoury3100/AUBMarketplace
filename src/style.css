@@ -4,18 +4,18 @@
 
 /* Apply box-sizing and set default font for all elements */
 * {
-  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  box-sizing: border-box;
   font-family: "Raleway", sans-serif; /* Set default font */
 }
 
 /* Set height and width of the viewport, and center content both horizontally and vertically */
 html, body {
-  height: 100vh; /* Full viewport height */
-  width: 100vw; /* Full viewport width */
-  display: flex; /* Enable flexbox layout */
-  align-items: center; /* Center children vertically */
-  justify-content: center; /* Center children horizontally */
-  position: relative; /* Set position relative for absolute positioning inside */
+  height: 100vh; 
+  width: 100vw; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  position: relative; 
   overflow: hidden; /* Hide overflow to prevent scrolling */
 }
 
@@ -23,107 +23,107 @@ html, body {
 .wrapper {
   width: 90vw; /* 90% of the viewport width */
   border-radius: 25px; /* Rounded corners */
-  padding: 15% 5% 2.5%; /* Padding inside the wrapper */
-  text-align: center; /* Center text */
-  border: 1px solid rgba(255, 255, 255, 0.5); /* Semi-transparent border */
+  padding: 15% 5% 2.5%; 
+  text-align: center; 
+  border: 1px solid rgba(255, 255, 255, 0.5); 
   backdrop-filter: blur(9px); /* Apply a blur effect to create a glassmorphism effect */
   -webkit-backdrop-filter: blur(9px); /* Apply blur effect for WebKit browsers */
-  position: relative; /* Position relative for layering */
-  z-index: 1; /* Ensure it appears above the background */
+  position: relative; 
+  z-index: 1; 
 }
 
 /* Form styling */
 form {
-  display: flex; /* Enable flexbox layout */
-  flex-direction: column; /* Stack form elements vertically */
-  border-radius: 25px; /* Rounded corners */
+  display: flex; 
+  flex-direction: column;
+  border-radius: 25px; 
 }
 
 /* Styling for input fields within the form */
 .input-field {
-  position: relative; /* Position relative for label positioning */
-  border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* Semi-transparent bottom border */
-  margin: 5% 0% 5%; /* Margin around the input field */
+  position: relative;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5); 
+  margin: 5% 0% 5%; 
 }
 
 /* Label styling within input fields */
 .input-field label {
-  position: absolute; /* Position absolute for proper placement */
-  top: 50%; /* Center vertically */
-  left: 0; /* Align to the left */
-  transform: translateY(-50%); /* Adjust to center the label exactly */
-  color: #fff; /* White text color */
-  font-size: 16px; /* Font size */
-  pointer-events: none; /* Disable pointer events */
+  position: absolute; 
+  top: 50%; 
+  left: 0; 
+  transform: translateY(-50%); 
+  color: #fff; 
+  font-size: 16px; 
+  pointer-events: none; 
   transition: 0.15s ease; /* Smooth transition for label movement */
 }
 
 /* Input field styling */
 .input-field input {
-  width: 100vw; /* Full viewport width */
-  height: 5vh; /* Set height relative to viewport height */
-  background: transparent; /* Transparent background */
-  border: none; /* No border */
-  outline: none; /* Remove default outline */
-  font-size: 16px; /* Font size */
-  color: #fff; /* White text color */
+  width: 100vw; 
+  height: 5vh; 
+  background: transparent; 
+  border: none; 
+  outline: none; 
+  font-size: 16px; 
+  color: #fff; 
 }
 
 /* Adjust label position when the input is focused or valid */
 .input-field input:focus ~ label, 
 .input-field input:valid ~ label,
 .input-field input:-webkit-autofill ~ label {
-  font-size: 16px; /* Maintain font size */
-  top: 2.5%; /* Adjust position to stay above the input */
+  font-size: 16px; 
+  top: 2.5%; 
   transform: translateY(-120%); /* Move label above the input */
 }
 
 /* Styling for the forget password section */
 .forget {
-  display: flex; /* Enable flexbox layout */
-  align-items: center; /* Center content vertically */
-  justify-content: space-between; /* Space between elements */
-  margin: 5% 2.5% 5% 2.5%; /* Margin around the section */
-  color: #fff; /* White text color */
-  font-size: 16.5px; /* Font size */
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  margin: 5% 2.5% 5% 2.5%; 
+  color: #fff; 
+  font-size: 16.5px; 
 }
 
 /* General button styling */
 button {
-  background: #fff; /* White background */
-  color: #000; /* Black text color */
+  background: #fff; 
+  color: #000; 
   font-weight: 600; /* Bold text */
-  border: none; /* No border */
-  padding: 12px 20px; /* Padding inside the button */
-  cursor: pointer; /* Pointer cursor on hover */
-  border-radius: 25px; /* Rounded corners */
-  font-size: 18px; /* Font size */
-  border: 2px solid transparent; /* Transparent border */
+  border: none; 
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 25px; 
+  font-size: 18px; 
+  border: 2px solid transparent; 
   transition: 0.3s ease; /* Smooth transition for hover effect */
 }
 
 /* Checkbox styling */
 #remember {
-  accent-color: #fff; /* White accent color for checkbox */
+  accent-color: #fff;
 }
 
 /* Styling for labels in the forget password section */
 .forget label {
-  display: flex; /* Enable flexbox layout */
-  align-items: center; /* Center content vertically */
-  padding: 1%; /* Padding inside the label */
+  display: flex; 
+  align-items: center; 
+  padding: 1%; 
 }
 
 /* Link styling within the forget password section */
 .forget a {
-  margin-top: -2.5%; /* Adjust margin for proper alignment */
-  padding-left: 2.5%; /* Padding to the left */
+  margin-top: -2.5%;
+  padding-left: 2.5%; 
 }
 
 /* Link styling within the wrapper */
 .wrapper a {
   color: #efefef; /* Light gray color */
-  text-decoration: none; /* Remove underline from links */
+  text-decoration: none; 
 }
 
 /* Hover effect for links */
@@ -133,49 +133,61 @@ button {
 
 /* Hover effect for buttons */
 button:hover {
-  color: #fff; /* White text color */
-  border-color: #fff; /* White border */
+  color: #fff;
+  border-color: #fff;
   background: rgba(255, 255, 255, 0.15); /* Semi-transparent background */
 }
 
 /* Styling for the register section */
 .register {
-  text-align: center; /* Center text */
-  margin-top: 30px; /* Space above the section */
-  color: #fff; /* White text color */
+  text-align: center; 
+  margin-top: 30px; 
+  color: #fff; 
 }
 
 /* Styling for the login text */
 .login {
-  padding: 2.5%; /* Padding around the text */
-  color: black; /* Black text color */
-  font-style: italic; /* Italicized text */
+  padding: 2.5%; 
+  color: black; 
+  font-style: italic; 
 }
 
 /* Remove white background from autofilled inputs */
 .input-field input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px transparent inset !important; /* Transparent background */
   -webkit-text-fill-color: #fff !important; /* White text color */
-  border-bottom: none; /* Remove bottom border */
-  font-size: 16px; /* Font size */
+  border-bottom: none; 
+  font-size: 16px;
 }
 
 /* Customize the appearance of autofilled inputs */
 .input-field input:-webkit-autofill {
-  border-bottom: none; /* Remove bottom border */
-  background-clip: text; /* Clip background to text */
-  -webkit-background-clip: text; /* WebKit-specific background clipping */
-  color: #fff; /* White text color */
+  border-bottom: none; 
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: #fff;
 }
 
 /* Ensure proper text alignment and color in autofill */
 .input-field input:-webkit-autofill::first-line {
-  color: #ffffff !important; /* Ensure white text color */
+  color: #ffffff !important;
 }
 
-/* Styling for h2 headers */
+/* Styling for h2 headers (Welcome msg)*/
 h2 {
-  color: white; /* White text color */
-  font-size: 22px; /* Font size */
-  padding: 2.5%; /* Padding around the header */
+  color: white;
+  font-size: 22px; 
+  margin-bottom: 5%;
+}
+
+/* Styling for sign up error messages pt1*/
+.sign-up-error {
+  font-style: italic;
+  font-size: 14px;
+  color: black;
+  margin-bottom: 2.5%;
+}
+/* Styling for sign up error messages pt 2*/
+.sign-up-error ul {
+  list-style-type: none; /* Remove bullet points */
 }

@@ -81,7 +81,7 @@ const LoginForm = () => {
     <div className="wrapper">
       <form onSubmit={handleSubmit}>
         {error && <p style={{ color: 'red' }}>{error}</p>}
-        <h2>Welcome Back!</h2>
+        <h2>Welcome Back to the AUB MarketPlace!</h2>
         <div className="input-field">
           <input
             type="email"
