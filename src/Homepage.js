@@ -539,21 +539,7 @@ const FilterPanel = ({ onClose, filters, setFilters }) => {
                 <button
             type="button"
             onClick={toggleFilterPanel}
-            className="filter-button"
-            style={{
-              position: 'absolute',
-              right: '10px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              border: 'none',
-              background: 'transparent',
-              fontSize: '12px', // Decrease the font size
-              color: 'gray',
-              cursor: 'pointer',
-              outline: 'none'
-            }}
-          >
-            Filter
+            className="filter-button">Filter
           </button>
             </div>
         </form>

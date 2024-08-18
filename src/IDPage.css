@@ -1,74 +1,78 @@
+/* Import fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
 /* General body styles */
 body {
-    font-family: Arial, sans-serif; /* Set the default font */
+    font-family: 'Raleway', sans-serif;
     display: flex;
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    height: 100vh; /* Full viewport height */
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
 }
 
 /* Back link styling */
 .back-link {
-    text-decoration: none; /* Remove underline from the link */
-    display: inline-block; /* Display link as an inline-block element */
-    padding: 8px 16px; /* Padding around the link */
+    text-decoration: none;
+    display: inline-block; 
+    padding: 8px 16px; 
 }
 
 /* Main container for the ID page */
 .selling1 {
-    background-color: #fff; /* White background */
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
+    background-color: #fff; 
+    width: 100vw; 
+    height: 100vh; 
    
-    padding-top: 20%; /* Padding at the top */
-    border-radius: 0; /* No rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    box-sizing: border-box; /* Include padding and border in element's width and height */
-    overflow: auto; /* Enable scrolling if content overflows */
-    overflow-y: auto; /* Enable vertical scrolling */
-    overflow-x: hidden; /* Disable horizontal scrolling */
+    padding-top: 20%; 
+    border-radius: 0; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; 
+    overflow: auto; 
+    overflow-y: auto;
+    overflow-x: hidden; 
 
-    padding-bottom: 20%; /* Extra padding at the bottom */
+    padding-bottom: 20%; 
 }
 
 /* Header styles */
 .header {
     display: flex;
-    justify-content: space-between; /* Space between header elements */
-    align-items: center; /* Center content vertically */
-    padding: 10px 0; /* Padding inside the header */
-    margin-bottom: 25px; /* Space below the header */
+    justify-content: space-between;
+    align-items: center; 
+    padding: 10px 0; 
+    margin-bottom: 25px; 
 }
 
 /* Image within the header */
 .header img {
-    border-radius: 50%; /* Make the image circular */
-    width: 40px; /* Set the width of the image */
-    height: 40px; /* Set the height of the image */
+    border-radius: 50%; 
+    width: 40px; 
+    height: 40px; 
 }
 
 /* Upper navigation bar */
 .uppernav1 {
     display: flex;
-    align-items: center; /* Align items vertically */
-    position: fixed; /* Fix the position to the top of the page */
-    justify-content: space-between; /* Space between navigation items */
-    top: 0; /* Align to the top */
-    left: 0; /* Align to the left */
-    width: 100%; /* Full width of the container */
-    background-image: linear-gradient(to bottom, #e3c6cd, #ffffff); /* Gradient background */
-    height: 10vh; /* 10% of the viewport height */
+    align-items: center; 
+    position: fixed; 
+    justify-content: space-between; 
+    top: 0;
+    left: 0; 
+    width: 100%; 
+    background-image: linear-gradient(to bottom, #e3c6cd, #ffffff); 
+    height: 10vh; 
 }
 
 /* Navigation item */
 .nav-item {
-    flex: 0 0 auto; /* Prevents the back link from growing or shrinking */
+    flex: 0 0 auto; 
 }
 
 /* Back icon within the navigation */
 .back-icon {
-    color: black; /* Black color for the icon */
-    font-size: 1.5rem; /* Font size */
+    color: black;
+    font-size: 1.5rem; 
 }
 
 /* Back link within the navigation */
@@ -83,102 +87,102 @@ body {
 
 /* Heading (h1) styles */
 h1 {
-    font-family: 'Raleway', sans-serif; /* Font family */
-    font-weight: 700; /* Bold text */
-    font-size: 28px; /* Font size */
-    color: black; /* Black text color */
-    align-items: center; /* Center align text */
+    font-family: 'Raleway', sans-serif; 
+    font-weight: 700; 
+    font-size: 28px; 
+    color: black;
+    align-items: center; 
     margin-right: 21px;
 }
 
 /* Page description styles */
 .page-description {
-    padding: 10px; /* Padding around the description */
-    font-size: 15px; /* Font size */
-    font-style: italic; /* Italicized text */
-    margin-bottom: 10px; /* Space below the description */
-    color: black; /* Black text color */
+    padding: 10px; 
+    font-size: 15px;
+    font-style: italic; 
+    margin-bottom: 10px;
+    color: black; 
 }
 
 /* Form group styles */
 .form-group {
-    padding: 2.5%; /* Padding around the form group */
-    padding-bottom: 5%; /* Extra padding at the bottom */
+    padding: 2.5%;
+    padding-bottom: 5%; 
 }
 
 /* Label within the form group */
 .form-group label {
-    font-weight: bold; /* Bold label text */
-    margin-bottom: 1%; /* Space below the label */
-    padding: 2.5%; /* Padding around the label */
-    display: block; /* Block-level element */
+    font-weight: bold;
+    margin-bottom: 1%; 
+    padding: 2.5%; 
+    display: block; 
 }
 
 /* First form group styles */
 .form-group:first-child {
-    margin-top: 2.5%; /* Margin at the top */
+    margin-top: 2.5%; 
 }
 
 /* Input, textarea, and select elements within the form group */
 .form-group input, .form-group textarea, .form-group select {
-    width: 100%; /* Full width of the container */
-    padding: 10px; /* Padding inside the elements */
-    border: 1px solid #e0e0e0; /* Light gray border */
-    border-radius: 25px; /* Rounded corners */
-    background-color: #f2f2f2; /* Light gray background */
-    box-sizing: border-box; /* Include padding and border in element's width and height */
-    box-shadow: 2px 6px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #e0e0e0; 
+    border-radius: 25px; 
+    background-color: #f2f2f2; 
+    box-sizing: border-box;
+    box-shadow: 2px 6px 20px rgba(0, 0, 0, 0.1); 
 }
 
 /* Textarea styles */
 .form-group textarea {
-    resize: none; /* Prevent textarea resizing */
+    resize: none; 
 }
 
 /* Post button styles */
 .post-button {
-    background-color: #3d3d3d; /* Dark background color */
-    color: #fff; /* White text color */
-    padding: 5px; /* Padding inside the button */
-    border-radius: 25px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor to indicate clickability */
-    width: 100%; /* Full width of the parent container */
-    max-width: 500px; /* Maximum width to prevent the button from stretching too wide */
-    margin: 0 auto; /* Center the button horizontally */
-    display: block; /* Block-level element */
+    background-color: #3d3d3d; 
+    color: #fff; 
+    padding: 5px; 
+    border-radius: 25px; 
+    cursor: pointer;
+    width: 100%; 
+    max-width: 500px; 
+    margin: 0 auto; 
+    display: block; 
 }
 
 /* Form group with a checkbox */
 .formgroupalone {
-    margin-top: 20px; /* Space above the group */
-    display: flex; /* Display contents in a row */
-    align-items: center; /* Center content vertically */
-    margin-bottom: 15px; /* Space below the group */
-    margin-top: -5px; /* Adjust margin at the top */
+    margin-top: 20px; 
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 15px;
+    margin-top: -5px; 
 }
 
 /* Label for the checkbox */
 .checkbox-label {
-    display: flex; /* Align checkbox and text in a row */
-    align-items: center; /* Center content vertically */
-    cursor: pointer; /* Make the entire label clickable */
+    display: flex; 
+    align-items: center; 
+    cursor: pointer; 
 }
 
 /* Checkbox input styling */
 input[type="checkbox"] {
-    margin-right: 20px; /* Space between the checkbox and the text */
+    margin-right: 20px;
 }
 
 /* Focus state for the post button */
 .post-button:focus {
-    background-color: #3d3d3d; /* Dark background color */
-    outline: none; /* Remove default outline */
+    background-color: #3d3d3d; 
+    outline: none; 
 }
 
 /* Disabled state for the post button */
 .post-button:disabled {
-    opacity: 0.5; /* Lower opacity to indicate disabled state */
-    cursor: not-allowed; /* Change cursor to indicate it is not clickable */
+    opacity: 0.5;
+    cursor: not-allowed; 
 }
 
 /* Media query for medium-sized screens */
@@ -217,13 +221,13 @@ input[type="checkbox"] {
     }
 }
 
-/* Add this to your CSS file or in a <style> tag */
+/* colors of errors and successful commands */
 .success-message, .error-message {
-    padding-left: 20px; /* Add 20px padding on the left */
-    color: green; /* Example for success messages */
+    padding-left: 20px; 
+    color: green; 
   }
   
   .error-message {
-    color: red; /* Example for error messages */
+    color: red;
   }
   

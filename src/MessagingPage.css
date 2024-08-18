@@ -1,167 +1,165 @@
 /* Main container for the messaging page */
 .message-page {
-    background-color: #fff; /* White background */
-    width: 100%; /* Full width of the container */
-    border-radius: 15px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: #fff; 
+    width: 100%; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    position: relative; /* Position relative for child elements */
-    padding-bottom: 20%; /* Extra padding at the bottom for spacing */
+    flex-direction: column; 
+    position: relative; 
+    padding-bottom: 20%; 
 
-    overflow: auto; /* Enable scrolling if content overflows */
-    overflow-y: auto; /* Enable vertical scrolling */
-    overflow-x: hidden; /* Disable horizontal scrolling */
+    overflow: auto;
+    overflow-y: auto; 
+    overflow-x: hidden;
 }
 
 /* Header section at the top of the messaging page */
 .header {
-    width: 100%; /* Full width of the container */
-    background-color: #fff; /* White background */
+    width: 100%; 
+    background-color: #fff; 
     display: flex;
-    align-items: center; /* Center content vertically */
-    padding: 10px 20px; /* Padding inside the header */
-    height: 70px; /* Set the height of the header */
-    position: relative; /* Position relative for child elements */
-    border-bottom: 1px solid #e0e0e0; /* Light gray border at the bottom */
-    margin-bottom: 0; /* Remove bottom margin */
+    align-items: center; 
+    padding: 10px 20px; 
+    height: 70px;
+    position: relative; 
+    border-bottom: 1px solid #e0e0e0; 
+    margin-bottom: 0; 
 }
 
 /* Back link styling within the header */
 .header .back-link {
-    margin-right: 15px; /* Space to the right of the back link */
-    font-size: 24px; /* Font size for the back link */
-    text-decoration: none; /* Remove underline from the link */
-    color: black; /* Black text color */
+    margin-right: 15px; 
+    font-size: 24px; 
+    text-decoration: none;
+    color: black; 
 }
 
 /* Username styling within the header */
 .header .username {
-    font-size: 20px; /* Font size for the username */
-    font-weight: bold; /* Bold text */
-    margin: 0 auto; /* Center the username horizontally */
-    position: absolute; /* Position absolute to center it properly */
-    left: 50%; /* Center the username horizontally */
-    transform: translateX(-50%); /* Adjust position to exactly center it */
+    font-size: 20px; 
+    font-weight: bold;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%); 
 }
 
 /* Product information section below the header */
 .product-info-section {
-    width: 100%; /* Full width of the container */
-    padding: 10px 20px; /* Padding inside the section */
+    width: 100%; 
+    padding: 10px 20px; 
     display: flex;
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    height: 60px; /* Set the height of the section */
-    background-color: #fff; /* White background */
+    justify-content: center; 
+    align-items: center; 
+    height: 60px; 
+    background-color: #fff; 
     margin-top: -25px;
-    border-bottom: 1px solid #e0e0e0; /* Light gray border at the bottom */
+    border-bottom: 1px solid #e0e0e0; 
 }
 
 /* Container for product information */
 .product-info1 {
     display: flex;
-    align-items: center; /* Center content vertically */
-    width: 100%; /* Full width of the container */
+    align-items: center; 
+    width: 100%; 
 }
 
 /* Styling for the product image within the product information section */
 .product-info1 img {
-    width: 50px; /* Set the width of the image */
-    height: 50px; /* Set the height of the image */
-    margin-right: 15px; /* Space to the right of the image */
+    width: 50px;
+    height: 50px;
+    margin-right: 15px; 
 }
 
 /* Container for product details (title, price) */
 .product-details {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
+    flex-direction: column; 
 }
 
 /* Styling for the product title */
 .product-title {
-    font-size: 16px; /* Font size for the title */
-    font-weight: bold; /* Bold text */
+    font-size: 16px; 
+    font-weight: bold; 
 }
 
 /* Styling for the product price */
 .product-price {
-    font-size: 14px; /* Font size for the price */
+    font-size: 14px; 
 }
 
 /* Container for the list of messages */
 .messages-list {
-    flex: 1; /* Allow the list to grow and fill available space */
-    width: 100%; /* Full width of the container */
-    padding: 10px 20px; /* Padding inside the list */
-    overflow-y: auto; /* Enable vertical scrolling */
+    flex: 1; 
+    width: 100%; 
+    padding: 10px 20px;
+    overflow-y: auto;
     display: flex;
-    flex-direction: column; /* Stack messages vertically */
-    max-height: 700px; /* Maximum height for the list */
-    padding-bottom: 50px; /* Space at the bottom for the input field and bottom nav */
+    flex-direction: column; 
+    max-height: 700px;
+    padding-bottom: 50px;
 }
 
 /* Individual message styling */
 .message {
-    margin-bottom: 10px; /* Space below each message */
+    margin-bottom: 10px; 
     display: flex;
-    align-items: center; /* Center content vertically */
+    align-items: center; 
 }
 
 /* Styling for received messages */
 .message.received {
-    justify-content: flex-start; /* Align to the left */
+    justify-content: flex-start; 
 }
 
 /* Styling for sent messages */
 .message.sent {
-    justify-content: flex-end; /* Align to the right */
+    justify-content: flex-end; 
 }
 
 /* Container for message text */
 .message-text {
-    max-width: 70%; /* Limit the width of the message text */
-    padding: 10px; /* Padding inside the message */
-    border-radius: 15px; /* Rounded corners */
-    font-size: 14px; /* Font size */
+    max-width: 70%; 
+    padding: 10px; 
+    border-radius: 15px; 
+    font-size: 14px; 
 }
 
 /* Styling for the text of received messages */
 .message.received .message-text {
-    background-color: #f8c7d4; /* Light pink background */
-    color: #000; /* Black text color */
-    align-self: flex-start; /* Align text to the start of the container */
+    background-color: #f8c7d4;
+    color: #000; 
+    align-self: flex-start; 
 }
 
 /* Styling for the text of sent messages */
 .message.sent .message-text {
-    background-color: #f1f1f1; /* Light gray background */
-    color: #000; /* Black text color */
-    align-self: flex-end; /* Align text to the end of the container */
+    background-color: #f1f1f1; 
+    color: #000; 
+    align-self: flex-end;
 }
 .message-container {
-    width: 100%; /* Full width of the container */
-    padding: 10px; /* Padding for some space around */
-    box-sizing: border-box; /* Ensure padding is included in the width */
-    background-color: #f9f9f9; /* Optional: Set a background color */
-    border-top: 1px solid #ddd; /* Optional: Add a border at the top */
+    width: 100%; 
+    padding: 10px; 
+    box-sizing: border-box; 
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd; 
   }
 /* Container for the message input field */
 .message-input {
-    width: 100%; /* Full width of the container */
-    padding: 10px 20px; /* Padding inside the input container */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    background-color: #fff; /* White background */
-    position: fixed; /* Fixed position at the bottom of the page */
-    bottom: 7%; /* Adjust based on the height of the navigation bar */
-    left: 0; /* Align to the left edge of the page */
+    width: 100%; 
+    padding: 10px 20px; 
+    box-sizing: border-box;
+    background-color: #fff; 
+    position: fixed; 
+    bottom: 7%;
+    left: 0; 
     display: flex;
     flex-direction: row;
-    border-top: 1px solid #e0e0e0; /* Light gray border at the top */
-    margin-bottom: 22px; /* Space below the input */
-   
-   
+    border-top: 1px solid #e0e0e0; 
+    margin-bottom: 22px; 
 }
 
   /* Styling for the input field */
@@ -171,7 +169,7 @@
     border-radius: 20px;
     border: 1px solid #ccc;
     font-size: 16px;
-    margin-right: 10px; /* Space between input and button */
+    margin-right: 10px; 
   }
   
   /* Styling for the send button */

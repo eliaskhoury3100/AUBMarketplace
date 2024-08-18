@@ -1,15 +1,14 @@
 /* Main container for the messaging page */
 .message-page {
     padding-bottom: 20%; /* Extra padding at the bottom for spacing */
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
+    width: 100vw; 
+    height: 100vh; 
     
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center content horizontally */
-    padding-bottom: 20%; /* Redundant, but ensures padding at the bottom */
+    flex-direction: column; 
+    align-items: center; 
+    padding-bottom: 20%; 
 
-    overflow: auto; /* Enable vertical scrolling */
     overflow-y: auto; /* Enable vertical scrolling */
     overflow-x: hidden; /* Disable horizontal scrolling */
     border-top-left-radius: 0; /* Remove top-left border radius */
@@ -18,104 +17,104 @@
 
 /* Top section with gradient background */
 .topsection {
-    background-image: linear-gradient(to bottom, #efcbd4, #ffffff); /* Gradient from pink to white */
-    justify-content: flex-start; /* Align content to the start of the flex container */
-    top: 0; /* Align to the top of the page */
-    min-height: 10vh;  /* Minimum height for the top section */
-    padding: 2.5%; /* Padding inside the top section */
-    text-align: left; /* Align text to the left */
+    background-image: linear-gradient(to bottom, #efcbd4, #ffffff); 
+    justify-content: flex-start; 
+    top: 0; 
+    min-height: 10vh;  
+    padding: 2.5%; 
+    text-align: left;
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
+    flex-direction: column; 
     justify-content: left; /* Align content to the left */
     margin-bottom: 7px; /* Space below the top section */
 }
 
 /* Upper navigation bar */
 .uppernav {
-    height: 10vh; /* 10% of the viewport height */
+    height: 10vh; 
     width: 100vw; /* Full viewport width */
-    padding: 15px 20px; /* Padding inside the navigation bar */
-    background-color: transparent; /* Transparent background */
+    padding: 15px 20px; 
+    background-color: transparent; 
     display: flex;
-    justify-content: space-between; /* Space between navigation items */
-    align-items: center; /* Center content vertically */
+    justify-content: space-between;
+    align-items: center; 
 }
 
 /* Header text (h1) styling */
 h1 {
-    font-family: 'Raleway', sans-serif; /* Font family */
+    font-family: 'Raleway', sans-serif; 
     font-weight: 700; /* Bold font */
-    font-size: 30px; /* Font size */
-    color: black; /* Black text color */
+    font-size: 30px; 
+    color: black;
 }
 
 /* Navigation logo styling */
 .nav-logo {
-    width: 40px; /* Width of the logo */
-    height: 40px; /* Height of the logo */
-    margin-left: -10px; /* Adjust the value to push the logo to the left */
-    object-fit: contain; /* Ensure the logo fits within the square without being cropped */
-    border-radius: 5px; /* Slightly round the corners */
+    width: 40px; 
+    height: 40px; 
+    margin-left: -10px;
+    object-fit: contain; 
+    border-radius: 5px; 
 }
 
 /* Last updated timestamp styling */
 .last-updated {
-    font-size: 0.85rem; /* Font size for the timestamp */
-    color: gray; /* Gray text color */
-    margin-left: auto;  /* Pushes the element to the right */
-    white-space: nowrap;  /* Prevent text wrapping */
+    font-size: 0.85rem; 
+    color: gray; 
+    margin-left: auto;  
+    white-space: nowrap;  
 }
 
 /* Styling for the logo and profile picture */
 .logo img, .profile-pic {
-    width: 40px; /* Width of the image */
-    height: 40px; /* Height of the image */
-    border-radius: 50%; /* Make the image circular */
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
 }
 
 /* Search bar container */
 .search-bar {
-    width: 100%; /* Full width of the container */
-    padding: 10px; /* Padding inside the search bar */
-    background-color: #fff; /* White background */
-    border-bottom: 1px solid #e0e0e0; /* Light gray border at the bottom */
-    text-align: center; /* Center the search bar content */
+    width: 100%; 
+    padding: 10px;
+    background-color: #fff; 
+    border-bottom: 1px solid #e0e0e0; 
+    text-align: center; 
 }
 
 /* Input field within the search bar */
 .search-bar input {
-    width: calc(100% - 40px); /* Full width minus space for padding */
-    padding: 10px; /* Padding inside the input */
-    border: 1px solid #e0e0e0; /* Light gray border */
-    border-radius: 5px; /* Slightly round the corners */
-    outline: none; /* Remove default outline */
+    width: calc(100% - 40px); 
+    padding: 10px; 
+    border: 1px solid #e0e0e0; 
+    border-radius: 5px; 
+    outline: none; 
 }
 
 /* List of messages */
 .messages-list {
-    flex: 1; /* Allow the list to grow and fill available space */
-    width: 100%; /* Full width of the container */
-    overflow-y: auto; /* Enable vertical scrolling */
-    background-color: #fff; /* White background */
+    flex: 1; 
+    width: 100%; 
+    overflow-y: auto; 
+    background-color: #fff; 
 }
 
 /* Individual user item in the list */
 .user-item {
     display: flex;
-    align-items: center; /* Center content vertically */
-    padding: 10px 20px; /* Padding around the user item */
+    align-items: center; 
+    padding: 10px 20px; 
     border-top: 0.5px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0; /* Light gray border at the bottom */
+    border-bottom: 1px solid #e0e0e0; 
 }
 
 /* User image styling */
 .user-image {
-    width: 40px; /* Width of the image */
-    height: 40px; /* Height of the image */
-    border-radius: 50%; /* Make the image circular */
-    margin-right: 10px; /* Space to the right of the image */
-    background-size: cover; /* Ensure the background covers the container */
-    background-position: center; /* Center the background image */
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    margin-right: 10px; 
+    background-size: cover; 
+    background-position: center; 
 }
 .last-updated {
     margin-top: -38px; /* Negative value to move up */
@@ -123,28 +122,28 @@ h1 {
 }
 
 .username1 {
-    font-weight: bold;  /* Correct property for making text bold */
+    font-weight: bold;  
 }
 
 /* Container for user information */
 .user-info {
     display: flex;
-    justify-content: center; /* Centers children vertically */
-    flex-direction: column; /* Stack information vertically */
-    align-items: flex-start; /* Align content to the start of the flex container */
-    flex-grow: 1; /* Allow the container to grow and fill available space */
+    justify-content: center; 
+    flex-direction: column; 
+    align-items: flex-start;
+    flex-grow: 1; 
 }
 
 .username, .product-price {
-    display: block; /* Each will naturally occupy its own line */
-    margin-bottom: 5px; /* Optional: Adds space below each item for visual separation */
+    display: block; 
+    margin-bottom: 5px; 
 }
 
 
 /* Styling for the user name and product information */
 .user-name  {
     display: flex;
-    align-items: center; /* Center content vertically */
+    align-items: center; 
   
     
 }
@@ -152,21 +151,21 @@ h1 {
 
 /* Styling for the product image within the user item */
 .product-image {
-    width: 40px; /* Width of the product image */
-    height: 40px; /* Height of the product image */
-    margin-left: 10px; /* Space between name and image */
-    border-radius: 3px; /* Less rounded corners */
-    background-size: cover; /* Ensure the background covers the container */
-    background-position: center; /* Center the background image */
+    width: 40px; 
+    height: 40px; 
+    margin-left: 10px; 
+    border-radius: 3px; 
+    background-size: cover; 
+    background-position: center; 
 }
 
 .product-image-container {
-    display: flex;      /* Enable flexbox to manage children */
-    justify-content: flex-end; /* Align children to the end (right) */
-    width: 100%;        /* Full width of its parent container */
+    display: flex;      
+    justify-content: flex-end;
+    width: 100%;       
 }
 /* Styling for the text within product information */
 .product-info span {
-    margin-right: 5px; /* Space between text and image */
-    font-size: 16px; /* Font size for visibility */
+    margin-right: 5px; 
+    font-size: 16px; 
 }

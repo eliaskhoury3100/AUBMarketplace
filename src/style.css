@@ -21,8 +21,8 @@ html, body {
 
 /* Styling for the main wrapper/container */
 .wrapper {
-  width: 90vw; /* 90% of the viewport width */
-  border-radius: 25px; /* Rounded corners */
+  width: 90vw; 
+  border-radius: 25px; 
   padding: 15% 5% 2.5%; 
   text-align: center; 
   border: 1px solid rgba(255, 255, 255, 0.5); 

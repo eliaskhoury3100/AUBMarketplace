@@ -6,8 +6,8 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Ensures padding and borders are included in the element's total width and height */
-  font-family: "Raleway", sans-serif; /* Default font for all text */
+  box-sizing: border-box; 
+  font-family: "Raleway", sans-serif; 
 }
 
 /* Main container for the homepage */
@@ -22,19 +22,19 @@
 
 /* Top navigation bar */
 .uppernav {
-  height: 10vh; /* 10% of the viewport height */
+  height: 10vh; 
   width: 100vw;
   padding: 15px 20px;
   background-color: transparent;
   display: flex;
-  justify-content: center; /* Center elements horizontally */
-  align-items: center; /* Center elements vertically */
+  justify-content: center; 
+  align-items: center;
 }
 
 /* Navigation logo */
 .nav-logo1 {
-  height: 45px; /* Logo height */
-  width: 45px; /* Logo width */
+  height: 45px; 
+  width: 45px; 
  
   object-fit: cover; /* Ensure the image covers the space without distortion */
   margin-left: -19px; /* Space between logo and adjacent elements */
@@ -43,23 +43,23 @@
 /* Styling for lost and found IDs section */
 .lost-ids {
   display: flex;
-  align-items: center; /* Align content vertically with other items */
+  align-items: center;
   height: 45px;
   width:45px;
 }
 
 /* Content within the lost and found section */
 .lost-ids-content {
-  text-align: center; /* Center-aligns the image and text */
-  text-decoration: none; /* Remove underline from links */
+  text-align: center; 
+  text-decoration: none; 
 }
 
 /* Subtitle styling */
 .subtitle {
-  font-size: 10px; /* Small text size */
-  color: gray; /* Gray color for subtitles */
-  margin-top: -6px; /* Adjust position relative to the image */
-  text-decoration: none; /* Remove underline */
+  font-size: 10px; 
+  color: gray; 
+  margin-top: -6px; 
+  text-decoration: none; 
 }
 
 /* Font styling for headings */
@@ -69,7 +69,7 @@
 
 /* Styling for secondary headings */
 .h2 {
-  color: #000000; /* Black text color */
+  color: #000000; 
 }
 
 /* Responsive font size adjustments for headings */
@@ -87,58 +87,58 @@
 
 /* Product card link styling */
 .product-card-link {
-  text-decoration: none; /* Remove underline from links */
-  color: inherit; /* Inherit color from parent element */
-  display: block; /* Make link block-level to fill available width */
-  width: 100%; /* Full width to avoid shrinking */
+  text-decoration: none; 
+  color: inherit; 
+  display: block;
+  width: 100%;
 }
 
 /* Product card styling */
 .productcard {
-  border-radius: 25px; /* Rounded corners */
-  overflow: hidden; /* Hide content that overflows */
-  box-shadow: 2px 12px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 25px; 
+  overflow: hidden;
+  box-shadow: 2px 12px 10px rgba(0, 0, 0, 0.1);
   display: flex;
-  flex-direction: column; /* Stack children vertically */
-  background-color: #fff; /* White background */
-  height: 320px; /* Card height */
-  width: calc(50% - 10px); /* Two cards per row by default */
+  flex-direction: column;
+  background-color: #fff; 
+  height: 320px; 
+  width: calc(50% - 10px); 
 }
 
 /* Product image styling */
 .productimage {
-  width: 100%; /* Full width to fit card */
-  height: 240px; /* Set image height to match taller card */
-  object-fit: cover; /* Ensure the image covers the space without distortion */
+  width: 100%;
+  height: 240px; 
+  object-fit: cover; 
 }
 
 /* Container for my items section */
 .myitemscontainer {
   display: flex;
-  flex-wrap: wrap; /* Wrap items to the next line if necessary */
-  gap: 10px; /* Space between items */
-  overflow-y: auto; /* Enable vertical scrolling */
-  justify-content: space-between; /* Distribute space between items */
-  padding: 15px 2.5% 25%; /* Padding around the container */
+  flex-wrap: wrap;
+  gap: 10px; 
+  overflow-y: auto; 
+  justify-content: space-between; 
+  padding: 15px 2.5% 25%; 
   margin-top: 10%;
 }
 
 /* Adjust product card layout for medium-sized screens */
 @media (min-width: 768px) {
   .productcard {
-    width: calc(33.33% - 13.33px); /* Three cards per row */
-    height: 340px; /* Adjust height for medium screens */
+    width: calc(33.33% - 13.33px);
+    height: 340px; 
   }
 
   .productimage {
-    height: 260px; /* Adjust image height for medium screens */
+    height: 260px; 
   }
 }
 
 /* Adjust product card layout for larger screens */
 @media (min-width: 1024px) {
   .productcard {
-    width: calc(25% - 15px); /* Four cards per row */
+    width: calc(25% - 15px);
     height: 380px; /* Adjust height for large screens */
   }
 
@@ -170,13 +170,13 @@
 /* Action button styling */
 .actionbutton {
   padding: 10px 20px;
-  background-color: #f1e4e7; /* Light background color */
-  border-radius: 10px; /* Rounded corners */
-  border: none; /* No border */
-  cursor: pointer; /* Pointer cursor on hover */
-  font-size: 16px; /* Font size */
-  font-weight: bold; /* Bold text */
-  margin-top: 5px; /* Space above button */
+  background-color: #f1e4e7; 
+  border-radius: 10px; 
+  border: none;
+  cursor: pointer; 
+  font-size: 16px;
+  font-weight: bold; 
+  margin-top: 5px; 
 }
 
 /* Hover effect for action buttons */
@@ -203,62 +203,77 @@
   flex-grow: 1; /* Allow input field to grow and fill available space */
   padding: 10px;
   margin-right: 10px;
-  border: 0.4px solid #2f2a2a; /* Thin border */
-  border-radius: 25px; /* Rounded input field */
+  margin-bottom: 10%;
+  border: 0.4px solid #2f2a2a; 
+  border-radius: 25px; 
+}
+
+.filter-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  color: gray;
+  cursor: pointer;
+  outline: none;
+  padding-bottom: 12%;
 }
 
 /* Carousel indicators container */
 .carouselindicators {
   display: flex;
-  justify-content: center; /* Center dots horizontally */
+  justify-content: center; 
   padding: 10px;
   height: 5px;
 }
 
 /* Individual dot styling */
 .dot {
-  cursor: pointer; /* Pointer cursor on hover */
-  height: 7px; /* Dot height */
-  width: 7px; /* Dot width */
-  margin: 0 5px; /* Space between dots */
-  background-color: #bbb; /* Default dot color */
-  border-radius: 50%; /* Circular dots */
-  display: inline-block; /* Inline block layout */
-  transition: background-color 0.6s ease; /* Smooth transition for color change */
+  cursor: pointer; 
+  height: 7px; 
+  width: 7px; 
+  margin: 0 5px; 
+  background-color: #bbb; 
+  border-radius: 50%; 
+  display: inline-block; 
+  transition: background-color 0.6s ease; 
 }
 
 /* Active dot styling */
 .dot.active {
-  background-color: #717171; /* Active dot color */
+  background-color: #717171;
 }
 
 /* Hover effect for dots */
 .dot:hover {
-  background-color: #555; /* Darker color on hover */
+  background-color: #555; 
 }
 
 /* Image carousel layout */
 .imagecarousel {
   display: flex;
-  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-x: auto; 
   padding: 10px;
-  align-items: center; /* Center items vertically */
-  justify-content: center; /* Center items horizontally */
+  align-items: center; 
+  justify-content: center; 
 }
 
-
+/* Show as SOLD product */
 .sold-watermark {
   position: absolute;
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Adjust position to center the text exactly */
-  background-color: rgba(255, 0, 0, 0.8); /* Red background with slightly less transparency */
-  color: white; /* White text */
-  font-weight: bold; /* Bold text */
-  padding: 15px 30px; /* Increased padding for a bigger area */
-  border-radius: 8px; /* Slightly more rounded corners */
-  z-index: 10; /* Ensure the watermark appears above the image */
-  font-size: 1.5rem; /* Increased font size for better visibility */
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  background-color: rgba(255, 0, 0, 0.8); 
+  color: white; 
+  font-weight: bold; 
+  padding: 15px 30px; 
+  border-radius: 8px;
+  z-index: 10; 
+  font-size: 1.5rem; 
   pointer-events: none; /* Prevent interactions with the watermark */
 }
 

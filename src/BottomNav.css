@@ -1,5 +1,5 @@
 
-/* BottomNav.css */
+/* Styling for the entire bottom navigation bar */
 .bottom-nav {
     display: flex;
     justify-content: space-around;
@@ -10,14 +10,14 @@
     left: 0;
     right: 0;
     margin: 0 auto;
-    width: 90%; /* for floating effect; not connected to the borders of the screen */
-    background-color: #ffffff; /* Light background for better contrast */
+    width: 90%; 
+    background-color: #ffffff; 
     padding: 4% 0%;
     z-index: 1;
-    border-radius: 25px; /* Rounded Corners */
+    border-radius: 25px; 
     box-shadow: 2px 12px 10px rgba(0, 0, 0, 0.2); /* add box shadow effect */ /* horizontal vertical blur color(x, y, z, q => color and transparancy of shadow) */
 }
-
+/* General styling for each navigation item */
 .nav-item {
     flex-basis: 20%;
     text-align: center;
@@ -25,27 +25,24 @@
     color: #cacfd0; /* Default icon color */
     padding: 0 10px;
 }
-
+/* Icon size and default styling */
 .nav-item i {
     font-size: 20px; /* Icon size */
 }
-
 /* Default style for all nav items when not active */
 .nav-item i, .nav-item span {
     color: #eae4e4; /* Dark grey color for inactive items */
 }
-
 /* Active style overrides */
 .nav-item.active i, .nav-item.active span {
     color: #a47983; /* Pink color for active items */
 }
-
+/* Default and active state styling for text */
 .nav-item span {
     display: block;
     font-size: 12px;
     color: inherit; /* Ensures text color matches the icon color */
 }
-
 /* Specific styles for the 'Sell' button when active */
 .nav-item.sell-active {
     background-color: #f39c12; /* Background color for active sell button */
@@ -53,7 +50,7 @@
     padding: 8px 16px; /* Padding to increase the size of the active area */
     box-shadow: 0 2px 4px rgba(0,0,0,0.25); /* Shadow for 3D effect */
 }
-
+/* Adjust text and icon color when 'Sell' button is active */
 .nav-item.sell-active i,
 .nav-item.sell-active span {
     color: #2c3e50; /* Text and icon color contrast against the active background */

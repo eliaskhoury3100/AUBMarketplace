@@ -1,38 +1,44 @@
+/* Main container for the application */
 .App {
-  text-align: center;
+  text-align: center; 
 }
 
+/* Logo styling */
 .App-logo {
   height: 40vmin;
-  pointer-events: none;
+  pointer-events: none; 
 }
 
+/* Animation for the logo, applied when motion preferences allow it */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 20s linear; 
   }
 }
 
+/* Header styling */
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #282c34; 
+  min-height: 100vh; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  font-size: calc(10px + 2vmin); 
   color: white;
 }
 
+/* Link styling within the application */
 .App-link {
-  color: #61dafb;
+  color: #61dafb; 
 }
 
+/* Keyframes for spinning the logo */
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
+    transform: rotate(0deg); 
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(360deg); 
   }
 }
